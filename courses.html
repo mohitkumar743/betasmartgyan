@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Gyan - Digital Skills Training Institute</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            colors: {
+              primary: {
+                DEFAULT: "#2563eb",
+                50: "#eff6ff",
+                100: "#dbeafe",
+                200: "#bfdbfe",
+                300: "#93c5fd",
+                400: "#60a5fa",
+                500: "#3b82f6",
+                600: "#2563eb",
+                700: "#1d4ed8",
+                800: "#1e40af",
+                900: "#1e3a8a",
+              },
+              secondary: {
+                DEFAULT: "#f59e0b",
+                50: "#fffbeb",
+                100: "#fef3c7",
+                200: "#fde68a",
+                300: "#fcd34d",
+                400: "#fbbf24",
+                500: "#f59e0b",
+                600: "#d97706",
+                700: "#b45309",
+                800: "#92400e",
+                900: "#78350f",
+              },
+              accent: {
+                DEFAULT: "#10b981",
+                50: "#ecfdf5",
+                100: "#d1fae5",
+                200: "#a7f3d0",
+                300: "#6ee7b7",
+                400: "#34d399",
+                500: "#10b981",
+                600: "#059669",
+                700: "#047857",
+                800: "#065f46",
+                900: "#064e3b",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .course-card {
+        transition: all 0.3s ease;
+        border-radius: 12px;
+      }
+      .course-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .discount-badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        transform: rotate(15deg);
+      }
+      .module-item {
+        position: relative;
+        padding-left: 24px;
+      }
+      .module-item:before {
+        content: "•";
+        position: absolute;
+        left: 8px;
+        color: #0ea5e9;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body class="font-poppins bg-gray-50 antialiased">
+    <!-- Navbar  -->
+    <header class="bg-primary-900 text-white sticky top-0 z-50 shadow-lg">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <div
+            class="w-10 h-10 bg-secondary-500 rounded-full flex items-center justify-center"
+          >
+            <a href="/"><i class="fas fa-graduation-cap text-white text-xl"></i>
+            </div>
+            <span class="text-2xl font-bold"
+              >Smart<span class="text-secondary-500">Gyan</span></span
+            ></a>
+        </div>
+        <nav class="hidden lg:flex space-x-8 items-center">
+          <a href="/" class="hover:text-secondary-400 transition font-medium"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="hover:text-secondary-400 transition font-medium"
+            >About Us</a
+          >
+          <a
+            href="/courses.html"
+            class="hover:text-secondary-400 transition font-medium"
+            >Courses</a
+          >
+          <a href="/courses.html" class="hover:text-secondary-400 transition font-medium"
+            >Fees</a
+          >
+          <a
+            href="#contact"
+            class="hover:text-secondary-400 transition font-medium"
+            >Contact</a
+          >
+          <a href="/admission.html"
+            ><button
+              class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-lg font-semibold transition ml-4 flex items-center"
+            >
+              <i class="fas fa-sign-in-alt mr-2"></i> Student Login
+            </button></a
+          >
+        </nav>
+        <button class="lg:hidden text-2xl">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobileMenu"
+        class="mobile-menu hidden lg:hidden bg-primary-800 absolute w-full left-0 px-4 pb-4 shadow-lg"
+      >
+        <div class="flex flex-col space-y-3 pt-2">
+          <a
+            href="/"
+            class="hover:text-secondary-400 transition font-medium py-2"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="hover:text-secondary-400 transition font-medium py-2"
+            >About Us</a
+          >
+          <a
+            href="#"
+            class="hover:text-secondary-400 transition font-medium py-2"
+            >Courses</a
+          >
+          <a
+            href="/courses.html"
+            class="hover:text-secondary-400 transition font-medium py-2"
+            >Fees</a
+          >
+          <a
+            href="/#contact"
+            class="hover:text-secondary-400 transition font-medium py-2"
+            >Contact</a
+          >
+          <a href="/admisson.html"><button
+            class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-md font-semibold transition flex items-center justify-center"
+          >
+            <i class="fas fa-sign-in-alt mr-2"></i> Login
+          </button></a>
+        </div>
+      </div>
+    </header>
+
+     <!-- Hero Banner -->
+    <section
+      class="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-12"
+    >
+      <div class="container mx-auto px-4 text-center">
+        <div
+          class="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm rounded-xl p-8"
+        >
+          <div
+            class="inline-block bg-yellow-500 text-primary-900 px-4 py-1 rounded-full text-sm font-bold mb-4"
+          >
+            LIMITED TIME OFFER
+          </div>
+          <h1 class="text-3xl md:text-4xl font-bold mb-4">
+            50% OFF on All Courses!
+          </h1>
+          <p class="text-xl mb-6">
+            On popular demand, Smart Gyan Training Institute is offering
+          </p>
+          <div
+            class="bg-white text-primary-800 inline-block px-6 py-3 rounded-lg font-bold text-lg mb-6"
+          >
+            💥 Flat 50% Discount till 30th April 2025
+          </div>
+          <p class="text-lg mb-6">Govt. Certified | Offline | Job Assistance</p>
+          <button
+            class="bg-secondary-500 hover:bg-secondary-600 text-white font-bold py-3 px-8 rounded-full text-lg transition"
+          >
+            Enrolll Now & Boost Your Career!
+          </button>
+        </div>
+      </div>
+    </section>
+
+     <!-- Introduction -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl font-bold text-primary-900 mb-6">
+            Smart Gyan Training Institute
+          </h2>
+          <p class="text-lg text-gray-700 mb-8">
+            India's Largest Skill Development and Online Course Certification
+            Provider. We offer industry-relevant courses with government
+            certification to help you build a successful career in your chosen
+            field.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <div class="flex items-center bg-primary-50 px-4 py-2 rounded-full">
+              <i class="fas fa-check-circle text-accent-500 mr-2"></i>
+              <span>Government Certified</span>
+            </div>
+            <div class="flex items-center bg-primary-50 px-4 py-2 rounded-full">
+              <i class="fas fa-briefcase text-accent-500 mr-2"></i>
+              <span>Job Assistance</span>
+            </div>
+            <div class="flex items-center bg-primary-50 px-4 py-2 rounded-full">
+              <i class="fas fa-rupee-sign text-accent-500 mr-2"></i>
+              <span>Affordable Fees</span>
+            </div>
+            <div class="flex items-center bg-primary-50 px-4 py-2 rounded-full">
+              <i class="fas fa-chalkboard-teacher text-accent-500 mr-2"></i>
+              <span>Expert Trainers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses  -->
+     <section class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-primary-900 mb-12">
+          Our Popular Courses
+        </h2>
+
+        <!-- Courses Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Course 1: Diploma in Beauty & Fashion -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+                alt="Beauty & Fashion"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                50% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Diploma in Beauty & Fashion
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(4.7)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹10,000</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹5,000</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >6 Months</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 10th Pass
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Govt. Certified
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('beautyFashion')"
+              >
+                View Details</button
+              ><a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Course 2: Diploma in Hospital Housekeeping -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://5.imimg.com/data5/SELLER/Default/2023/2/AH/RF/JM/2164686/hospital-housekeeping-service.jpg"
+                alt="Hospital Housekeeping"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                50% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Diploma in Hospital Housekeeping
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(4.3)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹20,000</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹10,000</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >1 Year</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 10th Pass
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Govt. Certified
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('hospitalHousekeeping')"
+              >
+                View Details</button
+              ><a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Course 3: Certificate in Receptionist -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://st3.depositphotos.com/1177973/16878/i/450/depositphotos_168784968-stock-photo-female-receptionist-working-in-hotel.jpg"
+                alt="Receptionist"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                50% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Certificate in Receptionist
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(5.0)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹10,000</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹5,000</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >6 Months</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 10th Pass
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Govt. Certified
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('receptionist')"
+              >
+                View Details
+              </button>
+              <a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Course 4: Certificate in CCTV Assembly & Installation -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE23P4bE74HQ4v-KojZjTAkstPnBcBrwUHvw&s"
+                alt="CCTV Installation"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                50% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Certificate in CCTV Assembly & Installation
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(4.6)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹12,000</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹6,000</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >3 Months</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 10th Pass
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Govt. Certified
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('cctvInstallation')"
+              >
+                View Details</button
+              ><a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Course 5: Certificate in Customer Support Associate -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Customer Support"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                33% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Certificate in Customer Support Associate
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(4.2)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹30,000</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹20,000</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >6 Months</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 10th Pass
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Govt. Certified
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('customerSupport')"
+              >
+                View Details</button
+              ><a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Course 6: Certificate in Computer Teacher Training -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIJ7DuB9Cnut1xlX2SrbgnyjrrotWDXlz1xg&s"
+                alt="Computer Teacher Training"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                50% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Certificate in Computer Teacher Training
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(4.5)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹20,000</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹10,000</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >1 Year</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 10th Pass
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Govt. Certified
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('computerTeacher')"
+              >
+                View Details</button
+              ><a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Course 7: Diploma in Beauty & Fashion -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://brdi.in/uploads/course/diploma-in-tourism-management-65687ae679fbb.jpg"
+                alt="Beauty & Fashion"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                50% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Basic Diploma In tour & Travel
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(4.7)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹30,000</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹20,000</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >6 Months</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 10th Pass
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Govt. Certified
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('tourTravel')"
+              >
+                View Details</button
+              ><a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Course 8: Ac technician Course           -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://content.jdmagicbox.com/comp/def_content_category/ac-repair-and-services-crystal/360-f-730677676-ycclxlwvz8h6u6ztcvccpbtqtkhmvho8-ac-repair-and-services-crystal-14-jtmvr.jpg"
+                alt="Hospital Housekeeping"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                50% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Ac technician Course
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(4.3)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹20,000</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹10,000</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >1 Year</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 10th Pass
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Govt. Certified
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('acTechnician')"
+              >
+                View Details</button
+              ><a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Course 9: Certificate in Digital Marketing -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Receptionist"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                50% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Certificate in Digital Marketing
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(5.0)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹10,000</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹5,000</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >6 Months</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 10th Pass
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Govt. Certified
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('digitalMarketing')"
+              >
+                View Details
+              </button>
+              <a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Course 10: ertificate in AR/VR Consultantn -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://vection-cms-prod.s3.eu-central-1.amazonaws.com/Betting_Gaming_Image_1_4d9bdac59b.jpeg"
+                alt="CCTV Installation"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                50% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Certificate in AR/VR Consultant
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(4.6)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹30,000</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹20,000</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >6 Months</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 10th Pass
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Govt. Certified
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('arVrConsultant')"
+              >
+                View Details</button
+              ><a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Course 11: Certificate in Office Assistant -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVSpI9hkPrfLPbbZw7G0VSEUFxn_brbvVEWDOabNo3k5vl-Pywzob1HIwua-K4d3bctj8&usqp=CAU"
+                alt="Customer Support"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                33% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Certificate in Office Assistant
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(4.2)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹20,000</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹10,000</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >6 Months</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 10th Pass
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Govt. Certified
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('officeAssistant')"
+              >
+                View Details</button
+              ><a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Course 12: Certificate in Sewing Machine Mechanic -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://content.jdmagicbox.com/comp/def_content/sewing-machine-repair-and-services-usha/obqcevey1e-sewing-machine-repair-and-services-usha-8-ginn9.jpg"
+                alt="Computer Teacher Training"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                50% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Certificate in Sewing Machine Mechanic
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(4.5)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹7500</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹1500</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >6 Months</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 8th Pass or Above
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Smart Gyan Training
+                  Institute
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('sewingMachineMechanic')"
+              >
+                View Details</button
+              ><a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Course 13: Diploma in Beauty & Fashion -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://www.amecet.in/images/airport-management-images/6.jpg"
+                alt="Beauty & Fashion"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                50% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Basic Online Airport Management Course
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(4.7)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹40,000</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹20,000</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >3 Months</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 12th Pass or
+                  Equivalent
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Smart Gyan Training
+                  Institute
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('airportManagement')"
+              >
+                View Details</button
+              ><a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+
+          <!-- Course 14: Advanced Certification in Fire & Safety Management -->
+          <div
+            class="course-card bg-white rounded-xl overflow-hidden shadow-md border border-gray-200"
+          >
+            <div class="relative">
+              <img
+                src="https://eduvistaskills.in/wp-content/uploads/2022/08/course1.jpg"
+                alt="Hospital Housekeeping"
+                class="w-full h-48 object-cover"
+              />
+              <div
+                class="discount-badge bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold"
+              >
+                50% OFF
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Advanced Certification in Fire & Safety Management
+              </h3>
+              <div class="flex items-center mb-4">
+                <div class="flex items-center text-yellow-400">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="text-gray-500 text-sm ml-2">(4.3)</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <div>
+                  <span class="text-gray-500 line-through">₹20,000</span>
+                  <span class="text-secondary-500 font-bold text-xl ml-2"
+                    >₹10,000</span
+                  >
+                </div>
+                <span
+                  class="bg-primary-100 text-primary-800 text-xs px-2 py-1 rounded"
+                  >6 Months</span
+                >
+              </div>
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-user-graduate mr-1"></i> 10th Pass or
+                  Equivalent
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-certificate mr-1"></i> Govt. Certified
+                </span>
+                <span
+                  class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded mr-2 mb-2"
+                >
+                  <i class="fas fa-briefcase mr-1"></i> Job Assistance
+                </span>
+              </div>
+              <button
+                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition mb-4"
+                onclick="showPopup('fireSafetyManagement')"
+              >
+                View Details</button
+              ><a href="/admission.html">
+                <button
+                  class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 rounded-md transition"
+                >
+                  Enroll Now
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+        <!-- Course Details Modal (Hidden by default) -->
+    <div
+      class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden"
+      id="courseModal"
+    >
+      <div
+        class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+      >
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-6">
+            <div>
+              <h3
+                class="text-2xl font-bold text-primary-900"
+                id="modalCourseTitle"
+              >
+                Diploma in Beauty & Fashion
+              </h3>
+              <div class="flex items-center mt-2">
+                <div class="flex items-center text-yellow-400 mr-2">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="text-gray-500 text-sm">(4.7) 120 Reviews</span>
+              </div>
+            </div>
+            <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+              <i class="fas fa-times text-2xl"></i>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2">
+              <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                <h4 class="text-lg font-semibold mb-4">🎯 Course Objective:</h4>
+                <p id="modalCourseObjective" class="text-gray-700">
+                  This diploma course is designed to provide in-depth knowledge
+                  and hands-on training in beauty, personal grooming, and
+                  fashion styling. It aims to develop professional skills for
+                  careers in salons, beauty clinics, fashion houses, media, and
+                  freelancing.
+                </p>
+              </div>
+
+              <div class="mb-6">
+                <h4 class="text-lg font-semibold mb-4">📚 Course Modules:</h4>
+                <ul class="space-y-3">
+                  <li class="module-item">
+                    Beauty Therapy - Skin analysis & facial treatments,
+                    Manicure, pedicure, waxing, threading, Bridal and party
+                    makeup techniques
+                  </li>
+                  <li class="module-item">
+                    Hair Styling & Care - Haircuts, coloring, and treatments,
+                    Hair spa, rebonding, straightening, Hair styling for events
+                    and shoots
+                  </li>
+                  <li class="module-item">
+                    Fashion Styling - Personal styling and wardrobe planning,
+                    Color theory, body shapes & trend forecasting, Styling for
+                    photoshoots and media appearances
+                  </li>
+                  <li class="module-item">
+                    Professional Grooming & Etiquette - Client communication
+                    skills, Hygiene, posture, and presentation, Business
+                    etiquette & salon management
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mb-6">
+                <h4 class="text-lg font-semibold mb-4">
+                  💼 Career Opportunities:
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="bg-primary-50 p-4 rounded-lg">
+                    <h5 class="font-medium text-primary-800 mb-2">
+                      Beauty Sector
+                    </h5>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                      <li>• Beauty Therapist</li>
+                      <li>• Hair Stylist</li>
+                      <li>• Makeup Artist</li>
+                      <li>• Salon Professional</li>
+                    </ul>
+                  </div>
+                  <div class="bg-primary-50 p-4 rounded-lg">
+                    <h5 class="font-medium text-primary-800 mb-2">
+                      Fashion Sector
+                    </h5>
+                    <ul class="text-sm text-gray-700 space-y-1">
+                      <li>• Fashion Stylist</li>
+                      <li>• Personal Grooming Expert</li>
+                      <li>• Fashion Consultant</li>
+                      <li>• Media Stylist</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div
+                class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm sticky top-4"
+              >
+                <div class="text-center mb-6">
+                  <span
+                    class="inline-block bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold mb-4"
+                  >
+                    50% OFF
+                  </span>
+                  <div class="text-3xl font-bold text-secondary-500 mb-2">
+                    ₹5,000
+                  </div>
+                  <div class="text-gray-500 line-through mb-4">
+                    Original Price: ₹10,000
+                  </div>
+                  <div class="text-sm text-gray-600 mb-6">
+                    Offer valid till 30th April 2025
+                  </div>
+                  <button
+                    class="w-full bg-secondary-500 hover:bg-secondary-600 text-white font-bold py-3 px-4 rounded-md transition mb-4"
+                  >
+                    <i class="fas fa-shopping-cart mr-2"></i> Enroll Now
+                  </button>
+                  <button
+                    class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-4 rounded-md transition"
+                  >
+                    <i class="fas fa-phone-alt mr-2"></i> Talk to Counselor
+                  </button>
+                </div>
+
+                <div class="border-t border-gray-200 pt-4">
+                  <h5 class="font-semibold mb-3">Course Details</h5>
+                  <div class="space-y-3 text-sm">
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Duration:</span>
+                      <span class="font-medium">6 Months</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Eligibility:</span>
+                      <span class="font-medium">10th Pass or Equivalent</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Course Type:</span>
+                      <span class="font-medium">Offline + Practical</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Certification:</span>
+                      <span class="font-medium">Government Authorized</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border-t border-gray-200 pt-4 mt-4">
+                  <h5 class="font-semibold mb-3">🎓 Certification Benefits</h5>
+                  <ul class="text-sm space-y-2">
+                    <li class="flex items-start">
+                      <i
+                        class="fas fa-check-circle text-accent-500 mt-1 mr-2"
+                      ></i>
+                      <span>Government-Authorized Certificate</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i
+                        class="fas fa-check-circle text-accent-500 mt-1 mr-2"
+                      ></i>
+                      <span>Lifetime Validity & Verification</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i
+                        class="fas fa-check-circle text-accent-500 mt-1 mr-2"
+                      ></i>
+                      <span>Free Job Assistance & Freelance Guidance</span>
+                    </li>
+                    <li class="flex items-start">
+                      <i
+                        class="fas fa-check-circle text-accent-500 mt-1 mr-2"
+                      ></i>
+                      <span
+                        >Internship Support in Salons & Fashion Studios</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <!-- Testimonials Section -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-primary-900 mb-12">
+          What Our Students Say
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/women/44.jpg"
+                alt="Student"
+                class="w-12 h-12 rounded-full object-cover"
+              />
+              <div class="ml-4">
+                <h4 class="font-bold text-gray-800">Priya Sharma</h4>
+                <p class="text-gray-500 text-sm">Diploma in Beauty & Fashion</p>
+              </div>
+            </div>
+            <div class="flex mb-3 text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="text-gray-700">
+              "The Beauty & Fashion course transformed my career. I started my
+              own salon just 6 months after completing the course. The practical
+              training was incredibly valuable."
+            </p>
+          </div>
+
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                alt="Student"
+                class="w-12 h-12 rounded-full object-cover"
+              />
+              <div class="ml-4">
+                <h4 class="font-bold text-gray-800">Rahul Verma</h4>
+                <p class="text-gray-500 text-sm">
+                  Certificate in CCTV Installation
+                </p>
+              </div>
+            </div>
+            <div class="flex mb-3 text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="text-gray-700">
+              "I got a job as CCTV technician immediately after completing the
+              course. The hands-on training with real equipment made all the
+              difference."
+            </p>
+          </div>
+
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+            <div class="flex items-center mb-4">
+              <img
+                src="https://randomuser.me/api/portraits/women/68.jpg"
+                alt="Student"
+                class="w-12 h-12 rounded-full object-cover"
+              />
+              <div class="ml-4">
+                <h4 class="font-bold text-gray-800">Anjali Patel</h4>
+                <p class="text-gray-500 text-sm">Certificate in Receptionist</p>
+              </div>
+            </div>
+            <div class="flex mb-3 text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <p class="text-gray-700">
+              "The receptionist course gave me confidence and skills to work in
+              a corporate environment. I'm now working at a reputed hospital as
+              front desk executive."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+ 
+    <!-- Footer  -->
+       <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <div class="flex items-center space-x-2 mb-6">
+              <div
+                class="w-10 h-10 bg-secondary-500 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-graduation-cap text-white text-xl"></i>
+              </div>
+              <span class="text-2xl font-bold text-white"
+                >Smart<span class="text-secondary-500">Gyan</span></span
+              >
+            </div>
+            <p class="mb-6">
+              Empowering learners with essential digital and vocational skills
+              for the modern job market.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-6">Quick Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="/" class="hover:text-secondary-400 transition">Home</a>
+              </li>
+              <li>
+                <a href="#about" class="hover:text-secondary-400 transition"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/courses.html"
+                  class="hover:text-secondary-400 transition"
+                  >All Courses</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/courses.html"
+                  class="hover:text-secondary-400 transition"
+                  >Fees & Installments</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-secondary-400 transition"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/privacy-policy.html"
+                  class="hover:text-secondary-400 transition"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-6">
+              Popular Courses
+            </h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="#" class="hover:text-secondary-400 transition"
+                  >Computer Fundamentals</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-secondary-400 transition"
+                  >Digital Marketing</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-secondary-400 transition"
+                  >Office Management</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-secondary-400 transition"
+                  >Web Designing</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-secondary-400 transition"
+                  >Graphic Design</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-secondary-400 transition"
+                  >Tally ERP 9</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-6">Contact Info</h3>
+            <address class="not-italic space-y-4">
+              <div class="flex items-start">
+                <i
+                  class="fas fa-map-marker-alt text-secondary-400 mt-1 mr-3"
+                ></i>
+                <p> Andheri East Education Zone
+                  Marol, Andheri (East),
+                  Mumbai – 400093
+                  Maharashtra, India</p>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-phone-alt text-secondary-400 mr-3"></i>
+                <a href="tel:919953595426"><p>+91 9953595426</p></a>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-envelope text-secondary-400 mr-3"></i>
+                <a href="mailto:admission@thesmartgyan.com">admission@thesmartgyan.com</a>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-clock text-secondary-400 mr-3"></i>
+                <p>Mon-Sat: 9:00 AM - 6:00 PM</p>
+              </div>
+            </address>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+          <p>&copy; 2025 Smart Gyan Training Institute. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+
+    
+    <!-- Overlay -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"
+      onclick="hidePopup()"
+    ></div>
+
+    <!-- Popup -->
+    <div
+      id="popup"
+      class="fixed inset-0 flex items-center justify-center hidden z-50"
+    >
+      <div
+        class="bg-white p-6 rounded-lg shadow-xl w-[95%] max-w-3xl max-h-[90vh] overflow-y-auto text-gray-800"
+      >
+        <div id="popupContent" class="space-y-4"></div>
+
+        <div id="popupButtons" class="flex justify-center mt-6 gap-4">
+          <button
+            onclick="startRedirect()"
+            class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+          >
+            Enroll Now
+          </button>
+          <button
+            onclick="hidePopup()"
+            class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500 transition"
+          >
+            Cancel
+          </button>
+        </div>
+
+        <p
+          id="waitingMessage"
+          class="text-center text-blue-600 font-medium mt-4 hidden"
+        >
+          Please wait, redirecting to payment...
+        </p>
+      </div>
+    </div>
+
+
+    
+
+
+    <script src="script.js"></script>
+  </body>
+</html>

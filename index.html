@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Gyan - Digital Skills Training Institute</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ["Poppins", "sans-serif"],
+          },
+          colors: {
+            primary: {
+              DEFAULT: "#2563eb",
+              50: "#eff6ff",
+              100: "#dbeafe",
+              200: "#bfdbfe",
+              300: "#93c5fd",
+              400: "#60a5fa",
+              500: "#3b82f6",
+              600: "#2563eb",
+              700: "#1d4ed8",
+              800: "#1e40af",
+              900: "#1e3a8a",
+            },
+            secondary: {
+              DEFAULT: "#f59e0b",
+              50: "#fffbeb",
+              100: "#fef3c7",
+              200: "#fde68a",
+              300: "#fcd34d",
+              400: "#fbbf24",
+              500: "#f59e0b",
+              600: "#d97706",
+              700: "#b45309",
+              800: "#92400e",
+              900: "#78350f",
+            },
+            accent: {
+              DEFAULT: "#10b981",
+              50: "#ecfdf5",
+              100: "#d1fae5",
+              200: "#a7f3d0",
+              300: "#6ee7b7",
+              400: "#34d399",
+              500: "#10b981",
+              600: "#059669",
+              700: "#047857",
+              800: "#065f46",
+              900: "#064e3b",
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .hero-slide {
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      min-height: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-slide::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg,
+          rgba(0, 0, 0, 0.7) 0%,
+          rgba(0, 0, 0, 0.3) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .floating-element {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background: white;
+      opacity: 0.5;
+      transition: all 0.3s;
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      background: #f59e0b;
+      transform: scale(1.2);
+    }
+
+    .course-card {
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .feature-card {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+
+<body class="font-poppins bg-gray-50 antialiased">
+  <!-- Navbar  -->
+  <header class="bg-primary-900 text-white sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <div class="w-10 h-10 bg-secondary-500 rounded-full flex items-center justify-center">
+          <a href="/"><i class="fas fa-graduation-cap text-white text-xl"></i>
+        </div>
+        <span class="text-2xl font-bold">Smart<span class="text-secondary-500">Gyan</span></span></a>
+      </div>
+      <nav class="hidden lg:flex space-x-8 items-center">
+        <a href="/" class="hover:text-secondary-400 transition font-medium">Home</a>
+        <a href="about.html" class="hover:text-secondary-400 transition font-medium">About Us</a>
+        <a href="/courses.html" class="hover:text-secondary-400 transition font-medium">Courses</a>
+        <a href="/courses.html" class="hover:text-secondary-400 transition font-medium">Fees</a>
+        <a href="#contact" class="hover:text-secondary-400 transition font-medium">Contact</a>
+        <a href="/login.html"><button
+            class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-lg font-semibold transition ml-4 flex items-center">
+            <i class="fas fa-sign-in-alt mr-2"></i> Student Login
+          </button></a>
+      </nav>
+      <button id="mobileMenuButton" class="lg:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu hidden lg:hidden bg-primary-800 absolute w-full left-0 px-4 pb-4 shadow-lg">
+      <div class="flex flex-col space-y-3 pt-2">
+        <a href="/" class="hover:text-secondary-400 transition font-medium py-2">Home</a>
+        <a href="#about" class="hover:text-secondary-400 transition font-medium py-2">About Us</a>
+        <a href="#" class="hover:text-secondary-400 transition font-medium py-2">Courses</a>
+        <a href="/courses.html" class="hover:text-secondary-400 transition font-medium py-2">Fees</a>
+        <a href="/#contact" class="hover:text-secondary-400 transition font-medium py-2">Contact</a>
+        <a href="/admisson.html"><button
+            class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-md font-semibold transition flex items-center justify-center">
+            <i class="fas fa-sign-in-alt mr-2"></i> Login
+          </button></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section  -->
+  <section class="relative">
+    <!-- Swiper Slider -->
+    <div class="swiper heroSwiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="hero-slide" style="
+                background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80');
+              ">
+            <div class="container mx-auto px-4 h-full flex items-center">
+              <div class="hero-content text-white max-w-2xl">
+                <span
+                  class="inline-block px-4 py-1 bg-yellow-500 bg-opacity-80 text-white rounded-full text-sm font-medium mb-4">New
+                  Batch Starting Soon</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  Transform Your Career With
+                  <span class="text-yellow-400">Digital Skills</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8">
+                  Join India's most trusted online learning platform with
+                  government-recognized certifications and 100% placement
+                  support.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="/courses.html"><button
+                      class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                      <i class="fas fa-book-open mr-2"></i> Explore Courses
+                    </button></a>
+                  <a href="#courses"><button
+                      class="bg-white hover:bg-gray-100 text-gray-800 font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                      <i class="fas fa-play-circle mr-2"></i> Watch Demo
+                    </button></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Elements -->
+            <div
+              class="absolute top-1/4 right-10 w-16 h-16 bg-white bg-opacity-10 rounded-full backdrop-blur-sm border border-white border-opacity-20 floating-element hidden lg:block">
+            </div>
+            <div
+              class="absolute bottom-1/3 left-20 w-24 h-24 bg-yellow-500 bg-opacity-20 rounded-full backdrop-blur-sm floating-element hidden lg:block"
+              style="animation-delay: 1s"></div>
+            <div
+              class="absolute top-1/3 left-1/4 w-20 h-20 bg-white bg-opacity-5 rounded-full backdrop-blur-sm border border-white border-opacity-10 floating-element hidden lg:block"
+              style="animation-delay: 2s"></div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="hero-slide" style="
+                background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80');
+              ">
+            <div class="container mx-auto px-4 h-full flex items-center">
+              <div class="hero-content text-white max-w-2xl">
+                <span
+                  class="inline-block px-4 py-1 bg-blue-500 bg-opacity-80 text-white rounded-full text-sm font-medium mb-4">Limited
+                  Time Offer</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  Upskill With
+                  <span class="text-blue-300">Industry Experts</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8">
+                  Learn from professionals with 10+ years of experience and
+                  get certified in high-demand digital skills.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="#about">
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                      <i class="fas fa-chalkboard-teacher mr-2"></i> Meet Our
+                      Faculty
+                    </button>
+                  </a>
+                  <button
+                    class="bg-white hover:bg-gray-100 text-gray-800 font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                    <i class="fas fa-percentage mr-2"></i> View Discounts
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Animated Shapes -->
+            <div
+              class="absolute top-1/4 right-16 w-20 h-20 bg-blue-500 bg-opacity-20 rounded-full backdrop-blur-sm floating-element hidden lg:block">
+            </div>
+            <div
+              class="absolute bottom-1/4 left-24 w-16 h-16 bg-white bg-opacity-10 rounded-full backdrop-blur-sm border border-white border-opacity-20 floating-element hidden lg:block"
+              style="animation-delay: 1.5s"></div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="hero-slide" style="
+                background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+              ">
+            <div class="container mx-auto px-4 h-full flex items-center">
+              <div class="hero-content text-white max-w-2xl">
+                <span
+                  class="inline-block px-4 py-1 bg-green-500 bg-opacity-80 text-white rounded-full text-sm font-medium mb-4">Placement
+                  Guarantee</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  Get <span class="text-green-300">Job Ready</span> in 90 Days
+                </h1>
+                <p class="text-lg md:text-xl mb-8">
+                  Our career-focused programs come with interview preparation
+                  and placement assistance.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <button
+                    class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                    <i class="fas fa-briefcase mr-2"></i> Placement Stats
+                  </button>
+                  <button
+                    class="bg-white hover:bg-gray-100 text-gray-800 font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                    <i class="fas fa-user-graduate mr-2"></i> Success Stories
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Elements -->
+            <div
+              class="absolute top-1/3 right-20 w-24 h-24 bg-green-500 bg-opacity-20 rounded-full backdrop-blur-sm floating-element hidden lg:block">
+            </div>
+            <div
+              class="absolute bottom-1/4 left-32 w-20 h-20 bg-white bg-opacity-10 rounded-full backdrop-blur-sm border border-white border-opacity-20 floating-element hidden lg:block"
+              style="animation-delay: 1s"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom Pagination -->
+      <div class="swiper-pagination !bottom-8"></div>
+
+      <!-- Navigation Arrows -->
+      <div class="swiper-button-next !text-yellow-400 !right-8"></div>
+      <div class="swiper-button-prev !text-yellow-400 !left-8"></div>
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 hidden md:block">
+      <div class="animate-bounce flex flex-col items-center">
+        <span class="text-white text-sm mb-2">Scroll Down</span>
+        <div class="w-6 h-10 border-2 border-yellow-400 rounded-full flex justify-center">
+          <div class="w-1 h-2 bg-yellow-400 rounded-full mt-2 animate-scroll"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Certificate Badge -->
+    <div
+      class="absolute bottom-20 right-10 bg-white p-4 rounded-lg shadow-xl z-10 hidden xl:block transform rotate-6 hover:rotate-0 transition duration-500">
+      <div class="flex items-center">
+        <div class="bg-yellow-100 p-3 rounded-full mr-3">
+          <i class="fas fa-certificate text-yellow-500 text-2xl"></i>
+        </div>
+        <div>
+          <div class="text-sm text-gray-500">Get Certified</div>
+          <div class="font-bold text-gray-800">Govt. Recognized</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted By -->
+  <div class="bg-gray-100 py-8">
+    <div class="container mx-auto px-4">
+      <p class="text-center text-gray-500 mb-6">Trusted by learners from</p>
+      <div class="flex flex-wrap justify-center items-center gap-3 md:gap-16 opacity-90">
+        <img src="https://logo.clearbit.com/tcs.com" alt="TCS" class="h-16" />
+        <img src="https://logo.clearbit.com/infosys.com" alt="Infosys" class="h-16" />
+        <img src="https://logo.clearbit.com/wipro.com" alt="Wipro" class="h-16" />
+        <img src="https://logo.clearbit.com/hcltech.com" alt="HCL" class="h-16" />
+        <img src="https://logo.clearbit.com/capgemini.com" alt="Capgemini" class="h-16" />
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section class="py-16" id="about">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2">
+          <div class="relative rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+              alt="Students learning" class="w-full h-auto" />
+            <div class="absolute -bottom-6 -right-6 bg-secondary-500 text-white p-6 rounded-lg shadow-lg w-48">
+              <div class="text-3xl font-bold">10K+</div>
+              <div class="text-sm">Students Trained</div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/2">
+          <h2 class="text-3xl font-bold mb-6 text-primary-800">
+            About <span class="text-secondary-500">Smart Gyan</span> Training
+            Institute
+          </h2>
+          <p class="text-lg mb-6 text-gray-700">
+            Smart Gyan is a next-generation E-Learning platform designed to
+            empower learners from every background with essential digital and
+            vocational skills for today's competitive job market.
+          </p>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+              </div>
+              <p class="ml-3 text-gray-700">
+                100% online learning with flexible schedules
+              </p>
+            </div>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+              </div>
+              <p class="ml-3 text-gray-700">
+                Government-recognized certifications
+              </p>
+            </div>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+              </div>
+              <p class="ml-3 text-gray-700">
+                Practical, job-focused curriculum
+              </p>
+            </div>
+          </div>
+          <a href="/courses.html"><button
+              class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition flex items-center">
+              Learn More About Us <i class="fas fa-arrow-right ml-2"></i>
+            </button></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses  -->
+
+  <!-- Popular Courses -->
+  <section class="py-16 bg-gradient-to-b from-gray-50 to-white" id="courses">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <span
+          class="inline-block px-3 py-1 text-sm font-semibold text-secondary-600 bg-secondary-100 rounded-full mb-3">Our
+          Courses</span>
+        <h2 class="text-3xl font-bold text-gray-900">
+          Popular <span class="text-primary-600">Online Programs</span>
+        </h2>
+        <p class="mt-2 text-lg text-gray-600 max-w-2xl mx-auto">
+          Choose from our most in-demand courses designed for career success
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Course 1 -->
+        <div class="course-card bg-white shadow-md hover:shadow-xl">
+          <div class="relative">
+            <img src="https://loveindiatrust.com/wp-content/uploads/2022/01/IMGP6440-scaled.jpg" alt="Computer Course"
+              class="w-full h-48 object-cover" />
+            <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">
+              Diploma in Computer Course
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Master essential computer skills for modern workplaces and daily
+              life.
+            </p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold text-gray-900">₹8,000</span>
+                <span class="ml-2 text-sm text-gray-500 line-through">₹11,350</span>
+              </div>
+              <a href="/courses.html" target="_blank" rel="noopener noreferrer"><button
+                  class="text-primary-600 hover:text-primary-800 font-medium flex items-center">
+                  View Details
+                  <i class="fas fa-chevron-right ml-1 text-xs"></i></button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="course-card bg-white shadow-md hover:shadow-xl">
+          <div class="relative">
+            <img src="https://www.softechcomputer.in/fb-banner/courses.html-softech.jpg" alt="Computer Course"
+              class="w-full h-48 object-cover" />
+            <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">
+              DIPLOMA IN COMPUTER OFFICE MANAGEMENT (DCOM) Course
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Master essential computer skills for modern workplaces and daily
+              life.
+            </p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold text-gray-900">₹10,000</span>
+                <span class="ml-2 text-sm text-gray-500 line-through">₹20,000</span>
+              </div>
+              <a href="/courses.html" target="_blank" rel="noopener noreferrer"><button
+                  class="text-primary-600 hover:text-primary-800 font-medium flex items-center">
+                  View Details
+                  <i class="fas fa-chevron-right ml-1 text-xs"></i></button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="course-card bg-white shadow-md hover:shadow-xl">
+          <div class="relative">
+            <img src="https://loveindiatrust.com/wp-content/uploads/2022/01/IMGP6440-scaled.jpg" alt="Computer Course"
+              class="w-full h-48 object-cover" />
+            <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">
+              Customer Service Associate / Customer Care Executive
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Master essential computer skills for modern workplaces and daily
+              life.
+            </p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold text-gray-900">₹20,000</span>
+                <span class="ml-2 text-sm text-gray-500 line-through">₹30,000</span>
+              </div>
+              <a href="/courses.html" target="_blank" rel="noopener noreferrer"><button
+                  class="text-primary-600 hover:text-primary-800 font-medium flex items-center">
+                  View Details
+                  <i class="fas fa-chevron-right ml-1 text-xs"></i></button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 4 -->
+        <div class="course-card bg-white shadow-md hover:shadow-xl">
+          <div class="relative">
+            <img
+              src="https://staticlearn.shine.com/l/m/images/blog/mobile/roles_and_responsibilities_of_customer_support_executive.webp"
+              alt="Computer Course" class="w-full h-48 object-cover" />
+            <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">
+              Customer Service Associate / Customer Care Executive Course
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Master essential computer skills for modern workplaces and daily
+              life.
+            </p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold text-gray-900">₹20,000</span>
+                <span class="ml-2 text-sm text-gray-500 line-through">₹30,000</span>
+              </div>
+              <a href="/courses.html" target="_blank" rel="noopener noreferrer"><button
+                  class="text-primary-600 hover:text-primary-800 font-medium flex items-center">
+                  View Details
+                  <i class="fas fa-chevron-right ml-1 text-xs"></i></button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 5 -->
+        <div class="course-card bg-white shadow-md hover:shadow-xl">
+          <div class="relative">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIJ7DuB9Cnut1xlX2SrbgnyjrrotWDXlz1xg&s"
+              alt="Computer Course" class="w-full h-48 object-cover" />
+            <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">
+              COMPUTER TEACHER TRAINING COURSE
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Master essential computer skills for modern workplaces and daily
+              life.
+            </p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold text-gray-900">₹10,000</span>
+                <span class="ml-2 text-sm text-gray-500 line-through">₹20,000</span>
+              </div>
+              <a href="/courses.html" target="_blank" rel="noopener noreferrer"><button
+                  class="text-primary-600 hover:text-primary-800 font-medium flex items-center">
+                  View Details
+                  <i class="fas fa-chevron-right ml-1 text-xs"></i></button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 6 -->
+        <div class="course-card bg-white shadow-md hover:shadow-xl">
+          <div class="relative">
+            <img src="https://brdi.in/uploads/course/diploma-in-tourism-management-65687ae679fbb.jpg"
+              alt="Computer Course" class="w-full h-48 object-cover" />
+            <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">
+              Basic Diploma In tour & Travel
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Master essential computer skills for modern workplaces and daily
+              life.
+            </p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold text-gray-900">₹20,000</span>
+                <span class="ml-2 text-sm text-gray-500 line-through">₹30,000</span>
+              </div>
+              <a href="/courses.html" target="_blank" rel="noopener noreferrer"><button
+                  class="text-primary-600 hover:text-primary-800 font-medium flex items-center">
+                  View Details
+                  <i class="fas fa-chevron-right ml-1 text-xs"></i></button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 7 -->
+        <div class="course-card bg-white shadow-md hover:shadow-xl">
+          <div class="relative">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2021/1/QD/HJ/PZ/8886421/autocad-designing-500x500.jpg"
+              alt="Computer Course" class="w-full h-48 object-cover" />
+            <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">
+              CAD Drafting Courses
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Master essential computer skills for modern workplaces and daily
+              life.
+            </p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold text-gray-900">₹8,000</span>
+                <span class="ml-2 text-sm text-gray-500 line-through">₹11,350</span>
+              </div>
+              <a href="/courses.html" target="_blank" rel="noopener noreferrer"><button
+                  class="text-primary-600 hover:text-primary-800 font-medium flex items-center">
+                  View Details
+                  <i class="fas fa-chevron-right ml-1 text-xs"></i></button></a>
+            </div>
+          </div>
+        </div>
+        <!-- Course 8 -->
+        <div class="course-card bg-white shadow-md hover:shadow-xl">
+          <div class="relative">
+            <img
+              src="https://content.jdmagicbox.com/comp/def_content_category/ac-repair-and-services-crystal/360-f-730677676-ycclxlwvz8h6u6ztcvccpbtqtkhmvho8-ac-repair-and-services-crystal-14-jtmvr.jpg"
+              alt="Computer Course" class="w-full h-48 object-cover" />
+            <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">
+              Ac technician Course
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Master essential computer skills for modern workplaces and daily
+              life.
+            </p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold text-gray-900">₹10,000</span>
+                <span class="ml-2 text-sm text-gray-500 line-through">₹20,000</span>
+              </div>
+              <a href="/courses.html" target="_blank" rel="noopener noreferrer"><button
+                  class="text-primary-600 hover:text-primary-800 font-medium flex items-center">
+                  View Details
+                  <i class="fas fa-chevron-right ml-1 text-xs"></i></button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 9 -->
+        <div class="course-card bg-white shadow-md hover:shadow-xl">
+          <div class="relative">
+            <img
+              src="https://www.berlinsbi.com/uploads/sites/2/2021/12/5-ways-msc-digital-marketing-will-advance-your-career.jpg?w=1380&h=776&crop=1"
+              alt="Computer Course" class="w-full h-48 object-cover" />
+            <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">
+              Digital Mareking Course
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Master essential computer skills for modern workplaces and daily
+              life.
+            </p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold text-gray-900">₹5,000</span>
+                <span class="ml-2 text-sm text-gray-500 line-through">₹10,000</span>
+              </div>
+              <a href="/courses.html" target="_blank" rel="noopener noreferrer"><button
+                  class="text-primary-600 hover:text-primary-800 font-medium flex items-center">
+                  View Details
+                  <i class="fas fa-chevron-right ml-1 text-xs"></i></button></a>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Course 7 -->
+        <div class="course-card bg-white shadow-md hover:shadow-xl">
+          <div class="relative">
+            <img src="https://vection-cms-prod.s3.eu-central-1.amazonaws.com/Betting_Gaming_Image_1_4d9bdac59b.jpeg"
+              alt="Computer Course" class="w-full h-48 object-cover" />
+            <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">
+              AR/ VR Consultant
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Master essential computer skills for modern workplaces and daily
+              life.
+            </p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold text-gray-900">₹20,000</span>
+                <span class="ml-2 text-sm text-gray-500 line-through">₹30,000</span>
+              </div>
+              <a href="/courses.html" target="_blank" rel="noopener noreferrer"><button
+                  class="text-primary-600 hover:text-primary-800 font-medium flex items-center">
+                  View Details
+                  <i class="fas fa-chevron-right ml-1 text-xs"></i></button></a>
+            </div>
+          </div>
+        </div>
+        <!-- Course 8 -->
+        <div class="course-card bg-white shadow-md hover:shadow-xl">
+          <div class="relative">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVSpI9hkPrfLPbbZw7G0VSEUFxn_brbvVEWDOabNo3k5vl-Pywzob1HIwua-K4d3bctj8&usqp=CAU"
+              alt="Computer Course" class="w-full h-48 object-cover" />
+            <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">
+              Office Assistant Course
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Master essential computer skills for modern workplaces and daily
+              life.
+            </p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold text-gray-900">₹10,000</span>
+                <span class="ml-2 text-sm text-gray-500 line-through">₹20,000</span>
+              </div>
+              <a href="/courses.html" target="_blank" rel="noopener noreferrer"><button
+                  class="text-primary-600 hover:text-primary-800 font-medium flex items-center">
+                  View Details
+                  <i class="fas fa-chevron-right ml-1 text-xs"></i></button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 12 -->
+        <div class="course-card bg-white shadow-md hover:shadow-xl">
+          <div class="relative">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE23P4bE74HQ4v-KojZjTAkstPnBcBrwUHvw&s"
+              alt="Computer Course" class="w-full h-48 object-cover" />
+            <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">
+              CCTV Assembaly Course
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Master essential computer skills for modern workplaces and daily
+              life.
+            </p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold text-gray-900">₹6,000</span>
+                <span class="ml-2 text-sm text-gray-500 line-through">₹12,000</span>
+              </div>
+              <a href="/courses.html" target="_blank" rel="noopener noreferrer"><button
+                  class="text-primary-600 hover:text-primary-800 font-medium flex items-center">
+                  View Details
+                  <i class="fas fa-chevron-right ml-1 text-xs"></i></button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 12 -->
+        <div class="course-card bg-white shadow-md hover:shadow-xl">
+          <div class="relative">
+            <img
+              src="https://st3.depositphotos.com/1177973/16878/i/450/depositphotos_168784968-stock-photo-female-receptionist-working-in-hotel.jpg"
+              alt="Computer Course" class="w-full h-48 object-cover" />
+            <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              Popular
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">
+              Certificate in Receptionist
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Master essential computer skills for modern workplaces and daily
+              life.
+            </p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-lg font-bold text-gray-900">₹5,000</span>
+                <span class="ml-2 text-sm text-gray-500 line-through">₹10,000</span>
+              </div>
+              <a href="/courses.html" target="_blank" rel="noopener noreferrer"><button
+                  class="text-primary-600 hover:text-primary-800 font-medium flex items-center">
+                  View Details
+                  <i class="fas fa-chevron-right ml-1 text-xs"></i></button></a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="text-center mt-12">
+          <a href="/courses.html"><button
+              class="bg-white hover:bg-gray-50 text-primary-600 border border-primary-600 font-medium py-3 px-8 rounded-lg transition shadow-sm">
+              View All Courses <i class="fas fa-arrow-right ml-2"></i></button></a>
+        </div>
+      </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-primary-900 text-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <span
+          class="inline-block px-3 py-1 text-sm font-semibold text-secondary-300 bg-secondary-900 bg-opacity-30 rounded-full mb-3">Why
+          Choose Us</span>
+        <h2 class="text-3xl font-bold">
+          Your Success Is Our <span class="text-secondary-400">Mission</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="feature-card p-8 rounded-xl transition hover:bg-opacity-20">
+          <div class="w-14 h-14 bg-secondary-500 bg-opacity-20 rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-laptop-code text-2xl text-secondary-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">100% Online Learning</h3>
+          <p class="text-gray-300">
+            Learn anytime, anywhere with our flexible online platform designed
+            for working professionals and students.
+          </p>
+        </div>
+
+        <div class="feature-card p-8 rounded-xl transition hover:bg-opacity-20">
+          <div class="w-14 h-14 bg-secondary-500 bg-opacity-20 rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-certificate text-2xl text-secondary-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Govt. Recognized</h3>
+          <p class="text-gray-300">
+            Our certifications are recognized by government bodies, adding
+            value to your professional profile.
+          </p>
+        </div>
+
+        <div class="feature-card p-8 rounded-xl transition hover:bg-opacity-20">
+          <div class="w-14 h-14 bg-secondary-500 bg-opacity-20 rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-briefcase text-2xl text-secondary-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Career Support</h3>
+          <p class="text-gray-300">
+            Get dedicated placement assistance, resume building, and interview
+            preparation support.
+          </p>
+        </div>
+
+        <div class="feature-card p-8 rounded-xl transition hover:bg-opacity-20">
+          <div class="w-14 h-14 bg-secondary-500 bg-opacity-20 rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-rupee-sign text-2xl text-secondary-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Affordable Fees</h3>
+          <p class="text-gray-300">
+            Quality education at competitive prices with flexible payment
+            options for all learners.
+          </p>
+        </div>
+
+        <div class="feature-card p-8 rounded-xl transition hover:bg-opacity-20">
+          <div class="w-14 h-14 bg-secondary-500 bg-opacity-20 rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-chalkboard-teacher text-2xl text-secondary-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Expert Instructors</h3>
+          <p class="text-gray-300">
+            Learn from industry professionals with years of practical
+            experience in their fields.
+          </p>
+        </div>
+
+        <div class="feature-card p-8 rounded-xl transition hover:bg-opacity-20">
+          <div class="w-14 h-14 bg-secondary-500 bg-opacity-20 rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-headset text-2xl text-secondary-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">24/7 Support</h3>
+          <p class="text-gray-300">
+            Our support team is always available to help you with any
+            questions or technical issues.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certification Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2">
+          <img src="https://www.cadcenter.org/assets/website/images/certificate__large11.jpg" alt="Certificate"
+            class="rounded-xl shadow-2xl w-full" />
+        </div>
+        <div class="lg:w-1/2">
+          <span
+            class="inline-block px-3 py-1 text-sm font-semibold text-accent-600 bg-accent-100 rounded-full mb-3">Certification</span>
+          <h2 class="text-3xl font-bold mb-6 text-gray-900">
+            Government-Authorized
+            <span class="text-primary-600">Certification</span>
+          </h2>
+          <p class="text-lg mb-6 text-gray-700">
+            Upon successful completion of your course, you'll receive a
+            government-recognized certificate that validates your skills and
+            enhances your employability.
+          </p>
+
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+              </div>
+              <p class="ml-3 text-gray-700">
+                Recognized by employers nationwide
+              </p>
+            </div>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+              </div>
+              <p class="ml-3 text-gray-700">
+                Verifiable through government portals
+              </p>
+            </div>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+              </div>
+              <p class="ml-3 text-gray-700">
+                Enhances credibility for job applications
+              </p>
+            </div>
+          </div>
+
+          <button
+            class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition flex items-center">
+            Download Sample Certificate <i class="fas fa-download ml-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <span
+          class="inline-block px-3 py-1 text-sm font-semibold text-secondary-600 bg-secondary-100 rounded-full mb-3">Testimonials</span>
+        <h2 class="text-3xl font-bold text-gray-900">
+          What Our <span class="text-primary-600">Students Say</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="flex items-center text-yellow-400 mr-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="text-sm text-gray-500">2 months ago</span>
+          </div>
+          <p class="text-gray-700 mb-6">
+            "The Digital Marketing course transformed my career. I got a
+            promotion within 3 months of completing the certification!"
+          </p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Student"
+              class="w-12 h-12 rounded-full mr-4" />
+            <div>
+              <h4 class="font-bold">Priya Sharma</h4>
+              <p class="text-sm text-gray-500">Digital Marketing Executive</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="flex items-center text-yellow-400 mr-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="text-sm text-gray-500">1 month ago</span>
+          </div>
+          <p class="text-gray-700 mb-6">
+            "Excellent faculty and practical course content. The Office
+            Management diploma helped me start my own business."
+          </p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student"
+              class="w-12 h-12 rounded-full mr-4" />
+            <div>
+              <h4 class="font-bold">Rahul Verma</h4>
+              <p class="text-sm text-gray-500">Business Owner</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="flex items-center text-yellow-400 mr-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="text-sm text-gray-500">3 weeks ago</span>
+          </div>
+          <p class="text-gray-700 mb-6">
+            "The flexible timing allowed me to balance my job and studies. The
+            Computer Fundamentals course was very comprehensive."
+          </p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Student"
+              class="w-12 h-12 rounded-full mr-4" />
+            <div>
+              <h4 class="font-bold">Anjali Patel</h4>
+              <p class="text-sm text-gray-500">Bank Employee</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-primary-600 text-white" id="contact">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to Transform Your Career?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Join thousands of successful students who have upgraded their skills
+        with Smart Gyan
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button
+          class="bg-white hover:bg-gray-100 text-primary-600 font-bold py-3 px-8 rounded-lg text-lg transition shadow-md">
+          <a href="tel:+918130900517"><i class="fas fa-phone-alt mr-2"></i> Talk to Counselor</a>
+        </button>
+        <button
+          class="bg-secondary-500 hover:bg-secondary-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition shadow-md">
+          <a href="/admission.html"><i class="fas fa-book mr-2"></i> Enroll Now</a>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA  -->
+
+  <!-- Footer  -->
+  <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div>
+          <div class="flex items-center space-x-2 mb-6">
+            <div class="w-10 h-10 bg-secondary-500 rounded-full flex items-center justify-center">
+              <i class="fas fa-graduation-cap text-white text-xl"></i>
+            </div>
+            <span class="text-2xl font-bold text-white">Smart<span class="text-secondary-500">Gyan</span></span>
+          </div>
+          <p class="mb-6">
+            Empowering learners with essential digital and vocational skills
+            for the modern job market.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="/" class="hover:text-secondary-400 transition">Home</a>
+            </li>
+            <li>
+              <a href="#about" class="hover:text-secondary-400 transition">About Us</a>
+            </li>
+            <li>
+              <a href="/courses.html" class="hover:text-secondary-400 transition">All Courses</a>
+            </li>
+            <li>
+              <a href="/courses.html" class="hover:text-secondary-400 transition">Fees & Installments</a>
+            </li>
+            <li>
+              <a href="#contact" class="hover:text-secondary-400 transition">Contact Us</a>
+            </li>
+            <li>
+              <a href="/privacy-policy.html" class="hover:text-secondary-400 transition">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-6">
+            Popular Courses
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="#" class="hover:text-secondary-400 transition">Computer Fundamentals</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-secondary-400 transition">Digital Marketing</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-secondary-400 transition">Office Management</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-secondary-400 transition">Web Designing</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-secondary-400 transition">Graphic Design</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-secondary-400 transition">Tally ERP 9</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-6">Contact Info</h3>
+          <address class="not-italic space-y-4">
+            <div class="flex items-start">
+              <i class="fas fa-map-marker-alt text-secondary-400 mt-1 mr-3"></i>
+              <p> Andheri East Education Zone
+                Marol, Andheri (East),
+                Mumbai – 400093
+                Maharashtra, India</p>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-phone-alt text-secondary-400 mr-3"></i>
+              <a href="tel:919953595426">
+                <p>+91 9953595426</p>
+              </a>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-envelope text-secondary-400 mr-3"></i>
+              <a href="mailto:admission@thesmartgyan.com">admission@thesmartgyan.com</a>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-clock text-secondary-400 mr-3"></i>
+              <p>Mon-Sat: 9:00 AM - 6:00 PM</p>
+            </div>
+          </address>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+        <p>&copy; 2025 Smart Gyan Training Institute. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    // Initialize Swiper
+    const swiper = new Swiper(".heroSwiper", {
+      // Optional parameters
+      loop: true,
+      effect: "fade",
+      speed: 1000,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      fadeEffect: {
+        crossFade: true,
+      },
+
+      // Pagination
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    // Animate scroll indicator
+    const scrollIndicator = document.querySelector(".animate-scroll");
+    setInterval(() => {
+      scrollIndicator.classList.toggle("mt-2");
+      scrollIndicator.classList.toggle("mt-3");
+    }, 800);
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById("mobileMenuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    mobileMenuButton.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", function (event) {
+      if (
+        !mobileMenu.contains(event.target) &&
+        !mobileMenuButton.contains(event.target)
+      ) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
+
+  
+
+<!-- Your Firebase Config -->
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDBrJ3w_fbYYQxD3DsJW0F10feyj_T0T5k",
+    authDomain: "thesmartgyan-2043c.firebaseapp.com",
+    projectId: "thesmartgyan-2043c",
+    storageBucket: "thesmartgyan-2043c.firebasestorage.app",
+    messagingSenderId: "19351680227",
+    appId: "1:19351680227:web:cfe695444483e3dbde01d6",
+    measurementId: "G-MJZJ0TVJBZ"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+
+  async function handleLogin() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const errorElement = document.getElementById('error-message');
+    const loginButton = document.getElementById('login-button');
+    const spinner = document.getElementById('spinner');
+
+    loginButton.disabled = true;
+    spinner.classList.remove('hidden');
+    loginButton.classList.add('cursor-not-allowed');
+
+    try {
+      const userCredential = await auth.signInWithEmailAndPassword(email, password);
+      console.log("Login success");
+
+      // Hide login and show dashboard
+      document.getElementById('login-page').classList.add('hidden');
+      document.getElementById('dashboard-page').classList.remove('hidden');
+
+    } catch (error) {
+      errorElement.textContent = error.message;
+      errorElement.classList.remove('hidden');
+      document.getElementById('login-form').classList.add('animate-shake');
+      setTimeout(() => {
+        document.getElementById('login-form').classList.remove('animate-shake');
+      }, 500);
+    }
+
+    loginButton.disabled = false;
+    spinner.classList.add('hidden');
+    loginButton.classList.remove('cursor-not-allowed');
+  }
+
+  function togglePassword() {
+    const passwordInput = document.getElementById('password');
+    const eyeIcon = document.getElementById('eye-icon');
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      eyeIcon.classList.replace('fa-eye', 'fa-eye-slash');
+    } else {
+      passwordInput.type = 'password';
+      eyeIcon.classList.replace('fa-eye-slash', 'fa-eye');
+    }
+  }
+
+
+  </script>
+    <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js"></script>
+
+</body>
+
+</html>

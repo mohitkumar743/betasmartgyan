@@ -1,0 +1,174 @@
+<!-- Updated login.html with dynamic user name, course cards, and course detail view -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartGyan LMS | Student Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-gray-50 font-sans">
+  <!-- Login Page -->
+  <div id="login-page" class="min-h-screen flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md space-y-8">
+      <div class="text-center">
+        <img src="https://via.placeholder.com/150x50?text=SmartGyan" class="mx-auto h-12 w-auto" />
+        <h2 class="mt-6 text-3xl font-extrabold text-gray-900">Student Portal</h2>
+      </div>
+      <form id="login-form" onsubmit="event.preventDefault(); handleLogin();" class="bg-white p-6 rounded-lg shadow-md">
+        <div id="error-message" class="hidden mb-4 text-sm text-red-600"></div>
+        <label class="block mb-2 text-sm font-medium">Email</label>
+        <input id="email" type="email" required class="w-full p-2 border rounded mb-4" />
+        <label class="block mb-2 text-sm font-medium">Password</label>
+        <input id="password" type="password" required class="w-full p-2 border rounded mb-4" />
+        <button id="login-button" class="w-full bg-indigo-600 text-white py-2 rounded">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard-page" class="hidden min-h-screen bg-gray-50">
+    <header class="bg-white shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center">
+          <img src="https://via.placeholder.com/150x50?text=SmartGyan" class="h-8" />
+          <h1 class="ml-3 text-xl font-semibold">Learning Management System</h1>
+        </div>
+        <div class="flex items-center space-x-4">
+          <span id="student-name" class="text-sm font-medium text-gray-700">Loading...</span>
+          <img src="https://via.placeholder.com/32?text=SU" class="h-8 w-8 rounded-full" />
+          <button onclick="handleLogout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-6">
+      <h2 class="text-2xl font-bold mb-4">Welcome to Your Courses</h2>
+      <div id="course-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div id="course-detail" class="hidden mt-10 bg-white p-6 rounded shadow">
+        <button onclick="closeCourseDetail()" class="text-sm text-red-500 mb-4">&larr; Back to courses</button>
+        <h3 id="course-title" class="text-xl font-bold mb-2"></h3>
+        <ul id="chapter-list" class="space-y-4"></ul>
+      </div>
+    </main>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDBrJ3w_fbYYQxD3DsJW0F10feyj_T0T5k",
+      authDomain: "thesmartgyan-2043c.firebaseapp.com",
+      projectId: "thesmartgyan-2043c",
+      storageBucket: "thesmartgyan-2043c.firebasestorage.app",
+      messagingSenderId: "19351680227",
+      appId: "1:19351680227:web:cfe695444483e3dbde01d6",
+      measurementId: "G-MJZJ0TVJBZ"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    async function handleLogin() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const errorEl = document.getElementById('error-message');
+      try {
+        const userCredential = await auth.signInWithEmailAndPassword(email, password);
+        const uid = userCredential.user.uid;
+        fetchUserCourseData(uid);
+        document.getElementById('login-page').classList.add('hidden');
+        document.getElementById('dashboard-page').classList.remove('hidden');
+      } catch (error) {
+        errorEl.textContent = error.message;
+        errorEl.classList.remove('hidden');
+      }
+    }
+
+    function handleLogout() {
+      auth.signOut().then(() => {
+        localStorage.removeItem("userCourseData");
+        document.getElementById('dashboard-page').classList.add('hidden');
+        document.getElementById('login-page').classList.remove('hidden');
+      });
+    }
+
+    function fetchUserCourseData(uid) {
+      db.collection("Users").doc(uid).get()
+        .then((doc) => {
+          if (doc.exists) {
+            const data = doc.data();
+            localStorage.setItem("userCourseData", JSON.stringify(data));
+            document.getElementById("student-name").textContent = data.name || "Student";
+          }
+        });
+    }
+
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        document.getElementById('login-page').classList.add('hidden');
+        document.getElementById('dashboard-page').classList.remove('hidden');
+        const uid = user.uid;
+        fetchUserCourseData(uid);
+        loadCourses();
+      } else {
+        document.getElementById('login-page').classList.remove('hidden');
+        document.getElementById('dashboard-page').classList.add('hidden');
+      }
+    });
+
+    async function loadCourses() {
+      try {
+        const res = await fetch('courses.json');
+        const courses = await res.json();
+        const container = document.getElementById('course-container');
+        container.innerHTML = '';
+        courses.forEach((course, index) => {
+          const div = document.createElement('div');
+          div.className = 'bg-white shadow-md rounded-lg overflow-hidden cursor-pointer';
+          div.innerHTML = `
+            <img src="${course.banner}" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h4 class="text-lg font-semibold">${course.name}</h4>
+              <p class="text-sm text-gray-600">${course.chapters.length} Chapters</p>
+            </div>
+          `;
+          div.addEventListener('click', () => showCourseDetail(course));
+          container.appendChild(div);
+        });
+      } catch (err) {
+        console.error("Failed to load courses.json", err);
+      }
+    }
+
+    function showCourseDetail(course) {
+      document.getElementById('course-container').classList.add('hidden');
+      document.getElementById('course-detail').classList.remove('hidden');
+      document.getElementById('course-title').textContent = course.name;
+      const list = document.getElementById('chapter-list');
+      list.innerHTML = '';
+      course.chapters.forEach((ch, idx) => {
+        const item = document.createElement('li');
+        item.className = 'border p-4 rounded shadow';
+        item.innerHTML = `
+          <h5 class="font-bold mb-1">${idx + 1}. ${ch.title}</h5>
+          <p class="text-sm text-gray-600 mb-2">${ch.description}</p>
+          <iframe class="w-full h-64" src="${ch.video}" frameborder="0" allowfullscreen></iframe>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    function closeCourseDetail() {
+      document.getElementById('course-detail').classList.add('hidden');
+      document.getElementById('course-container').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
