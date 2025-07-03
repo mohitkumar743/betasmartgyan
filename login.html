@@ -276,15 +276,48 @@
                             </div>
                         </div>
 
-                        <!-- Right Side - Chapter List -->
-                        <div class="lg:w-1/3 bg-gray-50 border-l border-gray-200">
-                            <div class="p-4 border-b border-gray-200 bg-gray-100">
-                                <h4 class="font-semibold text-gray-800">Course Chapters</h4>
-                            </div>
-                            <div class="p-4">
-                                <ul id="chapter-list" class="space-y-2"></ul>
-                            </div>
-                        </div>
+                       <!-- Right Side - Chapter List -->
+<div class="lg:w-1/3 bg-gray-50 border-l border-gray-200 flex flex-col">
+    <div class="p-4 border-b border-gray-200 bg-gray-100">
+        <h4 class="font-semibold text-gray-800">Course Chapters</h4>
+    </div>
+    <div class="p-4 flex-grow">
+        <ul id="chapter-list" class="space-y-2"></ul>
+    </div>
+    
+    <!-- Additional Resources Buttons -->
+    <div class="p-4 border-t border-gray-200 bg-gray-50 space-y-3">
+        <button class="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors">
+            <div class="flex items-center">
+                <div class="p-2 bg-blue-100 rounded-lg mr-3">
+                    <i class="fas fa-book text-blue-600"></i>
+                </div>
+                <span class="font-medium text-gray-700">Ebook</span>
+            </div>
+            <i class="fas fa-chevron-right text-gray-400"></i>
+        </button>
+        
+        <button class="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors">
+            <div class="flex items-center">
+                <div class="p-2 bg-green-100 rounded-lg mr-3">
+                    <i class="fas fa-file-alt text-green-600"></i>
+                </div>
+                <span class="font-medium text-gray-700">Interview Notes</span>
+            </div>
+            <i class="fas fa-chevron-right text-gray-400"></i>
+        </button>
+        
+        <button class="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors">
+            <div class="flex items-center">
+                <div class="p-2 bg-purple-100 rounded-lg mr-3">
+                    <i class="fas fa-clipboard-check text-purple-600"></i>
+                </div>
+                <span class="font-medium text-gray-700">Tests</span>
+            </div>
+            <i class="fas fa-chevron-right text-gray-400"></i>
+        </button>
+    </div>
+</div>
                     </div>
                 </div>
             </div>
@@ -297,6 +330,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore-compat.js"></script>
 
     <script>
+        // Firebase initialization and configuration
         const firebaseConfig = {
             apiKey: "AIzaSyDBrJ3w_fbYYQxD3DsJW0F10feyj_T0T5k",
             authDomain: "thesmartgyan-2043c.firebaseapp.com",
@@ -306,17 +340,22 @@
             appId: "1:19351680227:web:cfe695444483e3dbde01d6",
             measurementId: "G-MJZJ0TVJBZ"
         };
+        
+        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const db = firebase.firestore();
-
+    
+        // Global variables
         let currentCourse = null;
         let currentChapterIndex = 0;
-
-        async function handleLogin() {
+    
+        // Login function
+        window.handleLogin = async function() {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const errorEl = document.getElementById('error-message');
+            
             try {
                 const userCredential = await auth.signInWithEmailAndPassword(email, password);
                 const uid = userCredential.user.uid;
@@ -328,45 +367,58 @@
                 errorEl.classList.remove('hidden');
             }
         }
-
-        function handleLogout() {
-            auth.signOut().then(() => {
-                // Note: Using variables instead of localStorage for Claude.ai compatibility
-                currentCourse = null;
-                currentChapterIndex = 0;
-                localStorage.clear()
-                document.getElementById('dashboard-page').classList.add('hidden');
-                document.getElementById('login-page').classList.remove('hidden');
-            });
-        }
-
+    
+        // Logout function
+        window.handleLogout = function() {
+    auth.signOut().then(() => {
+        currentCourse = null;
+        currentChapterIndex = 0;
+        localStorage.clear();
+        document.getElementById('dashboard-page').classList.add('hidden');
+        document.getElementById('login-page').classList.remove('hidden');
+        window.location.href = '/';  // Navigate to root URL
+    }).catch((error) => {
+        console.error('Logout error:', error);
+    });
+}
+        // Fetch user course data
         function fetchUserCourseData(uid) {
             db.collection("Users").doc(uid).get()
                 .then((doc) => {
                     if (doc.exists) {
                         const data = doc.data();
-                        // Store in variable instead of localStorage
                         window.userCourseData = data;
                         console.log("User course data fetched:", data);
-                        localStorage.setItem("userCourseData", JSON.stringify(data)); // For compatibility with other parts of the app
+                        localStorage.setItem("userCourseData", JSON.stringify(data));
                         document.getElementById("student-name").textContent = data.name || "Student";
-                        loadCourses()
+                        loadCourses();
                     }
                 });
         }
-
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                document.getElementById('login-page').classList.add('hidden');
-                document.getElementById('dashboard-page').classList.remove('hidden');
-                const uid = user.uid;
-                fetchUserCourseData(uid);
-                loadCourses();
-            } else {
-                document.getElementById('login-page').classList.remove('hidden');
-                document.getElementById('dashboard-page').classList.add('hidden');
-            }
-        });
+    
+        // Get allowed parts by course
+        function getAllowedPartsByCourse() {
+            const userData = JSON.parse(localStorage.getItem("userCourseData") || "{}");
+            const accessEntries = (userData.Course || "").split(',').map(e => e.trim());
+    
+            const accessMap = {};
+    
+            accessEntries.forEach(entry => {
+                const match = entry.match(/^(.+?)\((.+?)\)$/);
+                if (match) {
+                    const courseId = match[1];
+                    const part = match[2];
+                    if (!accessMap[courseId]) {
+                        accessMap[courseId] = [];
+                    }
+                    accessMap[courseId].push(part);
+                }
+            });
+    
+            return accessMap;
+        }
+    
+        // Load courses
         async function loadCourses() {
             try {
                 let courses;
@@ -374,100 +426,224 @@
                     const res = await fetch('courses.json');
                     courses = await res.json();
                 } catch {
-                    courses = mockCourses;
+                    courses = [];
                 }
-
-                // 🔐 Filter only allowed courses from localStorage
-                const userData = JSON.parse(localStorage.getItem("userCourseData") || "{}");
-                const allowedCourseIds = (userData.Course || "").split(",").map(id => id.trim());
-
+    
+                const accessMap = getAllowedPartsByCourse();
+                const allowedCourseIds = Object.keys(accessMap);
+    
                 const container = document.getElementById('course-container');
                 container.innerHTML = '';
-
+    
                 courses
                     .filter(course => allowedCourseIds.includes(course.courseId))
-                    .forEach((course, index) => {
+                    .forEach(course => {
+                        const totalChapters = course.parts
+                            ? Object.entries(course.parts)
+                                .filter(([partKey]) => accessMap[course.courseId].includes(partKey))
+                                .map(([_, chapters]) => chapters.length)
+                                .reduce((a, b) => a + b, 0)
+                            : 0;
+    
                         const div = document.createElement('div');
                         div.className = 'bg-white shadow-md rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow duration-300';
                         div.innerHTML = `
-          <img src="${course.banner}" class="w-full h-48 object-cover" />
-          <div class="p-4">
-            <h4 class="text-lg font-semibold text-gray-800">${course.name}</h4>
-            <p class="text-sm text-gray-600 mt-1">${course.chapters.length} Chapters</p>
-            <div class="mt-3">
-              <span class="inline-block bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">
-                <i class="fas fa-play mr-1"></i>
-                Start Learning
-              </span>
-            </div>
-          </div>
-        `;
-                        div.addEventListener('click', () => showCourseDetail(course));
+                            <img src="${course.banner}" class="w-full h-48 object-cover" />
+                            <div class="p-4">
+                                <h4 class="text-lg font-semibold text-gray-800">${course.name}</h4>
+                                <p class="text-sm text-gray-600 mt-1">${totalChapters} Chapters</p>
+                                <div class="mt-3">
+                                    <span class="inline-block bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">
+                                        <i class="fas fa-play mr-1"></i>
+                                        Start Learning
+                                    </span>
+                                </div>
+                            </div>
+                        `;
+                        div.addEventListener('click', () => showCourseDetail(course, accessMap[course.courseId]));
                         container.appendChild(div);
                     });
+    
             } catch (err) {
                 console.error("Failed to load courses", err);
             }
         }
+    
+        function showCourseDetail(course, allowedParts = []) {
+    currentCourse = course;
+    currentChapterIndex = 0;
 
-        function showCourseDetail(course) {
-            currentCourse = course;
-            currentChapterIndex = 0;
+    // Hide course list and show detail view
+    document.getElementById('course-container').classList.add('hidden');
+    document.getElementById('course-detail').classList.remove('hidden');
+    document.getElementById('course-title').textContent = course.name;
 
-            document.getElementById('course-container').classList.add('hidden');
-            document.getElementById('course-detail').classList.remove('hidden');
-            document.getElementById('course-title').textContent = course.name;
+    const list = document.getElementById('chapter-list');
+    list.innerHTML = '';
 
-            const list = document.getElementById('chapter-list');
-            list.innerHTML = '';
+    // Check if course uses "parts" structure
+    const isParted = course.parts !== undefined;
 
-            course.chapters.forEach((chapter, idx) => {
-                const item = document.createElement('li');
-                item.className = `p-3 rounded-lg cursor-pointer transition-colors duration-200 ${idx === currentChapterIndex
-                    ? 'bg-indigo-100 border-l-4 border-indigo-500'
-                    : 'hover:bg-gray-100'
-                    }`;
+    // Flatten chapters if course uses parts
+    const chapters = isParted
+        ? Object.entries(course.parts).flatMap(([partKey, partChapters]) =>
+            partChapters.map(ch => ({ ...ch, part: partKey }))
+        )
+        : course.chapters.map(ch => ({ ...ch, part: "A" }));
 
-                item.innerHTML = `
-          <div class="flex items-start">
-            <div class="flex-shrink-0 mt-1">
-              <span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-medium ${idx === currentChapterIndex
-                        ? 'bg-indigo-500 text-white'
-                        : 'bg-gray-300 text-gray-700'
+    course.chapters = chapters;
+
+    // Create chapter list items
+    chapters.forEach((chapter, idx) => {
+        const isAllowed = allowedParts.includes(chapter.part);
+
+        const item = document.createElement('li');
+        item.className = `p-3 rounded-lg transition-colors duration-200 ${
+            idx === currentChapterIndex && isAllowed 
+                ? 'bg-indigo-100 border-l-4 border-indigo-500' 
+                : 'hover:bg-gray-100'
+        } ${
+            !isAllowed ? 'opacity-75 cursor-not-allowed bg-gray-50' : 'cursor-pointer'
+        }`;
+
+        item.innerHTML = `
+            <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-medium ${
+                        idx === currentChapterIndex && isAllowed
+                            ? 'bg-indigo-500 text-white'
+                            : isAllowed 
+                                ? 'bg-gray-300 text-gray-700' 
+                                : 'bg-gray-200 text-gray-500'
                     }">
-                ${idx + 1}
-              </span>
-            </div>
-            <div class="ml-3 flex-1">
-              <h5 class="font-medium text-gray-800 text-sm">${chapter.title}</h5>
-              <p class="text-xs text-gray-500 mt-1 line-clamp-2">${chapter.description}</p>
-            </div>
-          </div>
-        `;
+                        ${isAllowed ? idx + 1 : '<i class="fas fa-lock"></i>'}
+                    </span>
+                </div>
+                <div class="ml-3 flex-1">
+                    <div class="flex justify-between items-start">
+                        <h5 class="font-medium ${
+                            isAllowed ? 'text-gray-800' : 'text-gray-500'
+                        } text-sm">${chapter.title}</h5>
+                        ${
+                            !isAllowed ? '<span class="text-xs text-gray-400"><i class="fas fa-lock mr-1"></i>Locked</span>' : ''
+                        }
+                    </div>
+                    <p class="text-xs ${
+                        isAllowed ? 'text-gray-500' : 'text-gray-400'
+                    } mt-1 line-clamp-2">${chapter.description}</p>
+                    <span class="text-xs mt-1 inline-block px-2 py-0.5 rounded-full ${
+                        isAllowed ? 'bg-gray-200 text-gray-600' : 'bg-gray-100 text-gray-400'
+                    }">Part ${chapter.part}</span>
+                </div>
+            </div>`;
 
-                item.addEventListener('click', () => selectChapter(idx));
-                list.appendChild(item);
+        if (isAllowed) {
+            item.addEventListener('click', () => selectChapter(idx));
+        } else {
+            item.addEventListener('click', () => {
+                alert('This chapter is locked. Please upgrade your access to view this content.');
             });
-
-            // Load first chapter by default
-            if (course.chapters.length > 0) {
-                selectChapter(0);
-            }
         }
 
+        list.appendChild(item);
+    });
+
+    // Create resource buttons HTML
+    const resourceButtons = `
+        <div class="p-4 border-t border-gray-200 bg-gray-50 space-y-3">
+            <button onclick="handleResourceClick('${course.resources?.ebook || ''}', 'ebook')" 
+                    class="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors ${
+                        !course.resources?.ebook ? 'opacity-50 cursor-not-allowed' : ''
+                    }">
+                <div class="flex items-center">
+                    <div class="p-2 bg-blue-100 rounded-lg mr-3">
+                        <i class="fas fa-book text-blue-600"></i>
+                    </div>
+                    <span class="font-medium ${
+                        !course.resources?.ebook ? 'text-gray-400' : 'text-gray-700'
+                    }">Ebook</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400"></i>
+            </button>
+            
+            <button onclick="handleResourceClick('${course.resources?.interviewNotes || ''}', 'interview notes')" 
+                    class="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors ${
+                        !course.resources?.interviewNotes ? 'opacity-50 cursor-not-allowed' : ''
+                    }">
+                <div class="flex items-center">
+                    <div class="p-2 bg-green-100 rounded-lg mr-3">
+                        <i class="fas fa-file-alt text-green-600"></i>
+                    </div>
+                    <span class="font-medium ${
+                        !course.resources?.interviewNotes ? 'text-gray-400' : 'text-gray-700'
+                    }">Interview Notes</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400"></i>
+            </button>
+            
+            <button onclick="handleResourceClick('${course.resources?.tests || ''}', 'tests')" 
+                    class="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors ${
+                        !course.resources?.tests ? 'opacity-50 cursor-not-allowed' : ''
+                    }">
+                <div class="flex items-center">
+                    <div class="p-2 bg-purple-100 rounded-lg mr-3">
+                        <i class="fas fa-clipboard-check text-purple-600"></i>
+                    </div>
+                    <span class="font-medium ${
+                        !course.resources?.tests ? 'text-gray-400' : 'text-gray-700'
+                    }">Tests</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400"></i>
+            </button>
+        </div>
+    `;
+
+    // Add or update resource buttons
+    const sidebar = document.querySelector('.lg\\:w-1\\/3');
+    const existingButtons = sidebar.querySelector('.space-y-3');
+    if (existingButtons) {
+        existingButtons.remove();
+    }
+    sidebar.insertAdjacentHTML('beforeend', resourceButtons);
+
+    // Default to first allowed chapter
+    const firstAllowedIndex = chapters.findIndex(ch => allowedParts.includes(ch.part));
+    if (firstAllowedIndex !== -1) {
+        selectChapter(firstAllowedIndex);
+    } else {
+        document.getElementById('current-chapter-title').textContent = `Access Restricted`;
+        document.getElementById('current-chapter-description').textContent = `You do not have access to any chapter in this course.`;
+        document.getElementById('current-video').src = '';
+    }
+}
+
+// Add this new function to handle resource clicks
+window.handleResourceClick = function(url, resourceType) {
+    if (!url) {
+        alert(`${resourceType} is not available for this course.`);
+        return;
+    }
+    
+    // Optional: Track resource access in your analytics
+    console.log(`User accessed ${resourceType} for course ${currentCourse?.name}`);
+    
+    // Open in new tab
+    window.open(url, '_blank');
+};
+        // Select chapter
         function selectChapter(index) {
             if (!currentCourse || !currentCourse.chapters[index]) return;
-
+    
             currentChapterIndex = index;
             const chapter = currentCourse.chapters[index];
-
+    
             // Update video
             document.getElementById('current-video').src = chapter.video;
-
+    
             // Update chapter info
             document.getElementById('current-chapter-title').textContent = `${index + 1}. ${chapter.title}`;
             document.getElementById('current-chapter-description').textContent = chapter.description;
-
+    
             // Update chapter list styling
             const list = document.getElementById('chapter-list');
             Array.from(list.children).forEach((item, idx) => {
@@ -481,17 +657,33 @@
                 }
             });
         }
-
+    
+        // Close course detail
         function closeCourseDetail() {
             document.getElementById('course-detail').classList.add('hidden');
             document.getElementById('course-container').classList.remove('hidden');
-
-            // Reset video
             document.getElementById('current-video').src = '';
             currentCourse = null;
             currentChapterIndex = 0;
         }
+    
+        // Auth state change listener
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('dashboard-page').classList.remove('hidden');
+                const uid = user.uid;
+                fetchUserCourseData(uid);
+                loadCourses();
+            } else {
+                document.getElementById('login-page').classList.remove('hidden');
+                document.getElementById('dashboard-page').classList.add('hidden');
+            }
+        });
     </script>
+
+
+
 </body>
 
 </html>

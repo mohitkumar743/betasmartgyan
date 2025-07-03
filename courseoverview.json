@@ -1,0 +1,275 @@
+[
+  {
+    "id": "course1",
+    "title": "Diploma in Computer Course",
+    "description": "Master essential computer skills for modern workplaces and daily life.",
+    "price": 8000,
+    "originalPrice": 11350,
+    "image": "https://loveindiatrust.com/wp-content/uploads/2022/01/IMGP6440-scaled.jpg",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 2667,
+        "totalPayment": 8000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 1333,
+        "totalPayment": 8000,
+        "processingFee": 0
+      }
+    }
+  },
+  {
+    "id": "course2",
+    "title": "DIPLOMA IN COMPUTER OFFICE MANAGEMENT (DCOM) Course",
+    "description": "Master essential computer skills for modern workplaces and daily life.",
+    "price": 10000,
+    "originalPrice": 20000,
+    "image": "https://www.softechcomputer.in/fb-banner/courses.html-softech.jpg",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 3333,
+        "totalPayment": 10000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 1667,
+        "totalPayment": 10000,
+        "processingFee": 0
+      }
+    }
+  },
+  {
+    "id": "course3",
+    "title": "Customer Service Associate / Customer Care Executive",
+    "description": "Master essential computer skills for modern workplaces and daily life.",
+    "price": 20000,
+    "originalPrice": 30000,
+    "image": "https://loveindiatrust.com/wp-content/uploads/2022/01/IMGP6440-scaled.jpg",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 6667,
+        "totalPayment": 20000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 3333,
+        "totalPayment": 20000,
+        "processingFee": 0
+      }
+    }
+  },
+  {
+    "id": "course4",
+    "title": "Customer Service Associate / Customer Care Executive Course",
+    "description": "Master essential computer skills for modern workplaces and daily life.",
+    "price": 20000,
+    "originalPrice": 30000,
+    "image": "https://staticlearn.shine.com/l/m/images/blog/mobile/roles_and_responsibilities_of_customer_support_executive.webp",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 6667,
+        "totalPayment": 20000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 3333,
+        "totalPayment": 20000,
+        "processingFee": 0
+      }
+    }
+  },
+  {
+    "id": "course5",
+    "title": "COMPUTER TEACHER TRAINING COURSE",
+    "description": "Master essential computer skills for modern workplaces and daily life.",
+    "price": 10000,
+    "originalPrice": 20000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIJ7DuB9Cnut1xlX2SrbgnyjrrotWDXlz1xg&s",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 3333,
+        "totalPayment": 10000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 1667,
+        "totalPayment": 10000,
+        "processingFee": 0
+      }
+    }
+  },
+  {
+    "id": "course6",
+    "title": "Basic Diploma In tour & Travel",
+    "description": "Master essential computer skills for modern workplaces and daily life.",
+    "price": 20000,
+    "originalPrice": 30000,
+    "image": "https://brdi.in/uploads/course/diploma-in-tourism-management-65687ae679fbb.jpg",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 6667,
+        "totalPayment": 20000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 3333,
+        "totalPayment": 20000,
+        "processingFee": 0
+      }
+    }
+  },
+  {
+    "id": "course7",
+    "title": "CAD Drafting Courses",
+    "description": "Master essential computer skills for modern workplaces and daily life.",
+    "price": 8000,
+    "originalPrice": 11350,
+    "image": "https://5.imimg.com/data5/SELLER/Default/2021/1/QD/HJ/PZ/8886421/autocad-designing-500x500.jpg",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 2667,
+        "totalPayment": 8000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 1333,
+        "totalPayment": 8000,
+        "processingFee": 0
+      }
+    }
+  },
+  {
+    "id": "course8",
+    "title": "Ac technician Course",
+    "description": "Master essential computer skills for modern workplaces and daily life.",
+    "price": 10000,
+    "originalPrice": 20000,
+    "image": "https://content.jdmagicbox.com/comp/def_content_category/ac-repair-and-services-crystal/360-f-730677676-ycclxlwvz8h6u6ztcvccpbtqtkhmvho8-ac-repair-and-services-crystal-14-jtmvr.jpg",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 3333,
+        "totalPayment": 10000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 1667,
+        "totalPayment": 10000,
+        "processingFee": 0
+      }
+    }
+  },
+  {
+    "id": "course9",
+    "title": "Digital Mareking Course",
+    "description": "Master essential computer skills for modern workplaces and daily life.",
+    "price": 5000,
+    "originalPrice": 10000,
+    "image": "https://www.berlinsbi.com/uploads/sites/2/2021/12/5-ways-msc-digital-marketing-will-advance-your-career.jpg?w=1380&h=776&crop=1",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 1667,
+        "totalPayment": 5000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 833,
+        "totalPayment": 5000,
+        "processingFee": 0
+      }
+    }
+  },
+  {
+    "id": "course10",
+    "title": "AR/ VR Consultant",
+    "description": "Master essential computer skills for modern workplaces and daily life.",
+    "price": 20000,
+    "originalPrice": 30000,
+    "image": "https://vection-cms-prod.s3.eu-central-1.amazonaws.com/Betting_Gaming_Image_1_4d9bdac59b.jpeg",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 6667,
+        "totalPayment": 20000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 3333,
+        "totalPayment": 20000,
+        "processingFee": 0
+      }
+    }
+  },
+  {
+    "id": "course11",
+    "title": "Office Assistant Course",
+    "description": "Master essential computer skills for modern workplaces and daily life.",
+    "price": 10000,
+    "originalPrice": 20000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVSpI9hkPrfLPbbZw7G0VSEUFxn_brbvVEWDOabNo3k5vl-Pywzob1HIwua-K4d3bctj8&usqp=CAU",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 3333,
+        "totalPayment": 10000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 1667,
+        "totalPayment": 10000,
+        "processingFee": 0
+      }
+    }
+  },
+  {
+    "id": "course12",
+    "title": "CCTV Assembaly Course",
+    "description": "Master essential computer skills for modern workplaces and daily life.",
+    "price": 6000,
+    "originalPrice": 12000,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE23P4bE74HQ4v-KojZjTAkstPnBcBrwUHvw&s",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 2000,
+        "totalPayment": 6000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 1000,
+        "totalPayment": 6000,
+        "processingFee": 0
+      }
+    }
+  },
+  {
+    "id": "course13",
+    "title": "Certificate in Receptionist",
+    "description": "Master essential computer skills for modern workplaces and daily life.",
+    "price": 5000,
+    "originalPrice": 10000,
+    "image": "https://st3.depositphotos.com/1177973/16878/i/450/depositphotos_168784968-stock-photo-female-receptionist-working-in-hotel.jpg",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 1667,
+        "totalPayment": 5000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 833,
+        "totalPayment": 5000,
+        "processingFee": 0
+      }
+    }
+  }
+]
