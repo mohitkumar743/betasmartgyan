@@ -8,64 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-   
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            poppins: ["Poppins", "sans-serif"],
-          },
-          colors: {
-            primary: {
-              DEFAULT: "#2563eb",
-              50: "#eff6ff",
-              100: "#dbeafe",
-              200: "#bfdbfe",
-              300: "#93c5fd",
-              400: "#60a5fa",
-              500: "#3b82f6",
-              600: "#2563eb",
-              700: "#1d4ed8",
-              800: "#1e40af",
-              900: "#1e3a8a",
-            },
-            secondary: {
-              DEFAULT: "#f59e0b",
-              50: "#fffbeb",
-              100: "#fef3c7",
-              200: "#fde68a",
-              300: "#fcd34d",
-              400: "#fbbf24",
-              500: "#f59e0b",
-              600: "#d97706",
-              700: "#b45309",
-              800: "#92400e",
-              900: "#78350f",
-            },
-            accent: {
-              DEFAULT: "#10b981",
-              50: "#ecfdf5",
-              100: "#d1fae5",
-              200: "#a7f3d0",
-              300: "#6ee7b7",
-              400: "#34d399",
-              500: "#10b981",
-              600: "#059669",
-              700: "#047857",
-              800: "#065f46",
-              900: "#064e3b",
-            },
-          },
-        },
-      },
-    };
-  </script>
-   <style>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+    <style>
         .form-section {
             transition: all 0.3s ease;
         }
@@ -76,61 +22,17 @@
             display: none;
         }
     </style>
-
-    
 </head>
 <body class="bg-gray-100">
-
- <!-- Navbar  -->
- <header class="bg-primary-900 text-white sticky top-0 z-50 shadow-lg">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <div class="w-10 h-10 bg-secondary-500 rounded-full flex items-center justify-center">
-          <a href="/"><i class="fas fa-graduation-cap text-white text-xl"></i>
-        </div>
-        <span class="text-2xl font-bold">Smart<span class="text-secondary-500">Gyan</span></span></a>
-      </div>
-      <nav class="hidden lg:flex space-x-8 items-center">
-        <a href="/betasmartgyan" class="hover:text-secondary-400 transition font-medium">Home</a>
-        <a href="about.html" class="hover:text-secondary-400 transition font-medium">About Us</a>
-        <a href="courses.html" class="hover:text-secondary-400 transition font-medium">Courses</a>
-        <a href="courses.html" class="hover:text-secondary-400 transition font-medium">Fees</a>
-        <a href="#contact" class="hover:text-secondary-400 transition font-medium">Contact</a>
-        <a href="login.html"><button
-            class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-lg font-semibold transition ml-4 flex items-center">
-            <i class="fas fa-sign-in-alt mr-2"></i> Student Login
-          </button></a>
-      </nav>
-      <button id="mobileMenuButton" class="lg:hidden text-2xl">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="mobile-menu hidden lg:hidden bg-primary-800 absolute w-full left-0 px-4 pb-4 shadow-lg">
-      <div class="flex flex-col space-y-3 pt-2">
-        <a href="/betasmartgyan" class="hover:text-secondary-400 transition font-medium py-2">Home</a>
-        <a href="#about" class="hover:text-secondary-400 transition font-medium py-2">About Us</a>
-        <a href="#" class="hover:text-secondary-400 transition font-medium py-2">Courses</a>
-        <a href="courses.html" class="hover:text-secondary-400 transition font-medium py-2">Fees</a>
-        <a href="#contact" class="hover:text-secondary-400 transition font-medium py-2">Contact</a>
-        <a href="login.html"><button
-            class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-md font-semibold transition flex items-center justify-center">
-            <i class="fas fa-sign-in-alt mr-2"></i> Login
-          </button></a>
-      </div>
-    </div>
-  </header>
-
     <div class="container mx-auto px-4 py-8 max-w-4xl">
         <div class="bg-white rounded-lg shadow-md overflow-hidden p-6 mb-8">
             <!-- Breadcrumb -->
-            <!-- <div class="text-sm breadcrumbs mb-4">
+            <div class="text-sm breadcrumbs mb-4">
                 <ul>
                     <li><a href="#">Home</a></li> 
                     <li><a href="#">Online Admission</a></li>
                 </ul>
-            </div> -->
+            </div>
             
             <h1 class="text-3xl font-bold text-center text-blue-600 mb-2">Online Admission</h1>
             
@@ -290,8 +192,8 @@
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                         </div>
                         <div>
-                            <label for="photoName" class="block text-sm font-medium text-gray-700 mb-1">Document Number*</label>
-                            <input type="text" id="photoName" name="Documentno" required placeholder="e.g. Document No."
+                            <label for="photoName" class="block text-sm font-medium text-gray-700 mb-1">Photo Description*</label>
+                            <input type="text" id="photoName" name="photoName" required placeholder="e.g. Passport Photo"
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                             <p class="text-xs text-gray-500 mt-1">Note: You'll need to provide these documents later</p>
                         </div>
@@ -314,15 +216,10 @@
 
                 <!-- Submit Button -->
                 <div class="flex justify-center">
-                    <!-- Replace your existing submit button with this -->
-<button type="submit" id="submitBtn"
-class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300 flex items-center justify-center min-w-40">
-<span id="submitText">Submit Application</span>
-<svg id="submitSpinner" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-</svg>
-</button>
+                    <button type="submit" id="submitBtn"
+                        class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300">
+                        Submit Application
+                    </button>
                 </div>
             </form>
         </div>
@@ -363,178 +260,180 @@ class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md shadow-sm hover:b
             </div>
         </footer>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
-    <script src="firestore.js"></script>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script> -->
+    
     <script>
-    let courses = [];
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyDBrJ3w_fbYYQxD3DsJW0F10feyj_T0T5k",
+        authDomain: "thesmartgyan-2043c.firebaseapp.com",
+        databaseURL: "https://thesmartgyan-2043c-default-rtdb.firebaseio.com",
+        projectId: "thesmartgyan-2043c",
+        storageBucket: "thesmartgyan-2043c.firebasestorage.app",
+        messagingSenderId: "19351680227",
+        appId: "1:19351680227:web:cfe695444483e3dbde01d6",
+        measurementId: "G-MJZJ0TVJBZ"
+      };
     
-    async function loadCourses() {
-      try {
-        const response = await fetch('courseoverview.json');
-        const fetchedCourses = await response.json();
-        courses = fetchedCourses;
-        populateCourseDropdown(courses);
-      } catch (error) {
-        console.error('Error loading courses:', error);
-        const fallbackCourses = [
-          {
-            id: 'basic-html',
-            title: 'HTML & CSS Fundamentals',
-            originalPrice: 5000,
-            price: 3000,
-            installments: {
-              '3months': { monthlyPayment: 1100, totalPayment: 3300 },
-              '6months': { monthlyPayment: 600, totalPayment: 3600 }
+      // Initialize Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+      const database = firebase.database(app);
+    
+      let courses = [];
+    
+      async function loadCourses() {
+        try {
+          const response = await fetch('courseoverview.json');
+          const fetchedCourses = await response.json();
+          courses = fetchedCourses;
+          populateCourseDropdown(courses);
+        } catch (error) {
+          console.error('Error loading courses:', error);
+          const fallbackCourses = [
+            {
+              id: 'basic-html',
+              title: 'HTML & CSS Fundamentals',
+              originalPrice: 5000,
+              price: 3000,
+              installments: {
+                '3months': { monthlyPayment: 1100, totalPayment: 3300 },
+                '6months': { monthlyPayment: 600, totalPayment: 3600 }
+              }
             }
+          ];
+          courses = fallbackCourses;
+          populateCourseDropdown(courses);
+        }
+      }
+    
+      function populateCourseDropdown(courseList) {
+        const courseSelect = document.getElementById('course');
+        courseSelect.innerHTML = '<option value="">Select Course</option>';
+        courseList.forEach(course => {
+          const option = document.createElement('option');
+          option.value = course.id;
+          option.textContent = course.title;
+          courseSelect.appendChild(option);
+        });
+      }
+    
+      document.addEventListener('DOMContentLoaded', function() {
+        loadCourses();
+    
+        document.getElementById('state').addEventListener('change', function() {
+          const citySelect = document.getElementById('city');
+          citySelect.disabled = !this.value;
+          citySelect.innerHTML = '<option value="">Select city</option>';
+    
+          const cities = {
+            'Rajasthan': ['Jaipur', 'Udaipur', 'Jodhpur', 'Kota', 'Nadbai'],
+            'Delhi': ['New Delhi', 'South Delhi', 'North Delhi'],
+            'Uttar Pradesh': ['Lucknow', 'Agra', 'Varanasi'],
+            'Haryana': ['Gurgaon', 'Faridabad', 'Chandigarh']
+          };
+    
+          if (cities[this.value]) {
+            cities[this.value].forEach(city => {
+              const option = document.createElement('option');
+              option.value = city;
+              option.textContent = city;
+              citySelect.appendChild(option);
+            });
           }
-        ];
-        courses = fallbackCourses;
-        populateCourseDropdown(courses);
-      }
-    }
+        });
     
-    function populateCourseDropdown(courseList) {
-      const courseSelect = document.getElementById('course');
-      courseSelect.innerHTML = '<option value="">Select Course</option>';
-      courseList.forEach(course => {
-        const option = document.createElement('option');
-        option.value = course.id;
-        option.textContent = course.title;
-        courseSelect.appendChild(option);
-      });
-    }
+        document.getElementById('course').addEventListener('change', updateFeeDetails);
+        document.getElementById('duration').addEventListener('change', updateFeeDetails);
     
-    function updateFeeDetails() {
-      const courseId = document.getElementById('course').value;
-      const duration = document.getElementById('duration').value;
-      const feeDetails = document.getElementById('feeDetails');
+        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+          e.preventDefault();
     
-      if (!courseId) {
-        feeDetails.style.display = 'none';
-        return;
-      }
-    
-      const selectedCourse = courses.find(c => c.id === courseId);
-      if (!selectedCourse) {
-        feeDetails.style.display = 'none';
-        return;
-      }
-    
-      document.getElementById('originalPrice').textContent = `₹${selectedCourse.originalPrice.toLocaleString()}`;
-      document.getElementById('discountedPrice').textContent = `₹${selectedCourse.price.toLocaleString()}`;
-    
-      if (duration && duration !== 'full') {
-        const installment = selectedCourse.installments[duration];
-        if (installment) {
-          document.getElementById('paymentPlan').textContent = duration === '3months' ? '3 Months' : '6 Months';
-          document.getElementById('monthlyInstallment').textContent = `₹${installment.monthlyPayment.toLocaleString()}`;
-          document.getElementById('totalAmount').textContent = `₹${installment.totalPayment.toLocaleString()}`;
-        }
-      } else {
-        document.getElementById('paymentPlan').textContent = 'Full Payment';
-        document.getElementById('monthlyInstallment').textContent = '-';
-        document.getElementById('totalAmount').textContent = `₹${selectedCourse.price.toLocaleString()}`;
-      }
-    
-      feeDetails.style.display = 'block';
-    }
-    
-    document.addEventListener('DOMContentLoaded', function () {
-      loadCourses();
-    
-      // Populate cities when state changes
-      document.getElementById('state').addEventListener('change', function () {
-        const citySelect = document.getElementById('city');
-        const state = this.value;
-        citySelect.disabled = !state;
-        citySelect.innerHTML = '<option value="">Select city</option>';
-    
-        const citiesByState = {
-          'Rajasthan': ['Jaipur', 'Udaipur', 'Jodhpur', 'Kota', 'Nadbai'],
-          'Delhi': ['New Delhi', 'South Delhi', 'North Delhi'],
-          'Uttar Pradesh': ['Lucknow', 'Agra', 'Varanasi'],
-          'Haryana': ['Gurgaon', 'Faridabad', 'Chandigarh']
-        };
-    
-        if (citiesByState[state]) {
-          citiesByState[state].forEach(city => {
-            const option = document.createElement('option');
-            option.value = city;
-            option.textContent = city;
-            citySelect.appendChild(option);
-          });
-        }
-      });
-    
-      // Update fee details when course or duration changes
-      document.getElementById('course').addEventListener('change', updateFeeDetails);
-      document.getElementById('duration').addEventListener('change', updateFeeDetails);
-    
-      // Handle form submission
-     // Update your form submission handler to this:
-document.getElementById('admissionForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-
-    // Show loading state
-    const submitBtn = document.getElementById('submitBtn');
-    const submitText = document.getElementById('submitText');
-    const submitSpinner = document.getElementById('submitSpinner');
-    
-    submitBtn.disabled = true;
-    submitText.textContent = 'Please wait...';
-    submitSpinner.classList.remove('hidden');
-
-    try {
-
-        const selectedCourse = courses.find(c => c.id === document.getElementById('course').value);
-        const coursePrice = selectedCourse?.price; // Default amount if not found
-        const formData = {
-            fullName: document.getElementById('fullName').value,
-            fatherName: document.getElementById('fatherName').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            dob: document.getElementById('dob').value,
-            gender: document.getElementById('gender').value,
-            aadhaar: document.getElementById('aadhaar').value,
-            course: document.getElementById('course').value,
-            duration: document.getElementById('duration').value,
-            address: document.getElementById('address').value,
-            state: document.getElementById('state').value,
-            city: document.getElementById('city').value,
-            postOffice: document.getElementById('postOffice').value,
-            pinCode: document.getElementById('pinCode').value,
-            qualification: document.getElementById('qualification').value,
-            documentName: document.getElementById('documentName').value,
-            photoName: document.getElementById('photoName').value,
+          const formData = {
+            personalInfo: {
+              fullName: document.getElementById('fullName').value,
+              fatherName: document.getElementById('fatherName').value,
+              email: document.getElementById('email').value,
+              phone: document.getElementById('phone').value,
+              dob: document.getElementById('dob').value,
+              gender: document.getElementById('gender').value,
+              aadhaar: document.getElementById('aadhaar').value
+            },
+            courseInfo: {
+              course: document.getElementById('course').value,
+              courseTitle: document.getElementById('course').options[document.getElementById('course').selectedIndex].text,
+              duration: document.getElementById('duration').value,
+              originalPrice: document.getElementById('originalPrice').textContent,
+              discountedPrice: document.getElementById('discountedPrice').textContent,
+              paymentPlan: document.getElementById('paymentPlan').textContent,
+              monthlyInstallment: document.getElementById('monthlyInstallment').textContent,
+              totalAmount: document.getElementById('totalAmount').textContent
+            },
+            addressInfo: {
+              address: document.getElementById('address').value,
+              state: document.getElementById('state').value,
+              city: document.getElementById('city').value,
+              postOffice: document.getElementById('postOffice').value,
+              pinCode: document.getElementById('pinCode').value
+            },
+            educationInfo: {
+              qualification: document.getElementById('qualification').value,
+              documentName: document.getElementById('documentName').value,
+              photoName: document.getElementById('photoName').value
+            },
             terms: document.getElementById('terms').checked,
-            coursePrice: coursePrice, // Add course price to form data
             timestamp: new Date().toISOString()
-        };
-
-        // await submitAdmissionData(formData); // Make sure this returns a Promise
-        const docId = await submitAdmissionData(formData);
-        // Redirect after successful submission
-        console.log('Attempting redirect to:', `payment.html?id=${docId}&amount=${coursePrice}`);
-        window.location.href = `Payment.html?amount=${coursePrice}`;
-
-        // Show success message or redirect
-        // alert('Form submitted successfully!');
-        // Optionally reset the form
-        // this.reset();
-        
-    } catch (error) {
-        console.error('Error submitting form:', error);
-        alert('There was an error submitting the form. Please try again.');
-    } finally {
-        // Reset button state
-        submitBtn.disabled = false;
-        submitText.textContent = 'Submit Application';
-        submitSpinner.classList.add('hidden');
-    }
-});
-    });
-    </script>
+          };
     
+          // Push data to Firebase
+          const applicationsRef = database.ref('applications');
+          applicationsRef.push(formData)
+            .then(() => {
+              alert('Admission form submitted successfully!');
+              document.getElementById('admissionForm').reset();
+            })
+            .catch((error) => {
+              console.error('Error submitting form:', error);
+              alert('There was an error submitting your form. Please try again.');
+            });
+        });
+      });
+    
+      function updateFeeDetails() {
+        const courseId = document.getElementById('course').value;
+        const duration = document.getElementById('duration').value;
+        const feeDetails = document.getElementById('feeDetails');
+    
+        if (!courseId) {
+          feeDetails.style.display = 'none';
+          return;
+        }
+    
+        const selectedCourse = courses.find(c => c.id === courseId);
+        if (!selectedCourse) {
+          feeDetails.style.display = 'none';
+          return;
+        }
+    
+        document.getElementById('originalPrice').textContent = `₹${selectedCourse.originalPrice.toLocaleString()}`;
+        document.getElementById('discountedPrice').textContent = `₹${selectedCourse.price.toLocaleString()}`;
+    
+        if (duration && duration !== 'full') {
+          const installment = selectedCourse.installments[duration];
+          if (installment) {
+            document.getElementById('paymentPlan').textContent = duration === '3months' ? '3 Months' : '6 Months';
+            document.getElementById('monthlyInstallment').textContent = `₹${installment.monthlyPayment.toLocaleString()}`;
+            document.getElementById('totalAmount').textContent = `₹${installment.totalPayment.toLocaleString()}`;
+          }
+        } else {
+          document.getElementById('paymentPlan').textContent = 'Full Payment';
+          document.getElementById('monthlyInstallment').textContent = '-';
+          document.getElementById('totalAmount').textContent = `₹${selectedCourse.price.toLocaleString()}`;
+        }
+    
+        feeDetails.style.display = 'block';
+      }
+    </script>
 </body>
 </html>
