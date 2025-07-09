@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Gyan - Digital Skills Training Institute | Student Portal</title>
+    <link rel="icon" type="image/png" href="fabicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ["Poppins", "sans-serif"],
+                    },
+                    colors: {
+                        primary: {
+                            DEFAULT: "#2563eb",
+                            50: "#eff6ff",
+                            100: "#dbeafe",
+                            200: "#bfdbfe",
+                            300: "#93c5fd",
+                            400: "#60a5fa",
+                            500: "#3b82f6",
+                            600: "#2563eb",
+                            700: "#1d4ed8",
+                            800: "#1e40af",
+                            900: "#1e3a8a",
+                        },
+                        secondary: {
+                            DEFAULT: "#f59e0b",
+                            50: "#fffbeb",
+                            100: "#fef3c7",
+                            200: "#fde68a",
+                            300: "#fcd34d",
+                            400: "#fbbf24",
+                            500: "#f59e0b",
+                            600: "#d97706",
+                            700: "#b45309",
+                            800: "#92400e",
+                            900: "#78350f",
+                        },
+                        accent: {
+                            DEFAULT: "#10b981",
+                            50: "#ecfdf5",
+                            100: "#d1fae5",
+                            200: "#a7f3d0",
+                            300: "#6ee7b7",
+                            400: "#34d399",
+                            500: "#10b981",
+                            600: "#059669",
+                            700: "#047857",
+                            800: "#065f46",
+                            900: "#064e3b",
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .hero-slide {
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slide::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg,
+                    rgba(0, 0, 0, 0.7) 0%,
+                    rgba(0, 0, 0, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: white;
+            opacity: 0.5;
+            transition: all 0.3s;
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: #f59e0b;
+            transform: scale(1.2);
+        }
+
+        .course-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Add this to your existing style section */
+        .dropdown-enter {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        .dropdown-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-exit {
+            opacity: 1;
+        }
+
+        .dropdown-exit-active {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+        }
+    </style>
+
+</head>
+
+<body class="bg-gray-50 font-sans">
+
+
+    <!-- Include Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+    <!-- Dashboard -->
+    <div id="dashboard-page" class="hidden min-h-screen bg-gray-50">
+       
+       
+        <header class="bg-white shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <!-- Logo - same size for both mobile and desktop -->
+                    <div class="flex-shrink-0">
+                        <a href="/">
+                            <img src="logo.jpeg" alt="Logo" 
+                                 class="w-14 h-14 rounded-lg object-cover">
+                        </a>
+                    </div>
+                    
+                    <!-- Text content - different for mobile and desktop -->
+                    <div class="flex flex-col">
+                        <!-- Main heading - smaller on mobile -->
+                        <!-- <span class="text-lg md:text-2xl font-bold leading-tight">
+                            Smart <span class="text-secondary-500">Gyan</span> 
+                            <span class="hidden md:inline">Training Institute</span>
+                            <span class="md:hidden">Inst.</span>
+                        </span>
+                        
+                       Subheading - hidden on mobile 
+                        <div class="hidden md:block">
+                            <span class="text-[10px] text-black font-medium uppercase tracking-wider">
+                               Registered under Ministry of corporate Affairs
+                            </span>
+                            <span class="text-[10px] text-black font-medium uppercase tracking-wider">
+                                Aviation | Hospitality | Skill Development
+                            </span>
+                        </div> -->
+
+                        <div class="flex flex-col">
+                            <!-- Main heading - larger on lg screens, smaller on mobile -->
+                            <span class="text-xl md:text-2xl font-bold leading-tight">
+                                Smart <span class="text-secondary-500"> Gyan </span>
+                                <span class="hidden md:inline">Training Institute</span>
+                            <span class="md:hidden">Inst.</span>
+                            </span>
+                            
+                            <!-- Subheading - smaller text on mobile -->
+                            <span class="text-[8px] hidden md:block  md:text-[10px] text-black font-medium uppercase tracking-wider">
+                               Registered under Ministry of corporate Affairs
+                            </span>
+                            <span class="text-[8px] hidden md:block md:text-[10px] text-black font-medium uppercase tracking-wider">
+                                Aviation | Hospitality | Skill Development
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Avatar section - slightly adjusted for mobile -->
+                <div class="flex items-center space-x-2 md:space-x-4">
+                    <p id="student-name" class="text-xs md:text-sm font-medium text-gray-700 whitespace-nowrap overflow-hidden max-w-[100px] md:max-w-none">Loading...</p>
+                    <div class="relative">
+                        <button id="avatar-dropdown-btn" class="flex items-center space-x-1 md:space-x-2 focus:outline-none">
+                            <img src="https://cdn3.iconfinder.com/data/icons/web-design-and-development-2-6/512/87-1024.png"
+                                class="h-7 w-7 md:h-8 md:w-8 rounded-full" />
+                            <i class="fas fa-chevron-down text-gray-500 text-xs"></i>
+                        </button>
+        
+                        <!-- Dropdown menu -->
+                        <div id="avatar-dropdown"
+                            class="hidden absolute right-0 mt-2 w-40 md:w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a id="view-id-card" href="#"
+                                class="block px-3 md:px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-id-card mr-2"></i> View ID Card
+                            </a>
+                            <button onclick="handleLogout()"
+                                class="block w-full text-left px-3 md:px-4 py-2 text-xs md:text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+    <main class="max-w-7xl mx-auto p-6">
+        <h2 class="text-2xl font-bold mb-4">Welcome to Your Courses</h2>
+        <div id="course-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+        <!-- Updated Course Detail View -->
+        <div id="course-detail" class="hidden mt-6">
+            <div class="mb-4">
+                <button onclick="closeCourseDetail()"
+                    class="flex items-center text-indigo-600 hover:text-indigo-800 font-medium">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Back to courses
+                </button>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-indigo-600 text-white p-4">
+                    <h3 id="course-title" class="text-2xl font-bold"></h3>
+                </div>
+
+                <div class="flex flex-col lg:flex-row min-h-[600px]">
+                    <!-- Left Side - Video Player and Chapter Info -->
+                    <div class="lg:w-2/3 p-6">
+                        <div class="space-y-4">
+                            <!-- Video Container -->
+                            <div class="bg-black rounded-lg overflow-hidden">
+                                <iframe id="current-video" class="w-full h-64 md:h-80 lg:h-96" src="" frameborder="0"
+                                    allowfullscreen></iframe>
+                            </div>
+
+                            <!-- Chapter Title and Description -->
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 id="current-chapter-title" class="text-xl font-bold text-gray-800 mb-2">Select a
+                                    chapter to start learning</h4>
+                                <p id="current-chapter-description" class="text-gray-600 leading-relaxed">Choose a
+                                    chapter from the list on the right to begin watching the video content.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - Chapter List -->
+                    <div class="lg:w-1/3 bg-gray-50 border-l border-gray-200 flex flex-col">
+                        <div class="p-4 border-b border-gray-200 bg-gray-100">
+                            <h4 class="font-semibold text-gray-800">Course Chapters</h4>
+                        </div>
+                        <div class="p-4 flex-grow">
+                            <ul id="chapter-list" class="space-y-2"></ul>
+                        </div>
+
+                        <!-- Additional Resources Buttons -->
+                        <div class="p-4 border-t border-gray-200 bg-gray-50 space-y-3">
+                            <button
+                                class="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors">
+                                <div class="flex items-center">
+                                    <div class="p-2 bg-blue-100 rounded-lg mr-3">
+                                        <i class="fas fa-book text-blue-600"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-700">Ebook</span>
+                                </div>
+                                <i class="fas fa-chevron-right text-gray-400"></i>
+                            </button>
+
+                            <button
+                                class="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors">
+                                <div class="flex items-center">
+                                    <div class="p-2 bg-green-100 rounded-lg mr-3">
+                                        <i class="fas fa-file-alt text-green-600"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-700">Interview Notes</span>
+                                </div>
+                                <i class="fas fa-chevron-right text-gray-400"></i>
+                            </button>
+
+                            <button
+                                class="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors">
+                                <div class="flex items-center">
+                                    <div class="p-2 bg-purple-100 rounded-lg mr-3">
+                                        <i class="fas fa-clipboard-check text-purple-600"></i>
+                                    </div>
+                                    <span class="font-medium text-gray-700">Tests</span>
+                                </div>
+                                <i class="fas fa-chevron-right text-gray-400"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Firebase initialization and configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDBrJ3w_fbYYQxD3DsJW0F10feyj_T0T5k",
+            authDomain: "thesmartgyan-2043c.firebaseapp.com",
+            projectId: "thesmartgyan-2043c",
+            storageBucket: "thesmartgyan-2043c.firebasestorage.app",
+            messagingSenderId: "19351680227",
+            appId: "1:19351680227:web:cfe695444483e3dbde01d6",
+            measurementId: "G-MJZJ0TVJBZ"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        // Global variables
+        let currentCourse = null;
+        let currentChapterIndex = 0;
+
+        // Login function
+        window.handleLogin = async function () {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorEl = document.getElementById('error-message');
+
+            try {
+                const userCredential = await auth.signInWithEmailAndPassword(email, password);
+                const uid = userCredential.user.uid;
+                fetchUserCourseData(uid);
+                document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('dashboard-page').classList.remove('hidden');
+            } catch (error) {
+                errorEl.textContent = error.message;
+                errorEl.classList.remove('hidden');
+            }
+        }
+
+        // Logout function
+        window.handleLogout = function () {
+            auth.signOut().then(() => {
+                currentCourse = null;
+                currentChapterIndex = 0;
+                localStorage.clear();
+                document.getElementById('avatar-dropdown').classList.add('hidden');
+                // document.getElementById('dashboard-page').classList.add('hidden');
+                // document.getElementById('login-page').classList.remove('hidden');
+                window.location.href = '/';  // Navigate to root URL
+            }).catch((error) => {
+                console.error('Logout error:', error);
+            });
+        }
+        // Fetch user course data
+        function fetchUserCourseData(uid) {
+            db.collection("Users").doc(uid).get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        const data = doc.data();
+                        window.userCourseData = data;
+                        console.log("User course data fetched:", data);
+                        localStorage.setItem("userCourseData", JSON.stringify(data));
+                        document.getElementById("student-name").textContent = data.name || "Student";
+                        loadCourses();
+                    }
+                });
+        }
+
+        // Get allowed parts by course
+        function getAllowedPartsByCourse() {
+            const userData = JSON.parse(localStorage.getItem("userCourseData") || "{}");
+            const accessEntries = (userData.Course || "").split(',').map(e => e.trim());
+
+            const accessMap = {};
+
+            accessEntries.forEach(entry => {
+                const match = entry.match(/^(.+?)\((.+?)\)$/);
+                if (match) {
+                    const courseId = match[1];
+                    const part = match[2];
+                    if (!accessMap[courseId]) {
+                        accessMap[courseId] = [];
+                    }
+                    accessMap[courseId].push(part);
+                }
+            });
+
+            return accessMap;
+        }
+
+        // Load courses
+        async function loadCourses() {
+            try {
+                let courses;
+                try {
+                    const res = await fetch('courses.json');
+                    courses = await res.json();
+                } catch {
+                    courses = [];
+                }
+
+                const accessMap = getAllowedPartsByCourse();
+                const allowedCourseIds = Object.keys(accessMap);
+
+                const container = document.getElementById('course-container');
+                container.innerHTML = '';
+
+                courses
+                    .filter(course => allowedCourseIds.includes(course.courseId))
+                    .forEach(course => {
+                        const totalChapters = course.parts
+                            ? Object.entries(course.parts)
+                                .filter(([partKey]) => accessMap[course.courseId].includes(partKey))
+                                .map(([_, chapters]) => chapters.length)
+                                .reduce((a, b) => a + b, 0)
+                            : 0;
+
+                        const div = document.createElement('div');
+                        div.className = 'bg-white shadow-md rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow duration-300';
+                        div.innerHTML = `
+                            <img src="${course.banner}" class="w-full h-48 object-cover" />
+                            <div class="p-4">
+                                <h4 class="text-lg font-semibold text-gray-800">${course.name}</h4>
+                                <p class="text-sm text-gray-600 mt-1">${totalChapters} Chapters</p>
+                                <div class="mt-3">
+                                    <span class="inline-block bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-full">
+                                        <i class="fas fa-play mr-1"></i>
+                                        Start Learning
+                                    </span>
+                                </div>
+                            </div>
+                        `;
+                        div.addEventListener('click', () => showCourseDetail(course, accessMap[course.courseId]));
+                        container.appendChild(div);
+                    });
+
+            } catch (err) {
+                console.error("Failed to load courses", err);
+            }
+        }
+
+        function showCourseDetail(course, allowedParts = []) {
+            currentCourse = course;
+            currentChapterIndex = 0;
+
+            // Hide course list and show detail view
+            document.getElementById('course-container').classList.add('hidden');
+            document.getElementById('course-detail').classList.remove('hidden');
+            document.getElementById('course-title').textContent = course.name;
+
+            const list = document.getElementById('chapter-list');
+            list.innerHTML = '';
+
+            // Check if course uses "parts" structure
+            const isParted = course.parts !== undefined;
+
+            // Flatten chapters if course uses parts
+            const chapters = isParted
+                ? Object.entries(course.parts).flatMap(([partKey, partChapters]) =>
+                    partChapters.map(ch => ({ ...ch, part: partKey }))
+                )
+                : course.chapters.map(ch => ({ ...ch, part: "A" }));
+
+            course.chapters = chapters;
+
+            // Create chapter list items
+            chapters.forEach((chapter, idx) => {
+                const isAllowed = allowedParts.includes(chapter.part);
+
+                const item = document.createElement('li');
+                item.className = `p-3 rounded-lg transition-colors duration-200 ${idx === currentChapterIndex && isAllowed
+                        ? 'bg-indigo-100 border-l-4 border-indigo-500'
+                        : 'hover:bg-gray-100'
+                    } ${!isAllowed ? 'opacity-75 cursor-not-allowed bg-gray-50' : 'cursor-pointer'
+                    }`;
+
+                item.innerHTML = `
+            <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                    <span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-medium ${idx === currentChapterIndex && isAllowed
+                        ? 'bg-indigo-500 text-white'
+                        : isAllowed
+                            ? 'bg-gray-300 text-gray-700'
+                            : 'bg-gray-200 text-gray-500'
+                    }">
+                        ${isAllowed ? idx + 1 : '<i class="fas fa-lock"></i>'}
+                    </span>
+                </div>
+                <div class="ml-3 flex-1">
+                    <div class="flex justify-between items-start">
+                        <h5 class="font-medium ${isAllowed ? 'text-gray-800' : 'text-gray-500'
+                    } text-sm">${chapter.title}</h5>
+                        ${!isAllowed ? '<span class="text-xs text-gray-400"><i class="fas fa-lock mr-1"></i>Locked</span>' : ''
+                    }
+                    </div>
+                    <p class="text-xs ${isAllowed ? 'text-gray-500' : 'text-gray-400'
+                    } mt-1 line-clamp-2">${chapter.description}</p>
+                    <span class="text-xs mt-1 inline-block px-2 py-0.5 rounded-full ${isAllowed ? 'bg-gray-200 text-gray-600' : 'bg-gray-100 text-gray-400'
+                    }">Part ${chapter.part}</span>
+                </div>
+            </div>`;
+
+                if (isAllowed) {
+                    item.addEventListener('click', () => selectChapter(idx));
+                } else {
+                    item.addEventListener('click', () => {
+                        alert('This chapter is locked. Please upgrade your access to view this content.');
+                    });
+                }
+
+                list.appendChild(item);
+            });
+
+            // Create resource buttons HTML
+            const resourceButtons = `
+        <div class="p-4 border-t border-gray-200 bg-gray-50 space-y-3">
+            <button onclick="handleResourceClick('${course.resources?.ebook || ''}', 'ebook')" 
+                    class="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors ${!course.resources?.ebook ? 'opacity-50 cursor-not-allowed' : ''
+                }">
+                <div class="flex items-center">
+                    <div class="p-2 bg-blue-100 rounded-lg mr-3">
+                        <i class="fas fa-book text-blue-600"></i>
+                    </div>
+                    <span class="font-medium ${!course.resources?.ebook ? 'text-gray-400' : 'text-gray-700'
+                }">Ebook</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400"></i>
+            </button>
+            
+            <button onclick="handleResourceClick('${course.resources?.interviewNotes || ''}', 'interview notes')" 
+                    class="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors ${!course.resources?.interviewNotes ? 'opacity-50 cursor-not-allowed' : ''
+                }">
+                <div class="flex items-center">
+                    <div class="p-2 bg-green-100 rounded-lg mr-3">
+                        <i class="fas fa-file-alt text-green-600"></i>
+                    </div>
+                    <span class="font-medium ${!course.resources?.interviewNotes ? 'text-gray-400' : 'text-gray-700'
+                }">Interview Notes</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400"></i>
+            </button>
+            
+            <button onclick="handleResourceClick('${course.resources?.tests || ''}', 'tests')" 
+                    class="w-full flex items-center justify-between px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-50 transition-colors ${!course.resources?.tests ? 'opacity-50 cursor-not-allowed' : ''
+                }">
+                <div class="flex items-center">
+                    <div class="p-2 bg-purple-100 rounded-lg mr-3">
+                        <i class="fas fa-clipboard-check text-purple-600"></i>
+                    </div>
+                    <span class="font-medium ${!course.resources?.tests ? 'text-gray-400' : 'text-gray-700'
+                }">Tests</span>
+                </div>
+                <i class="fas fa-chevron-right text-gray-400"></i>
+            </button>
+        </div>
+    `;
+
+            // Add or update resource buttons
+            const sidebar = document.querySelector('.lg\\:w-1\\/3');
+            const existingButtons = sidebar.querySelector('.space-y-3');
+            if (existingButtons) {
+                existingButtons.remove();
+            }
+            sidebar.insertAdjacentHTML('beforeend', resourceButtons);
+
+            // Default to first allowed chapter
+            const firstAllowedIndex = chapters.findIndex(ch => allowedParts.includes(ch.part));
+            if (firstAllowedIndex !== -1) {
+                selectChapter(firstAllowedIndex);
+            } else {
+                document.getElementById('current-chapter-title').textContent = `Access Restricted`;
+                document.getElementById('current-chapter-description').textContent = `You do not have access to any chapter in this course.`;
+                document.getElementById('current-video').src = '';
+            }
+        }
+
+        // Add this new function to handle resource clicks
+        window.handleResourceClick = function (url, resourceType) {
+            if (!url) {
+                alert(`${resourceType} is not available for this course.`);
+                return;
+            }
+
+            // Optional: Track resource access in your analytics
+            console.log(`User accessed ${resourceType} for course ${currentCourse?.name}`);
+
+            // Open in new tab
+            window.open(url, '_blank');
+        };
+        // Select chapter
+        function selectChapter(index) {
+            if (!currentCourse || !currentCourse.chapters[index]) return;
+
+            currentChapterIndex = index;
+            const chapter = currentCourse.chapters[index];
+
+            // Update video
+            document.getElementById('current-video').src = chapter.video;
+
+            // Update chapter info
+            document.getElementById('current-chapter-title').textContent = `${index + 1}. ${chapter.title}`;
+            document.getElementById('current-chapter-description').textContent = chapter.description;
+
+            // Update chapter list styling
+            const list = document.getElementById('chapter-list');
+            Array.from(list.children).forEach((item, idx) => {
+                const span = item.querySelector('span');
+                if (idx === index) {
+                    item.className = 'p-3 rounded-lg cursor-pointer transition-colors duration-200 bg-indigo-100 border-l-4 border-indigo-500';
+                    span.className = 'inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-medium bg-indigo-500 text-white';
+                } else {
+                    item.className = 'p-3 rounded-lg cursor-pointer transition-colors duration-200 hover:bg-gray-100';
+                    span.className = 'inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-medium bg-gray-300 text-gray-700';
+                }
+            });
+        }
+
+        // Close course detail
+        function closeCourseDetail() {
+            document.getElementById('course-detail').classList.add('hidden');
+            document.getElementById('course-container').classList.remove('hidden');
+            document.getElementById('current-video').src = '';
+            currentCourse = null;
+            currentChapterIndex = 0;
+        }
+
+        // Add this to your existing script section, after the firebase initialization
+
+        // Toggle dropdown menu
+        document.getElementById('avatar-dropdown-btn').addEventListener('click', function (e) {
+            e.stopPropagation();
+            const dropdown = document.getElementById('avatar-dropdown');
+            dropdown.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function () {
+            const dropdown = document.getElementById('avatar-dropdown');
+            dropdown.classList.add('hidden');
+        });
+
+        // Handle ID card click
+        document.getElementById('view-id-card').addEventListener('click', function (e) {
+            e.preventDefault();
+            const userData = JSON.parse(localStorage.getItem("userCourseData") || "{}");
+            const idCardLink = userData.idcardLink;
+
+            if (idCardLink) {
+                window.open(idCardLink, '_blank');
+            } else {
+                alert('ID Card link not available for this user.');
+            }
+        });
+
+        // Auth state change listener
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('dashboard-page').classList.remove('hidden');
+                const uid = user.uid;
+                fetchUserCourseData(uid);
+                loadCourses();
+            } else {
+                // document.getElementById('login-page').classList.remove('hidden');
+                document.getElementById('dashboard-page').classList.add('hidden');
+            }
+        });
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,384 @@
+[
+  {
+    "id": "course1",
+    "title": "DIPLOMA IN COMPUTER COURSE",
+    "subtitle": "PROFESSIONAL CERTIFICATION PROGRAM",
+    "description": "Master essential computer skills for modern workplaces and daily life with our comprehensive diploma program.",
+    "duration": "3/6/9 MONTHS",
+    "qualifications": "10TH PASS OR EQUIVALENT",
+    "certification": "Government Recognized Diploma",
+    "highlights": [
+      "Hands-on practical training",
+      "Industry-relevant curriculum",
+      "Placement assistance"
+    ],
+    "price": 8000,
+    "originalPrice": 11350,
+    "image": "https://images.unsplash.com/photo-1731419223715-aec6664f9011?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 2667,
+        "totalPayment": 8000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 1333,
+        "totalPayment": 8000,
+        "processingFee": 0
+      }
+    },
+    "category": "Computer & IT",
+    "mode": "Online & Offline",
+    "language": "English/Hindi",
+    "syllabus": [
+      "Basic Computer Fundamentals",
+      "MS Office",
+      "Internet Applications",
+      "Tally Basics"
+    ],
+    "instructor": "Industry Expert Faculty"
+  },
+  {
+    "id": "course2",
+    "title": "DIPLOMA IN COMPUTER OFFICE MANAGEMENT",
+    "subtitle": "DCOM PROFESSIONAL COURSE",
+    "description": "Comprehensive training in office automation tools and management techniques for modern workplaces.",
+    "duration": "6 MONTHS",
+    "qualifications": "12TH PASS/ANY GRADUATION",
+    "certification": "NSDC Approved Certification",
+    "highlights": [
+      "Advanced office software training",
+      "Business communication skills",
+      "Document management"
+    ],
+    "price": 10000,
+    "originalPrice": 20000,
+    "image": "https://images.unsplash.com/photo-1622258416235-d0390821fc08?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 3333,
+        "totalPayment": 10000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 1667,
+        "totalPayment": 10000,
+        "processingFee": 0
+      }
+    },
+    "category": "Office Management",
+    "mode": "Hybrid",
+    "language": "English/Hindi",
+    "syllabus": [
+      "Advanced Excel",
+      "Business Correspondence",
+      "Office Procedures",
+      "Database Management"
+    ],
+    "instructor": "Certified Corporate Trainer"
+  },
+  {
+    "id": "course3",
+    "title": "CUSTOMER SERVICE ASSOCIATE IN AVIATION",
+    "subtitle": "CUSTOMER SERVICE ASSOCIATE IN AVIATION",
+    "description": "Professional training for customer service associate roles in the aviation industry with a focus on passenger handling, safety protocols, and effective communication skills.",
+    "duration": "3/6/ MONTHS",
+    "qualifications": "12TH PASS",
+    "certification": "Sector Skill Council Certified",
+    "highlights": [
+      "Familiarity with airline CRM and reservation systems (e.g., Amadeus, Galileo)"
+    ],
+    "price": 27000,
+    "originalPrice": 30000,
+    "image": "https://media.istockphoto.com/id/959527164/photo/man-holding-passport-and-boarding-pass-at-airline-check-in-counter.jpg?s=1024x1024&w=is&k=20&c=j2EY-rIaeSNyib6SBE3gRHVk6LUfmt_oesqq9aztscY=",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 9000,
+        "totalPayment": 27000,
+        "processingFee": 0
+      },
+      "6months": {
+        "monthlyPayment": 12000,
+        "totalPayment": 45000,
+        "processingFee": 0
+      }
+    },
+    "category": "Aviation / Customer Support / Ground Staff Training",
+    "mode": "Online & Offline",
+    "language": "English/Hindi/Regional",
+    "syllabus": [
+      "Introduction to Aviation Industry",
+      "Customer Service Excellence",
+      "Communication Skills"
+    ],
+    "instructor": "Certified Corporate Trainer"
+  },
+  {
+    "id": "course4",
+    "title": "BASIC DIPLOMA IN AIRPORT MANGEMNET",
+    "subtitle": "Kickstart Your Career in Airport Operations",
+    "description": "Learn the foundational skills needed to work in airport and aviation operations",
+    "duration": "3 MONTHS",
+    "qualifications": "10TH PASS OR EQUIVALENT",
+    "certification": "Diploma in Airport Management\nRecognized by Smart Gyan Training Institute\nAffiliated with the Government of India",
+    "highlights": [
+      "Passenger Handling & Customer Service Skills",
+      "Introduction to the Aviation & Airport Industry"
+    ],
+    "price": 30000,
+    "originalPrice": 40000,
+    "image": "https://media.istockphoto.com/id/1385693691/photo/airport-service-crew-in-front-of-airplane-checking-list.webp?s=2048x2048&w=is&k=20&c=C6ifsWY3Trm25ajGZBGfZz_dmNrvIfCepjrY03Y3_PU=",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 10000,
+        "totalPayment": 30000,
+        "processingFee": null
+      }
+    },
+    "category": "Aviation & Airport Operations",
+    "mode": "Online & Offline",
+    "language": "English/Hindi/Regional",
+    "syllabus": [
+      "Introduction to Aviation & Airports",
+      "Airport Ground Handling",
+      "Baggage Handling"
+    ],
+    "instructor": "Aviation Experts & Ground Staff Trainers With airport industry background and certified qualifications"
+  },
+  {
+    "id": "course5",
+    "title": "CERTIFICATE IN TOUR & TRAVEL MANAGEMENT",
+    "subtitle": "Become a Travel Expert: Master the Skills of Tourism & Travel Operations",
+    "description": "This course provides a practical foundation in the travel and tourism industry. Learn how to plan itineraries, book travel, handle customers, and understand global tourism trends. Perfect for students and aspiring travel agents.",
+    "duration": "3 MONTHS",
+    "qualifications": "12TH PASS/ANY GRADUATION",
+    "certification": "Certificate in Tour & Travel Management\nRecognized by Smart Gyan Training Institute,\nAffiliated with the Government of India",
+    "highlights": [
+      "Introduction to the Tourism & Travel Industry",
+      "Hotel Booking & Reservation Systems",
+      "Visa, Passport, and Travel Documentation"
+    ],
+    "price": 27000,
+    "originalPrice": 30000,
+    "image": "https://media.istockphoto.com/id/1392494719/photo/woman-with-pink-suitcase-and-passport-with-boarding-pass-standing-on-passengers-ladder-of.jpg?s=2048x2048&w=is&k=20&c=xC5TkWRzwNr1-e5PWlJtGLlrHMnHsItWXPIpRcPdfMs=",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 9000,
+        "totalPayment": 27000,
+        "processingFee": null
+      }
+    },
+    "category": "Travel & Tourism",
+    "mode": "Online & Offline",
+    "language": "English/Hindi/Regional",
+    "syllabus": [
+      "Introduction to Travel & Tourism Industry",
+      "Air/Rail/Bus Ticket Booking Basics"
+    ],
+    "instructor": "Certified Travel Professionals from Industry\nWith real-world experience in travel agencies & tour operations"
+  },
+  {
+    "id": "course6",
+    "title": "Certificate in Aviation, Hospitality & Travel Management",
+    "subtitle": "Professional Training for Careers in Aviation, Travel & Hospitality Industry",
+    "description": "This course provides a comprehensive introduction to the aviation, hospitality, and travel sectors, preparing students for a successful career in customer service, airport operations, airline management, travel agencies, and hospitality services. It combines practical knowledge with soft skills training, grooming, and communication skills.",
+    "duration": "4 MONTHS",
+    "qualifications": "10+2 (Higher Secondary)",
+    "certification": "Certificate of Completion from the training institute (may be affiliated with MCA, ISO, or Skill India)",
+    "highlights": [
+      "Grooming & Personality Development",
+      "Hospitality Etiquette & Front Office Handling",
+      "In-flight Services & Safety Procedures"
+    ],
+    "price": 24000,
+    "originalPrice": 30000,
+    "image": "https://media.istockphoto.com/id/639179840/photo/businesswoman-thinking-looking-up-with-aeroplane-in-airport.jpg?s=2048x2048&w=is&k=20&c=-jNgFNakYHGzyS05Hu_178LivHyWdcw0EgJMdJaWj1c=",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 8000,
+        "totalPayment": 24000,
+        "processingFee": null
+      }
+    },
+    "category": "Vocational",
+    "mode": "Online & Offline",
+    "language": "English/Hindi/Regional",
+    "syllabus": [
+      "Introduction to Aviation Industry",
+      "Soft Skills & Communication",
+      "Hospitality Management Basics"
+    ],
+    "instructor": "Industry-experienced trainers, ex-cabin crew members, hospitality professionals, and certified travel consultants"
+  },
+  {
+    "id": "course7",
+    "title": "Basic Certificate in Hotel Management",
+    "subtitle": "Foundational Training for Entry-Level Roles in the Hotel and Hospitality Industry",
+    "description": "This course is designed to provide students with fundamental knowledge and practical skills in hotel operations. It covers essential areas such as front office, housekeeping, food & beverage services, and customer interaction. Ideal for beginners seeking entry-level roles or further studies in hospitality.",
+    "duration": "3 MONTHS",
+    "qualifications": "10+2 (Higher Secondary)",
+    "certification": "Basic Certificate in Hotel Management from the training institute (some may offer NSDC or Tourism & Hospitality Skill Council affiliation)",
+    "highlights": [
+      "Introduction to Hotel Industry",
+      "Front Office & Reception Training",
+      "Food & Beverage Service Basics",
+      "Housekeeping Operations"
+    ],
+    "price": 24000,
+    "originalPrice": 30000,
+    "image": "https://media.istockphoto.com/id/2093530578/photo/happy-receptionists-cooperating-while-working-on-a-computer-at-hotel-front-desk.jpg?s=2048x2048&w=is&k=20&c=SOCqC3IUPRW9KYhs8dcK9u_cnG4V2gdpp5QvbsmRW2Q=",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 8000,
+        "totalPayment": 24000,
+        "processingFee": null
+      }
+    },
+    "category": "Vocational / Hospitality & Tourism",
+    "mode": "Online & Offline",
+    "language": "English/Hindi/Regional",
+    "syllabus": [
+      "Overview of Hotel Industry",
+      "Roles in Front Office Operations",
+      "Basics of Housekeeping"
+    ],
+    "instructor": "Experienced hospitality trainers, hotel professionals, and industry experts with practical knowledge"
+  },
+  {
+    "id": "course8",
+    "title": "Certificate Course in Hotel Operations",
+    "subtitle": "Comprehensive Training in Hotel Departments: Front Office, Housekeeping, F&B, and Guest Services",
+    "description": "This course equips students with the practical and theoretical knowledge required to work in various departments of a hotel, including front office, housekeeping, food and beverage services, and guest relations. It is ideal for beginners seeking a professional entry into the hospitality industry.",
+    "duration": "6 MONTHS",
+    "qualifications": "10+2 (Some accept 10th pass)",
+    "certification": "Certificate in Hotel Operations from the institute Smart gyan Training Institute",
+    "highlights": [
+      "Hotel Department Overview (Front Office, Housekeeping, F&B)",
+      "Room Cleaning & Linen Management",
+      "Soft Skills, Communication & English Training"
+    ],
+    "price": null,
+    "originalPrice": null,
+    "image": "https://media.istockphoto.com/id/1500494065/photo/front-desk-staff-hands-out-access-card.jpg?s=2048x2048&w=is&k=20&c=AzLjPtzxWzQWR2mWstAooIymTxmHIrejbjtG2HHex-o=",
+    "isPopular": true,
+    "installments": {
+      "6months": {
+        "monthlyPayment": 5000,
+        "totalPayment": 30000,
+        "processingFee": null
+      }
+    },
+    "category": "Vocational / Hospitality & Tourism Management",
+    "mode": "Online & Offline",
+    "language": "English/Hindi/Regional",
+    "syllabus": [
+      "Introduction to Hospitality & Hotel Industry",
+      "Front Office Operations",
+      "Internship or Practical Training"
+    ],
+    "instructor": "Trained hospitality professionals, ex-hotel managers, certified hospitality trainers"
+  },
+  {
+    "id": "course9",
+    "title": "Basic Hotel Front Office & Guest Service Training",
+    "subtitle": "Entry-Level Training for Front Office Operations & Guest Relations in the Hotel Industry",
+    "description": "This short-term certificate course is designed to train students in the basics of hotel front office operations, including handling guest check-ins and check-outs, reservations, concierge services, and professional guest interaction. It builds confidence, communication, grooming, and hospitality etiquette needed for customer-facing roles in hotels.",
+    "duration": "4 MONTHS",
+    "qualifications": "10th or 12th pass",
+    "certification": "Certificate in Hotel Front Office & Guest Services",
+    "highlights": [
+      "Hotel Front Office Functions & Software",
+      "Guest Check-in / Check-out Process",
+      "Reservation Management",
+      "Grooming & Body Language"
+    ],
+    "price": null,
+    "originalPrice": null,
+    "image": "https://media.istockphoto.com/id/459476437/photo/front-desk-colleagues-posing-for-a-picture.jpg?s=2048x2048&w=is&k=20&c=L8VCnrBWPLi6IbsHmkT5IXxUctrcI9y-Zn_fvSrYdVI=",
+    "isPopular": true,
+    "installments": {},
+    "category": "Vocational / Hospitality & Tourism Management",
+    "mode": "Online & Offline",
+    "language": "English/Hindi/Regional",
+    "syllabus": [
+      "Introduction to Front Office Department",
+      "Duties of Receptionist & Front Desk Officer"
+    ],
+    "instructor": "Hospitality trainers, ex-hotel staff (Front Office Managers, Guest Relations Executives), soft skills coaches"
+  },
+  {
+    "id": "course10",
+    "title": "Certificate in Front Office Operations",
+    "subtitle": "Professional Training for Hotel Front Desk & Reception Services",
+    "description": "This course provides in-depth training in front office operations including guest handling, reservations, check-in/check-out, billing, and customer service. It prepares students for roles like receptionist, front desk executive, and guest service associate in hotels, resorts, and other hospitality setups.",
+    "duration": "3 MONTHS",
+    "qualifications": "10th or 10+2 pass",
+    "certification": "Certificate in Front Office Operations",
+    "highlights": [
+      "Introduction to Front Office Functions",
+      "Reservation Procedures & Systems",
+      "Billing, Night Audit & POS Systems"
+    ],
+    "price": 20000,
+    "originalPrice": 25000,
+    "image": "https://media.istockphoto.com/id/468512176/photo/shes-made-it.jpg?s=2048x2048&w=is&k=20&c=WpcW0KE_WQ692V_QhecsPZbjt-_vRpVpvPPZzPNvvCA=",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 7000,
+        "totalPayment": 21000,
+        "processingFee": null
+      }
+    },
+    "category": "Vocational / Hospitality & Tourism Management",
+    "mode": "Online & Offline",
+    "language": "English/Hindi/Regional",
+    "syllabus": [
+      "Basics of Hotel Industry",
+      "Front Office Terminology & Structure",
+      "Guest Handling Process"
+    ],
+    "instructor": "Trainers with hospitality background — typically ex-hotel staff (Front Office Managers, Guest Relation Officers), grooming coaches, communication experts"
+  },
+  {
+    "id": "course11",
+    "title": "Food & Beverage Service Training",
+    "subtitle": "Comprehensive Training in F&B Service, Restaurant Operations & Customer Service Skills",
+    "description": "This course is designed to provide practical knowledge and skills for working in food and beverage service roles within hotels, restaurants, cafes, and bars. It includes training in food and drink preparation, serving, guest interaction, restaurant etiquette, and managing customer expectations.",
+    "duration": "3 MONTHS",
+    "qualifications": "10th or 10+2 pass",
+    "certification": "Certificate in Food & Beverage Service",
+    "highlights": [
+      "Introduction to Food & Beverage Industry",
+      "Types of Food & Beverages (Menu Knowledge)",
+      "Restaurant & Bar Service Techniques"
+    ],
+    "price": 20000,
+    "originalPrice": 25000,
+    "image": "https://media.istockphoto.com/id/923810412/photo/making-bruschetta-at-a-cooking-class.jpg?s=2048x2048&w=is&k=20&c=cRPWSCpsu0VQQF3FtAD_RiHC65U92Hz6AbJcLCR7AQw=",
+    "isPopular": true,
+    "installments": {
+      "3months": {
+        "monthlyPayment": 7000,
+        "totalPayment": 21000,
+        "processingFee": null
+      }
+    },
+    "category": "Vocational / Hospitality & Tourism Management",
+    "mode": "Online & Offline",
+    "language": "English/Hindi/Regional",
+    "syllabus": [
+      "Overview of Restaurant Operations",
+      "Service Standards & Techniques (Silver Service, A la Carte, etc.)",
+      "Beverage & Wine Knowledge (Bar & Cocktails)"
+    ],
+    "instructor": "Experienced chefs, restaurant managers, F&B trainers, and certified hospitality professionals"
+  }
+]

@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Gyan - Digital Skills Training Institute</title>
+    <link rel="icon" type="image/png" href="fabicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            colors: {
+              primary: {
+                DEFAULT: "#2563eb",
+                50: "#eff6ff",
+                100: "#dbeafe",
+                200: "#bfdbfe",
+                300: "#93c5fd",
+                400: "#60a5fa",
+                500: "#3b82f6",
+                600: "#2563eb",
+                700: "#1d4ed8",
+                800: "#1e40af",
+                900: "#1e3a8a",
+              },
+              secondary: {
+                DEFAULT: "#f59e0b",
+                50: "#fffbeb",
+                100: "#fef3c7",
+                200: "#fde68a",
+                300: "#fcd34d",
+                400: "#fbbf24",
+                500: "#f59e0b",
+                600: "#d97706",
+                700: "#b45309",
+                800: "#92400e",
+                900: "#78350f",
+              },
+              accent: {
+                DEFAULT: "#10b981",
+                50: "#ecfdf5",
+                100: "#d1fae5",
+                200: "#a7f3d0",
+                300: "#6ee7b7",
+                400: "#34d399",
+                500: "#10b981",
+                600: "#059669",
+                700: "#047857",
+                800: "#065f46",
+                900: "#064e3b",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .hero-slide {
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        min-height: 600px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-slide::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          rgba(0, 0, 0, 0.7) 0%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .floating-element {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: white;
+        opacity: 0.5;
+        transition: all 0.3s;
+      }
+
+      .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: #f59e0b;
+        transform: scale(1.2);
+      }
+      .course-card {
+        transition: all 0.3s ease;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .course-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .feature-card {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body class="font-poppins bg-gray-50 antialiased">
+    
+   
+   
+  <header class="bg-primary-900 text-white sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <!-- Logo with rounded corners -->
+        <div class="flex-shrink-0">
+            <a href="/">
+                <img src="logo.jpeg" alt="Logo" 
+                     class="w-14 h-14 rounded-lg object-cover">
+            </a>
+        </div>
+        
+        <!-- Text content -->
+        <div class="flex flex-col">
+            <!-- Main heading - larger on lg screens, smaller on mobile -->
+            <span class="text-xl md:text-2xl font-bold leading-tight">
+                Smart <span class="text-secondary-500"> Gyan </span>Training Institute
+            </span>
+            
+            <!-- Subheading - smaller text on mobile -->
+            <span class="text-[8px] md:text-[10px] text-white font-medium uppercase tracking-wider">
+               Registered under Ministry of corporate Affairs
+            </span>
+            <span class="text-[8px] md:text-[10px] text-white font-medium uppercase tracking-wider">
+                Aviation | Hospitality | Skill Development
+            </span>
+        </div>
+      </div>
+      
+      <nav class="hidden lg:flex space-x-8 items-center">
+        <a href="/" class="hover:text-secondary-400 transition font-medium">Home</a>
+        <a href="about.html" class="hover:text-secondary-400 transition font-medium">About Us</a>
+        <a href="courses.html" class="hover:text-secondary-400 transition font-medium">Courses</a>
+        <a href="admission.html" class="hover:text-secondary-400 transition font-medium">Online Admission</a>
+        <a href="login.html"><button
+            class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-lg font-semibold transition ml-4 flex items-center">
+            <i class="fas fa-sign-in-alt mr-2"></i> Student Login
+          </button></a>
+      </nav>
+      <button id="mobileMenuButton" class="lg:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu hidden lg:hidden bg-primary-800 absolute w-full left-0 px-4 pb-4 shadow-lg">
+      <div class="flex flex-col space-y-3 pt-2">
+        <a href="/" class="hover:text-secondary-400 transition font-medium py-2">Home</a>
+        <a href="about.html" class="hover:text-secondary-400 transition font-medium py-2">About Us</a>
+        <a href="courses.html" class="hover:text-secondary-400 transition font-medium py-2">Courses</a>
+        <a href="admission.html" class="hover:text-secondary-400 transition font-medium py-2">Online Admission</a>
+        <a href="login.html"><button
+            class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-md font-semibold transition flex items-center justify-center">
+            <i class="fas fa-sign-in-alt mr-2"></i> Login
+          </button></a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- privacy-policy  -->
+
+  
+    <!-- Breadcrumb -->
+    <div class="breadcrumb py-4">
+      <div class="container mx-auto px-4">
+        <nav class="flex" aria-label="Breadcrumb">
+          <ol class="inline-flex items-center space-x-1 md:space-x-3">
+            <li class="inline-flex items-center">
+              <a
+                href="/index.html"
+                class="inline-flex items-center text-sm font-medium text-primary-700 hover:text-primary-600"
+              >
+                <i class="fas fa-home mr-2"></i>
+                Home
+              </a>
+            </li>
+            <li aria-current="page">
+              <div class="flex items-center">
+                <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2"
+                  >Terms & Conditions</span
+                >
+              </div>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="py-12">
+      <div class="container mx-auto px-4">
+        <div
+          class="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden"
+        >
+          <div
+            class="gradient-bg text-white py-6 px-8 bg-gradient-to-r from-primary-700 to-primary-900"
+          >
+            <h1 class="text-2xl md:text-3xl font-bold">
+              <i class="fas fa-file-contract mr-3"></i> Terms & Conditions and
+              Refund Policy
+            </h1>
+            <p class="mt-2 opacity-90">Last updated: April 2025</p>
+          </div>
+
+          <div class="p-8">
+            <p class="mb-6 text-gray-700">
+              These Terms and Conditions ("Terms") govern your enrollment and
+              participation in courses, training, or skill programs offered by
+              Smart Gyan Training Institute ("SGTI"). Smart Gyan Training
+              Institute is an online education provider offering its courses in
+              an online format. By enrolling in any course, you agree to abide
+              by these Terms.
+            </p>
+
+            <div class="space-y-8">
+              <!-- Section 1 -->
+              <div>
+                <h3
+                  class="text-xl font-semibold text-primary-800 mb-4 border-b pb-2"
+                >
+                  1. Acceptance of Terms
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                  <li>
+                    By enrolling in a course at Smart Gyan Training Institute,
+                    you acknowledge that you have read, understood, and agreed
+                    to these Terms.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 2 -->
+              <div>
+                <h3
+                  class="text-xl font-semibold text-primary-800 mb-4 border-b pb-2"
+                >
+                  2. Enrollment
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                  <li>
+                    Enrollment in Smart Gyan Training Institute online courses
+                    requires the completion of registration forms and payment of
+                    applicable fees.
+                  </li>
+                  <li>
+                    Smart Gyan Training Institute reserves the right to refuse
+                    or cancel enrollment if eligibility criteria are not met or
+                    if payment is not received.
+                  </li>
+                  <li>
+                    Enrollment is confirmed only after successful payment.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 3 -->
+              <div>
+                <h3
+                  class="text-xl font-semibold text-primary-800 mb-4 border-b pb-2"
+                >
+                  3. Job Assistance
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                  <li>
+                    Smart Gyan Training Institute provides job assistance to
+                    students upon successful completion of their courses.
+                    However, job placement is not guaranteed.
+                  </li>
+                  <li>
+                    Job assistance may include resume building, interview
+                    preparation, and job leads.
+                  </li>
+                  <li>
+                    Smart Gyan Training Institute is an educational institution
+                    and does not provide job guarantees or job placement
+                    services.
+                  </li>
+                  <li>
+                    If a student is unable to secure employment after completing
+                    the course, Smart Gyan Training Institute is not liable as
+                    it is an educational institute, not a job provider.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 4 -->
+              <div>
+                <h3
+                  class="text-xl font-semibold text-primary-800 mb-4 border-b pb-2"
+                >
+                  4. No Liability
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                  <li>
+                    Smart Gyan Training Institute, its officers, employees,
+                    agents, and representatives disclaim any liability for any
+                    loss, damage, or inconvenience suffered by a student arising
+                    from the inability to secure employment, whether directly or
+                    indirectly related to the services provided by the
+                    institute.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 5 -->
+              <div>
+                <h3
+                  class="text-xl font-semibold text-primary-800 mb-4 border-b pb-2"
+                >
+                  5. Payment
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                  <li>
+                    Payment for courses must be made in full prior to the start
+                    of classes unless otherwise agreed upon in writing by Smart
+                    Gyan Training Institute.
+                  </li>
+                  <li>
+                    Failure to make timely payments may result in the
+                    cancellation of enrollment or withholding of course
+                    certificates. Legal action may also be initiated for
+                    non-payment.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 6 -->
+              <div>
+                <h3
+                  class="text-xl font-semibold text-primary-800 mb-4 border-b pb-2"
+                >
+                  6. No Course Cancellation
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                  <li>
+                    Once enrolled, cancellation of courses is not permitted.
+                  </li>
+                  <li>
+                    Fees paid for courses are non-refundable under any
+                    circumstances. Once payment is made, it constitutes
+                    acceptance of this non-refundable policy, regardless of
+                    whether the course is commenced or completed. This policy
+                    applies to all participants and overrides any verbal
+                    agreements or understandings.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 7 -->
+              <div>
+                <h3
+                  class="text-xl font-semibold text-primary-800 mb-4 border-b pb-2"
+                >
+                  7. Non-Refundable and Non-Transferable Fees
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                  <li>
+                    All registration or application fees paid to Smart Gyan
+                    Training Institute for any course, training, or skill
+                    program are strictly non-refundable and non-transferable
+                    under any circumstances.
+                  </li>
+                  <li>We maintain a clear and strict "No Refund Policy".</li>
+                </ul>
+                <div
+                  class="mt-4 p-4 bg-primary-50 rounded-md border-l-4 border-primary-500"
+                >
+                  <h4 class="font-semibold text-primary-800 mb-2">
+                    Our Commitment to Your Future
+                  </h4>
+                  <p class="text-gray-700">
+                    At Smart Gyan, we are dedicated to preparing learners for
+                    real-world careers with experienced mentors, effective
+                    management, and modern training tools. Since the
+                    registration fee solely covers administrative and onboarding
+                    processes, it is considered non-refundable.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Section 8 -->
+              <div>
+                <h3
+                  class="text-xl font-semibold text-primary-800 mb-4 border-b pb-2"
+                >
+                  8. Right to Dismiss Learners
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                  <li>
+                    Smart Gyan Training Institute reserves the right to remove
+                    or disqualify any learner from the course due to misconduct,
+                    insufficient participation, poor performance, or non-payment
+                    of fees as per its internal policies.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 9 -->
+              <div>
+                <h3
+                  class="text-xl font-semibold text-primary-800 mb-4 border-b pb-2"
+                >
+                  9. Legal Action for Non-Payment
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                  <li>
+                    In case of non-payment, Smart Gyan Training Institute
+                    reserves the right to initiate legal proceedings against the
+                    student and/or their guardian under applicable laws,
+                    including but not limited to the Negotiable Instruments Act,
+                    1881.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 10 -->
+              <div>
+                <h3
+                  class="text-xl font-semibold text-primary-800 mb-4 border-b pb-2"
+                >
+                  10. Responsibility to Understand Terms
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                  <li>
+                    Any claim by learners or parents/guardians stating that they
+                    were not properly informed about the course or terms by our
+                    staff, center, or support team will not be considered valid.
+                  </li>
+                  <li>
+                    It is the sole responsibility of the learner and their
+                    guardian to read and understand all terms and conditions
+                    before making any payment.
+                  </li>
+                  <li>
+                    No claims for refund or special discount will be accepted
+                    after registration.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 11 -->
+              <div>
+                <h3
+                  class="text-xl font-semibold text-primary-800 mb-4 border-b pb-2"
+                >
+                  11. Concerns Related to Learning Quality
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                  <li>
+                    If a learner is dissatisfied with the quality or delivery of
+                    content, they are encouraged to raise their concern with the
+                    management.
+                  </li>
+                  <li>
+                    Smart Gyan Training Institute is committed to resolving such
+                    issues promptly and effectively to ensure the best learning
+                    experience for all students.
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Section 12 -->
+              <div>
+                <h3
+                  class="text-xl font-semibold text-primary-800 mb-4 border-b pb-2"
+                >
+                  12. General Disclaimer
+                </h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                  <li>
+                    Smart Gyan Training Institute reserves the right to update
+                    or modify these Terms and Conditions at any time. Any
+                    changes will be communicated to students, and the updated
+                    version will be applicable immediately.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mt-10 p-6 bg-gray-50 rounded-lg border border-gray-200">
+              <h3 class="text-lg font-semibold text-primary-800 mb-3">
+                <i class="fas fa-question-circle mr-2"></i> Need Help?
+              </h3>
+              <p class="text-gray-700 mb-4">
+                If you have any questions about these Terms & Conditions, please
+                contact us:
+              </p>
+              <div class="flex flex-col space-y-2">
+                <div class="flex items-center">
+                  <i class="fas fa-envelope text-secondary-500 mr-3"></i>
+                  <a
+                    href="mailto:admission@thesmartgyan.com"
+                    class="text-primary-600 hover:text-primary-500"
+                    >admission@thesmartgyan.com</a
+                  >
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-phone-alt text-secondary-500 mr-3"></i>
+                  <a
+                    href="tel:+919953595426"
+                    class="text-primary-600 hover:text-primary-500"
+                    >+91 9953595426</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer  -->
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <div class="flex items-center  space-x-3">
+              <!-- Logo with rounded corners -->
+              <div class="flex-shrink-0 ">
+                  <a href="/">
+                      <img src="logo.jpeg" alt="Logo" 
+                           class="w-10 h-10 rounded-lg object-cover">
+                  </a>
+              </div>
+              
+              <!-- Text content -->
+              <div class="flex flex-col">
+                  <!-- Main heading -->
+                  <span class="text-sm font-bold leading-tight">
+                      Smart <span class="text-secondary-500"> Gyan </span>Training Institute
+                  </span>
+                  
+                  <!-- Subheading with 3 words -->
+                  <!-- <span class="text-[10px] text-white font-medium uppercase tracking-wider">
+                     Registered under Ministry of corporate Affairs
+                  </span> -->
+                  <span class="text-[10px] text-white font-medium uppercase tracking-wider">
+                      Aviation | Hospitality | Skill Development
+                  </span>
+              </div>
+          </div>
+            <p class="my-6">
+              Empowering learners with essential digital and vocational skills
+              for the modern job market.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-6">Quick Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="/" class="hover:text-secondary-400 transition">Home</a>
+              </li>
+              <li>
+                <a href="about.html" class="hover:text-secondary-400 transition"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="courses.html"
+                  class="hover:text-secondary-400 transition"
+                  >All Courses</a
+                >
+              </li>
+              <li>
+                <a
+                  href="courses.html"
+                  class="hover:text-secondary-400 transition"
+                  >Fees & Installments</a
+                >
+              </li>
+              <!-- <li>
+                <a href="#contact" class="hover:text-secondary-400 transition"
+                  >Contact Us</a
+                >
+              </li> -->
+              <li>
+                <a
+                  href="/privacy-policy.html"
+                  class="hover:text-secondary-400 transition"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-6">
+              Popular Courses
+            </h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="admission.html" class="hover:text-secondary-400 transition"
+                  >Computer Fundamentals</a
+                >
+              </li>
+              <li>
+                <a href="admission.html" class="hover:text-secondary-400 transition"
+                  >Digital Marketing</a
+                >
+              </li>
+              <li>
+                <a href="admission.html" class="hover:text-secondary-400 transition"
+                  >Office Management</a
+                >
+              </li>
+              <li>
+                <a href="admission.html" class="hover:text-secondary-400 transition"
+                  >Web Designing</a
+                >
+              </li>
+              <li>
+                <a href="admission.html" class="hover:text-secondary-400 transition"
+                  >Graphic Design</a
+                >
+              </li>
+              <li>
+                <a href="admission.html" class="hover:text-secondary-400 transition"
+                  >Tally ERP 9</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-6">Contact Info</h3>
+            <address class="not-italic space-y-4">
+              <div class="flex items-start">
+                <i
+                  class="fas fa-map-marker-alt text-secondary-400 mt-1 mr-3"
+                ></i>
+                <p> Andheri East Education Zone
+                  Marol, Andheri (East),
+                  Mumbai – 400093
+                  Maharashtra, India</p>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-phone-alt text-secondary-400 mr-3"></i>
+                <a href="tel:919953595426"><p>+91 9953595426</p></a>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-envelope text-secondary-400 mr-3"></i>
+                <a href="mailto:admission@thesmartgyan.com">admission@thesmartgyan.com</a>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-clock text-secondary-400 mr-3"></i>
+                <p>Mon-Sat: 9:00 AM - 6:00 PM</p>
+              </div>
+            </address>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+          <p>&copy; 2025 Smart Gyan Training Institute. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+
+       // Mobile menu toggle
+    const mobileMenuButton = document.getElementById("mobileMenuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    mobileMenuButton.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", function (event) {
+      if (
+        !mobileMenu.contains(event.target) &&
+        !mobileMenuButton.contains(event.target)
+      ) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
+    </script>
+  </body>
+</html>

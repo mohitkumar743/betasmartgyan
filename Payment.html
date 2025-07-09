@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Information</title>
+    <link rel="icon" type="image/png" href="fabicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              fontFamily: {
+                poppins: ["Poppins", "sans-serif"],
+              },
+              colors: {
+                primary: {
+                  DEFAULT: "#2563eb",
+                  50: "#eff6ff",
+                  100: "#dbeafe",
+                  200: "#bfdbfe",
+                  300: "#93c5fd",
+                  400: "#60a5fa",
+                  500: "#3b82f6",
+                  600: "#2563eb",
+                  700: "#1d4ed8",
+                  800: "#1e40af",
+                  900: "#1e3a8a",
+                },
+                secondary: {
+                  DEFAULT: "#f59e0b",
+                  50: "#fffbeb",
+                  100: "#fef3c7",
+                  200: "#fde68a",
+                  300: "#fcd34d",
+                  400: "#fbbf24",
+                  500: "#f59e0b",
+                  600: "#d97706",
+                  700: "#b45309",
+                  800: "#92400e",
+                  900: "#78350f",
+                },
+                accent: {
+                  DEFAULT: "#10b981",
+                  50: "#ecfdf5",
+                  100: "#d1fae5",
+                  200: "#a7f3d0",
+                  300: "#6ee7b7",
+                  400: "#34d399",
+                  500: "#10b981",
+                  600: "#059669",
+                  700: "#047857",
+                  800: "#065f46",
+                  900: "#064e3b",
+                },
+              },
+            },
+          },
+        };
+      </script>
+</head>
+<body class="bg-gray-100">
+
+
+
+  <header class="bg-primary-900 text-white sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <!-- Logo with rounded corners -->
+        <div class="flex-shrink-0">
+            <a href="/">
+                <img src="logo.jpeg" alt="Logo" 
+                     class="w-14 h-14 rounded-lg object-cover">
+            </a>
+        </div>
+        
+        <!-- Text content -->
+        <div class="flex flex-col">
+            <!-- Main heading - larger on lg screens, smaller on mobile -->
+            <span class="text-xl md:text-2xl font-bold leading-tight">
+                Smart <span class="text-secondary-500"> Gyan </span>Training Institute
+            </span>
+            
+            <!-- Subheading - smaller text on mobile -->
+            <span class="text-[8px] md:text-[10px] text-white font-medium uppercase tracking-wider">
+               Registered under Ministry of corporate Affairs
+            </span>
+            <span class="text-[8px] md:text-[10px] text-white font-medium uppercase tracking-wider">
+                Aviation | Hospitality | Skill Development
+            </span>
+        </div>
+      </div>
+      
+      <nav class="hidden lg:flex space-x-8 items-center">
+        <a href="/" class="hover:text-secondary-400 transition font-medium">Home</a>
+        <a href="about.html" class="hover:text-secondary-400 transition font-medium">About Us</a>
+        <a href="courses.html" class="hover:text-secondary-400 transition font-medium">Courses</a>
+        <a href="admission.html" class="hover:text-secondary-400 transition font-medium">Online Admission</a>
+        <a href="login.html"><button
+            class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-lg font-semibold transition ml-4 flex items-center">
+            <i class="fas fa-sign-in-alt mr-2"></i> Student Login
+          </button></a>
+      </nav>
+      <button id="mobileMenuButton" class="lg:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu hidden lg:hidden bg-primary-800 absolute w-full left-0 px-4 pb-4 shadow-lg">
+      <div class="flex flex-col space-y-3 pt-2">
+        <a href="/" class="hover:text-secondary-400 transition font-medium py-2">Home</a>
+        <a href="about.html" class="hover:text-secondary-400 transition font-medium py-2">About Us</a>
+        <a href="courses.html" class="hover:text-secondary-400 transition font-medium py-2">Courses</a>
+        <a href="admission.html" class="hover:text-secondary-400 transition font-medium py-2">Online Admission</a>
+        <a href="login.html"><button
+            class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-md font-semibold transition flex items-center justify-center">
+            <i class="fas fa-sign-in-alt mr-2"></i> Login
+          </button></a>
+      </div>
+    </div>
+  </header>
+
+    <div class="container mx-auto px-4 py-12 max-w-md">
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h1 class="text-2xl font-bold text-center text-green-600 mb-6">Payment Information</h1>
+            
+            <div class="mb-6">
+                <h2 class="text-lg font-semibold mb-2">Scan QR Code to Pay</h2>
+                <div class="border border-gray-200 p-4 rounded-lg flex justify-center">
+                    <!-- Replace with your actual QR code image -->
+                    <img src="payment.jpeg" 
+                         alt="Payment QR Code" class=" h-auto">
+                </div>
+                <p class="text-xl text-green-600 font-extrabold mt-2 text-center">Amount: ₹<span id="courseAmount">3000</span></p>
+            </div>
+            <!-- <div class="mb-6">
+                <h2 class="text-lg font-semibold mb-2">UPI Payment Details</h2>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="text-center font-mono text-blue-600">UPI_ID@upi</p>
+                    <p class="text-sm text-gray-600 mt-2 text-center">(OR)</p>
+                    <p class="text-center mt-2">Send to PhonePe/Google Pay/Paytm: <span class="font-semibold">9876543210</span></p>
+                </div>
+            </div> -->
+            
+            <div class="text-center">
+                <h3 class="text-lg font-semibold mb-3">After Payment</h3>
+                <p class="mb-4">Please send payment screenshot on WhatsApp for verification</p>
+                <p class="mb-4 text-xl font-bold">9953595426</p>
+                
+                <a href="/" 
+                   class="inline-flex items-center px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                     Home
+                </a>
+                <!-- <a href="https://wa.me/919876543210?text=Payment%20confirmation%20for%20admission%20ID:%20[ID]" 
+                   class="inline-flex items-center px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                    <i class="fab fa-whatsapp mr-2"></i> Send on WhatsApp
+                </a> -->
+                
+                <p class="text-sm text-gray-500 mt-4">Your admission will be confirmed after payment verification</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Font Awesome for WhatsApp icon -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+       
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    // const admissionId = urlParams.get('id');
+    const amount = urlParams.get('monthlyInstallment');
+    
+    // Update amount display
+    if (amount) {
+        document.getElementById('courseAmount').textContent = amount;
+    }
+    
+    // Update WhatsApp link
+    const whatsappLink = document.querySelector('a[href^="https://wa.me/"]');
+    if (whatsappLink) {
+        const whatsappNumber = '919876543210'; // Replace with your number
+        const message = `Payment confirmation for admission with amount ₹${amount}`;
+        whatsappLink.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    }
+});
+        // You can also fetch and display the course amount here if needed
+    </script>
+
+<script>
+
+  // Mobile menu toggle
+const mobileMenuButton = document.getElementById("mobileMenuButton");
+const mobileMenu = document.getElementById("mobileMenu");
+
+mobileMenuButton.addEventListener("click", function () {
+ mobileMenu.classList.toggle("hidden");
+});
+
+document.addEventListener("click", function (event) {
+ if (
+   !mobileMenu.contains(event.target) &&
+   !mobileMenuButton.contains(event.target)
+ ) {
+   mobileMenu.classList.add("hidden");
+ }
+});
+</script>
+</body>
+</html>

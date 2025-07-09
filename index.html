@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Gyan - Digital Skills Training Institute</title>
+  <link rel="icon" type="image/png" href="fabicon.png">
+  <link rel="icon" type="image/png" href="fabicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ["Poppins", "sans-serif"],
+          },
+          colors: {
+            primary: {
+              DEFAULT: "#2563eb",
+              50: "#eff6ff",
+              100: "#dbeafe",
+              200: "#bfdbfe",
+              300: "#93c5fd",
+              400: "#60a5fa",
+              500: "#3b82f6",
+              600: "#2563eb",
+              700: "#1d4ed8",
+              800: "#1e40af",
+              900: "#1e3a8a",
+            },
+            secondary: {
+              DEFAULT: "#f59e0b",
+              50: "#fffbeb",
+              100: "#fef3c7",
+              200: "#fde68a",
+              300: "#fcd34d",
+              400: "#fbbf24",
+              500: "#f59e0b",
+              600: "#d97706",
+              700: "#b45309",
+              800: "#92400e",
+              900: "#78350f",
+            },
+            accent: {
+              DEFAULT: "#10b981",
+              50: "#ecfdf5",
+              100: "#d1fae5",
+              200: "#a7f3d0",
+              300: "#6ee7b7",
+              400: "#34d399",
+              500: "#10b981",
+              600: "#059669",
+              700: "#047857",
+              800: "#065f46",
+              900: "#064e3b",
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .hero-slide {
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      min-height: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-slide::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg,
+          rgba(0, 0, 0, 0.7) 0%,
+          rgba(0, 0, 0, 0.3) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .floating-element {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background: white;
+      opacity: 0.5;
+      transition: all 0.3s;
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+      background: #f59e0b;
+      transform: scale(1.2);
+    }
+
+    .course-card {
+      transition: all 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .feature-card {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+   
+  .career-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .career-card {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    padding: 25px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .career-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .career-card h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .career-card h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #9b59b6);
+  }
+  
+  .marquee-container {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .marquee-content {
+    animation: scroll 20s linear infinite;
+  }
+  
+  .marquee-content:hover {
+    animation-play-state: paused;
+  }
+  
+  @keyframes scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+  
+  .marquee-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .marquee-content li {
+    padding: 10px 15px;
+    margin: 5px 0;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #34495e;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+  }
+  
+  .marquee-content li:hover {
+    background: #e3f2fd;
+    transform: translateX(5px);
+    color: #2980b9;
+  }
+
+  /* Modal Animation */
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#courseModal {
+  animation: modalFadeIn 0.3s ease-out;
+}
+</style></head>
+
+<body class="font-poppins bg-gray-50 antialiased">
+
+
+  <header class="bg-primary-900 text-white sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <!-- Logo with rounded corners -->
+        <div class="flex-shrink-0">
+            <a href="/">
+                <img src="logo.jpeg" alt="Logo" 
+                     class="w-14 h-14 rounded-lg object-cover">
+            </a>
+        </div>
+        
+        <!-- Text content -->
+        <div class="flex flex-col">
+            <!-- Main heading - larger on lg screens, smaller on mobile -->
+            <span class="text-xl md:text-2xl font-bold leading-tight">
+                Smart <span class="text-secondary-500"> Gyan </span>Training Institute
+            </span>
+            
+            <!-- Subheading - smaller text on mobile -->
+            <span class="text-[8px] md:text-[10px] text-white font-medium uppercase tracking-wider">
+               Registered under Ministry of corporate Affairs
+            </span>
+            <span class="text-[8px] md:text-[10px] text-white font-medium uppercase tracking-wider">
+                Aviation | Hospitality | Skill Development
+            </span>
+        </div>
+      </div>
+      
+      <nav class="hidden lg:flex space-x-8 items-center">
+        <a href="/" class="hover:text-secondary-400 transition font-medium">Home</a>
+        <a href="about.html" class="hover:text-secondary-400 transition font-medium">About Us</a>
+        <a href="courses.html" class="hover:text-secondary-400 transition font-medium">Courses</a>
+        <a href="admission.html" class="hover:text-secondary-400 transition font-medium">Online Admission</a>
+        <a href="login.html"><button
+            class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-lg font-semibold transition ml-4 flex items-center">
+            <i class="fas fa-sign-in-alt mr-2"></i> Student Login
+          </button></a>
+      </nav>
+      <button id="mobileMenuButton" class="lg:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu hidden lg:hidden bg-primary-800 absolute w-full left-0 px-4 pb-4 shadow-lg">
+      <div class="flex flex-col space-y-3 pt-2">
+        <a href="/" class="hover:text-secondary-400 transition font-medium py-2">Home</a>
+        <a href="about.html" class="hover:text-secondary-400 transition font-medium py-2">About Us</a>
+        <a href="courses.html" class="hover:text-secondary-400 transition font-medium py-2">Courses</a>
+        <a href="admission.html" class="hover:text-secondary-400 transition font-medium py-2">Online Admission</a>
+        <a href="login.html"><button
+            class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-md font-semibold transition flex items-center justify-center">
+            <i class="fas fa-sign-in-alt mr-2"></i> Login
+          </button></a>
+      </div>
+    </div>
+  </header>
+  <!-- Hero Section  -->
+  <section class="relative">
+    <!-- Swiper Slider -->
+    <div class="swiper heroSwiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="hero-slide" style="
+                background-image: url('https://plus.unsplash.com/premium_photo-1683121199176-d15ec5aa9437?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+              ">
+            <div class="container mx-auto px-4 h-full flex items-center">
+              <div class="hero-content text-white max-w-2xl">
+                <span
+                  class="inline-block px-4 py-1 bg-yellow-500 bg-opacity-80 text-white rounded-full text-sm font-medium mb-4">New
+                  Batch Starting Soon</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  Transform Your Career With
+                  <span class="text-yellow-400">Digital Skills</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8">
+                  Join India's most trusted online learning platform with
+                  government-recognized certifications and 100% placement
+                  support.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="courses.html"><button
+                      class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                      <i class="fas fa-book-open mr-2"></i> Explore Courses
+                    </button></a>
+                  <a href="#courses"><button
+                      class="bg-white hover:bg-gray-100 text-gray-800 font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                      <i class="fas fa-play-circle mr-2"></i> Watch Demo
+                    </button></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Elements -->
+            <div
+              class="absolute top-1/4 right-10 w-16 h-16 bg-white bg-opacity-10 rounded-full backdrop-blur-sm border border-white border-opacity-20 floating-element hidden lg:block">
+            </div>
+            <div
+              class="absolute bottom-1/3 left-20 w-24 h-24 bg-yellow-500 bg-opacity-20 rounded-full backdrop-blur-sm floating-element hidden lg:block"
+              style="animation-delay: 1s"></div>
+            <div
+              class="absolute top-1/3 left-1/4 w-20 h-20 bg-white bg-opacity-5 rounded-full backdrop-blur-sm border border-white border-opacity-10 floating-element hidden lg:block"
+              style="animation-delay: 2s"></div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="hero-slide" style="
+                background-image: url('https://plus.unsplash.com/premium_photo-1663013654833-8c851d41d12d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+              ">
+            <div class="container mx-auto px-4 h-full flex items-center">
+              <div class="hero-content text-white max-w-2xl">
+                <span
+                  class="inline-block px-4 py-1 bg-blue-500 bg-opacity-80 text-white rounded-full text-sm font-medium mb-4">Limited
+                  Time Offer</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  Upskill With
+                  <span class="text-blue-300">Industry Experts</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8">
+                  Learn from professionals with 10+ years of experience and
+                  get certified in high-demand digital skills.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="#about">
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                      <i class="fas fa-chalkboard-teacher mr-2"></i> Meet Our
+                      Faculty
+                    </button>
+                  </a>
+                  <button
+                    class="bg-white hover:bg-gray-100 text-gray-800 font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                    <i class="fas fa-percentage mr-2"></i> View Discounts
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Animated Shapes -->
+            <div
+              class="absolute top-1/4 right-16 w-20 h-20 bg-blue-500 bg-opacity-20 rounded-full backdrop-blur-sm floating-element hidden lg:block">
+            </div>
+            <div
+              class="absolute bottom-1/4 left-24 w-16 h-16 bg-white bg-opacity-10 rounded-full backdrop-blur-sm border border-white border-opacity-20 floating-element hidden lg:block"
+              style="animation-delay: 1.5s"></div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="hero-slide" style="
+                background-image: url('https://images.unsplash.com/photo-1616674202799-054e7c831378?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+              ">
+            <div class="container mx-auto px-4 h-full flex items-center">
+              <div class="hero-content text-white max-w-2xl">
+                <span
+                  class="inline-block px-4 py-1 bg-green-500 bg-opacity-80 text-white rounded-full text-sm font-medium mb-4">Placement
+                  Guarantee</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  Get <span class="text-green-300">Job Ready</span> in 90 Days
+                </h1>
+                <p class="text-lg md:text-xl mb-8">
+                  Our career-focused programs come with interview preparation
+                  and placement assistance.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <button
+                    class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                    <i class="fas fa-briefcase mr-2"></i> Placement Stats
+                  </button>
+                  <button
+                    class="bg-white hover:bg-gray-100 text-gray-800 font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                    <i class="fas fa-user-graduate mr-2"></i> Success Stories
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Elements -->
+            <div
+              class="absolute top-1/3 right-20 w-24 h-24 bg-green-500 bg-opacity-20 rounded-full backdrop-blur-sm floating-element hidden lg:block">
+            </div>
+            <div
+              class="absolute bottom-1/4 left-32 w-20 h-20 bg-white bg-opacity-10 rounded-full backdrop-blur-sm border border-white border-opacity-20 floating-element hidden lg:block"
+              style="animation-delay: 1s"></div>
+          </div>
+        </div>
+
+
+         <!-- Slide 4 -->
+         <div class="swiper-slide">
+          <div class="hero-slide" style="
+                background-image: url('https://plus.unsplash.com/premium_photo-1661499425185-7a2b9d0c28f3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+              ">
+            <div class="container mx-auto px-4 h-full flex items-center">
+              <div class="hero-content text-white max-w-2xl">
+                <span
+                  class="inline-block px-4 py-1 bg-yellow-500 bg-opacity-80 text-white rounded-full text-sm font-medium mb-4">New
+                  Batch Starting Soon</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  Transform Your Career With
+                  <span class="text-yellow-400">Digital Skills</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8">
+                  Join India's most trusted online learning platform with
+                  government-recognized certifications and 100% placement
+                  support.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="courses.html"><button
+                      class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                      <i class="fas fa-book-open mr-2"></i> Explore Courses
+                    </button></a>
+                  <a href="#courses"><button
+                      class="bg-white hover:bg-gray-100 text-gray-800 font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                      <i class="fas fa-play-circle mr-2"></i> Watch Demo
+                    </button></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Elements -->
+            <div
+              class="absolute top-1/4 right-10 w-16 h-16 bg-white bg-opacity-10 rounded-full backdrop-blur-sm border border-white border-opacity-20 floating-element hidden lg:block">
+            </div>
+            <div
+              class="absolute bottom-1/3 left-20 w-24 h-24 bg-yellow-500 bg-opacity-20 rounded-full backdrop-blur-sm floating-element hidden lg:block"
+              style="animation-delay: 1s"></div>
+            <div
+              class="absolute top-1/3 left-1/4 w-20 h-20 bg-white bg-opacity-5 rounded-full backdrop-blur-sm border border-white border-opacity-10 floating-element hidden lg:block"
+              style="animation-delay: 2s"></div>
+          </div>
+        </div>
+
+
+         <!-- Slide 2 -->
+         <div class="swiper-slide">
+          <div class="hero-slide" style="
+                background-image: url('https://plus.unsplash.com/premium_photo-1683134374806-9ea735de4b37?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+              ">
+            <div class="container mx-auto px-4 h-full flex items-center">
+              <div class="hero-content text-white max-w-2xl">
+                <span
+                  class="inline-block px-4 py-1 bg-blue-500 bg-opacity-80 text-white rounded-full text-sm font-medium mb-4">Limited
+                  Time Offer</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                  Upskill With
+                  <span class="text-blue-300">Industry Experts</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8">
+                  Learn from professionals with 10+ years of experience and
+                  get certified in high-demand digital skills.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <a href="#about">
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                      <i class="fas fa-chalkboard-teacher mr-2"></i> Meet Our
+                      Faculty
+                    </button>
+                  </a>
+                  <button
+                    class="bg-white hover:bg-gray-100 text-gray-800 font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg flex items-center justify-center">
+                    <i class="fas fa-percentage mr-2"></i> View Discounts
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Animated Shapes -->
+            <div
+              class="absolute top-1/4 right-16 w-20 h-20 bg-blue-500 bg-opacity-20 rounded-full backdrop-blur-sm floating-element hidden lg:block">
+            </div>
+            <div
+              class="absolute bottom-1/4 left-24 w-16 h-16 bg-white bg-opacity-10 rounded-full backdrop-blur-sm border border-white border-opacity-20 floating-element hidden lg:block"
+              style="animation-delay: 1.5s"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom Pagination -->
+      <div class="swiper-pagination !bottom-8"></div>
+
+      <!-- Navigation Arrows -->
+      <div class="swiper-button-next !text-yellow-400 !right-8"></div>
+      <div class="swiper-button-prev !text-yellow-400 !left-8"></div>
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 hidden md:block">
+      <div class="animate-bounce flex flex-col items-center">
+        <span class="text-white text-sm mb-2">Scroll Down</span>
+        <div class="w-6 h-10 border-2 border-yellow-400 rounded-full flex justify-center">
+          <div class="w-1 h-2 bg-yellow-400 rounded-full mt-2 animate-scroll"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Certificate Badge -->
+    <div
+      class="absolute bottom-20 right-10 bg-white p-4 rounded-lg shadow-xl z-10 hidden xl:block transform rotate-6 hover:rotate-0 transition duration-500">
+      <div class="flex items-center">
+        <div class="bg-yellow-100 p-3 rounded-full mr-3">
+          <i class="fas fa-certificate text-yellow-500 text-2xl"></i>
+        </div>
+        <div>
+          <div class="text-sm text-gray-500">Get Certified</div>
+          <div class="font-bold text-gray-800">Govt. Recognized</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted By -->
+  <div class="bg-gray-100 py-8">
+    <div class="container mx-auto px-4">
+      <p class="text-center text-gray-500 mb-6">Trusted by learners from</p>
+      <div class="flex flex-wrap justify-center items-center gap-3 md:gap-16 opacity-90">
+        <img src="https://logo.clearbit.com/tcs.com" alt="TCS" class="h-16" />
+        <img src="https://logo.clearbit.com/infosys.com" alt="Infosys" class="h-16" />
+        <img src="https://logo.clearbit.com/wipro.com" alt="Wipro" class="h-16" />
+        <img src="https://logo.clearbit.com/hcltech.com" alt="HCL" class="h-16" />
+        <img src="https://logo.clearbit.com/capgemini.com" alt="Capgemini" class="h-16" />
+      </div>
+    </div>
+  </div>
+
+  <div class="career-container flex flex-col md:flex-row gap-4 p-4">
+    <div class="career-card bg-red-500 rounded-lg p-4 flex-1">
+      <h3 class="text-white font-bold text-xl mb-3">Career Opportunities</h3>
+      <div class="marquee-container overflow-hidden">
+        <div class="marquee-content">
+          <ul class="space-y-2 text-white">
+            <li>🔹 Airport Ground Staff</li>
+            <li>🔹 Tourism Executive</li>
+            <li>🔹 Ticket Support Executive</li>
+            <li>🔹 Customer Support Associate</li>
+            <li>🔹 Passenger Service Associate</li>
+            <li>🔹 Computer Operator</li>
+            <li>🔹 Helpdesk Executive</li>
+            <li>🔹 Digital Marketing Executive</li>
+            <li>🔹 Receptionist</li>
+            <li>🔹 AC Technician</li>
+            <li>🔹 Hotel Management Executive</li>
+            <li>🔹 Front Office Assistant</li>
+            <li>🔹 Housekeeping Supervisor</li>
+            <li>🔹 Food & Beverage Service Staff</li>
+            <li>🔹 Guest Relations Executive</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="career-card bg-blue-500 rounded-lg p-4 flex-1">
+      <h3 class="text-white font-bold text-xl mb-3">Courses Offered</h3>
+      <div class="marquee-container overflow-hidden">
+        <div class="marquee-content">
+          <ul class="space-y-2 text-white">
+            <li>🔹 Airport Ground Staff Training</li>
+            <li>🔹 Passenger Service & Ticketing Course</li>
+            <li>🔹 Tourism Management</li>
+            <li>🔹 Travel & Hospitality Operations</li>
+            <li>🔹 Hotel Management Course</li>
+            <li>🔹 Front Office Operations</li>
+            <li>🔹 Housekeeping & Facility Management</li>
+            <li>🔹 Food & Beverage Service Training</li>
+            <li>🔹 Guest Relations & Customer Handling</li>
+            <li>🔹 Computer Operator Course</li>
+            <li>🔹 Helpdesk Executive Training</li>
+            <li>🔹 Office Management & Productivity Tools</li>
+            <li>🔹 Reception & Front Desk Training</li>
+            <li>🔹 Digital Marketing Fundamentals</li>
+            <li>🔹 Social Media Marketing</li>
+            <li>🔹 Online Branding & SEO Basics</li>
+            <li>🔹 Technical & Vocational</li>
+            <li>🔹 AC Technician Course</li>
+            <li>🔹 Basic Electrical & Appliance Repair (optional addon)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl relative inline-block">
+          <span class="relative">
+            Our Best Study Features
+            <span class="absolute bottom-0 left-0 w-1/2 h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"></span>
+          </span>
+        </h2>
+        <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
+          Discover how The Smart Gyan makes learning easier and more effective
+        </p>
+      </div>
+  
+      <!-- Features Grid -->
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <!-- Feature 1 -->
+        <!-- Feature 1 - Online Admission -->
+<div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 hover:-translate-y-1 flex flex-col items-center text-center">
+  <div class="w-24 h-24 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-blue-800 text-white text-4xl mb-8">
+    <i class="fas fa-user-graduate"></i>
+  </div>
+  <h3 class="text-xl font-bold text-gray-900 mb-3">Simple Online Admission Process</h3>
+  <p class="text-gray-600">
+    Our user-friendly online admission and form-filling system makes it easy for students and parents to register, choose courses, and get started quickly without any hassle.
+  </p>
+</div>
+
+<!-- Feature 2 - Recorded Classes -->
+<div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 hover:-translate-y-1 flex flex-col items-center text-center">
+  <div class="w-24 h-24 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-blue-800 text-white text-4xl mb-8">
+    <i class="fas fa-video"></i>
+  </div>
+  <h3 class="text-xl font-bold text-gray-900 mb-3">Online Recorded Classes</h3>
+  <p class="text-gray-600">
+    Students enrolled in any course can access high-quality recorded lectures anytime, anywhere — as long as their course remains active. This feature supports flexible learning.
+  </p>
+</div>
+  
+        <!-- Feature 3 -->
+        <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 hover:-translate-y-1 flex flex-col items-center text-center">
+          <!-- Large Centered Icon -->
+          <div class="w-24 h-24 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-blue-800 text-white text-4xl mb-8">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          
+          <!-- Content -->
+          <div class="mt-4">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Online Live Classes</h3>
+            <p class="text-gray-600">
+              Our live video classes enable students to attend interactive sessions from home. Conducted by expert trainers, these sessions allow real-time engagement, questions, and feedback.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section class="py-16" id="about">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2">
+          <div class="relative rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+              alt="Students learning" class="w-full h-auto" />
+            <div class="absolute -bottom-6 -right-6 bg-secondary-500 text-white p-6 rounded-lg shadow-lg w-48">
+              <div class="text-3xl font-bold">10K+</div>
+              <div class="text-sm">Students Trained</div>
+            </div>
+          </div>
+        </div>
+        <d<div class="lg:w-1/2">
+          <h2 class="text-3xl font-bold mb-4 text-primary-800">
+            Welcome to <span class="text-secondary-500">Smart Gyan</span> Training Institute
+          </h2>
+          <p class="text-sm font-medium text-gray-500 mb-3">
+            A Unit of SFSA Group
+          </p>
+          
+          <p class="text-sm mb-3 text-gray-700">
+            Smart Gyan Training Institute is a next-generation 100% online e-learning platform designed to empower learners from all backgrounds with essential digital and vocational skills for today's competitive job market. Our goal is to make quality education accessible, affordable, and truly career-focused — helping students learn anytime, anywhere, at their own pace.
+          </p>
+          
+          <h3 class="text-xl font-semibold mb-3 text-primary-800">
+            We proudly offer:
+          </h3>
+          
+          <div class="space-y-2 mb-3">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+              </div>
+              <p class="ml-3 text-gray-700">
+                100% online learning with flexible schedules
+              </p>
+            </div>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+              </div>
+              <p class="ml-3 text-gray-700">
+                Government-recognized certifications
+              </p>
+            </div>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+              </div>
+              <p class="ml-3 text-gray-700">
+                Practical, job-focused curriculum designed by industry experts
+              </p>
+            </div>
+          </div>
+          
+          <h3 class="text-sm font-semibold mb-4 text-primary-800">
+            Our training programs include:
+          </h3>
+          
+          <div class="grid text-sm grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div class="flex items-center bg-gray-50 px-3 py-1 rounded-lg">
+              <i class="fas fa-chart-line text-secondary-500 mr-3"></i>
+              <span>Digital Marketing</span>
+            </div>
+            <div class="flex items-center bg-gray-50 px-3 py-1 rounded-lg">
+              <i class="fas fa-laptop-code text-secondary-500 mr-3"></i>
+              <span>IT Skills</span>
+            </div>
+            <div class="flex items-center bg-gray-50 px-3 py-1 rounded-lg">
+              <i class="fas fa-comments text-secondary-500 mr-3"></i>
+              <span>Spoken English & Personality Development</span>
+            </div>
+            <div class="flex items-center bg-gray-50 px-3 py-1 rounded-lg">
+              <i class="fas fa-plane text-secondary-500 mr-3"></i>
+              <span>Aviation and Hospitality</span>
+            </div>
+          </div>
+          
+          <p class="text-gray-700 text-sm mb-1">
+            As a proud unit of the SFSA Group, Smart Gyan is committed to bridging the gap between traditional education and real-world employability. We don't just teach — we deliver smart learning experiences that build confidence, creativity, and career readiness in every student.
+          </p>
+          
+          <div class="flex flex-wrap gap-4">
+            <a href="/courses.html">
+              <button class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition flex items-center">
+                Explore Our Courses <i class="fas fa-arrow-right ml-2"></i>
+              </button>
+            </a>
+            <a href="/about.html">
+              <button class="border border-primary-600 text-primary-600 hover:bg-primary-50 font-medium py-3 px-6 rounded-lg transition flex items-center">
+                Learn More About Us
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses  -->
+<!-- Popular Courses -->
+<section class="py-16 bg-gradient-to-b from-gray-50 to-white" id="courses">
+  <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+          <span class="inline-block px-3 py-1 text-sm font-semibold text-secondary-600 bg-secondary-100 rounded-full mb-3">Our Courses</span>
+          <h2 class="text-3xl font-bold text-gray-900">
+              Popular <span class="text-primary-600">Online Programs</span>
+          </h2>
+          <p class="mt-2 text-lg text-gray-600 max-w-2xl mx-auto">
+              Choose from our most in-demand courses designed for career success
+          </p>
+      </div>
+
+      <div id="courses-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+          <!-- Courses will be loaded here dynamically -->
+      </div>
+
+      <div class="text-center mt-12">
+          <a href="/courses.html"><button
+                  class="bg-white hover:bg-gray-50 text-primary-600 border border-primary-600 font-medium py-3 px-8 rounded-lg transition shadow-sm">
+                  View All Courses <i class="fas fa-arrow-right ml-2"></i></button></a>
+      </div>
+  </div>
+</section>
+
+  <!-- Features Section -->
+  <section class="py-16 bg-primary-900 text-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <!-- <span class="inline-block px-3 py-1 text-sm font-semibold text-secondary-300 bg-secondary-900 bg-opacity-30 rounded-full mb-3">Why Choose Us</span> -->
+        <h2 class="text-3xl font-bold">
+          Why Choose<span class="text-secondary-400"> Us</span>
+        </h2>
+      </div>
+  
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Our Mission Column -->
+        <div class="bg-primary-800 p-8 rounded-xl">
+          <h3 class="text-2xl font-bold mb-6 text-secondary-400">Our Mission</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-secondary-400 mt-1 mr-3"></i>
+              <span>To provide 100% online, flexible, and affordable education in digital, vocational, and career-focused domains.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-secondary-400 mt-1 mr-3"></i>
+              <span>To bridge the gap between academic knowledge and employable skills through practical, hands-on training.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-secondary-400 mt-1 mr-3"></i>
+              <span>To create an inclusive learning environment that nurtures confidence, innovation, and lifelong growth.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-secondary-400 mt-1 mr-3"></i>
+              <span>To deliver government-recognized certifications that enhance career opportunities across industries.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check-circle text-secondary-400 mt-1 mr-3"></i>
+              <span>To continuously evolve with changing industry trends and learner needs.</span>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Our Core Values Column -->
+        <div class="bg-primary-800 p-8 rounded-xl">
+          <h3 class="text-2xl font-bold mb-6 text-secondary-400">Our Core Values</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-primary-700 p-4 rounded-lg">
+              <h4 class="font-bold text-secondary-300 mb-2">Accessibility</h4>
+              <p class="text-sm text-gray-300">Learning for everyone, anytime, anywhere.</p>
+            </div>
+            <div class="bg-primary-700 p-4 rounded-lg">
+              <h4 class="font-bold text-secondary-300 mb-2">Practicality</h4>
+              <p class="text-sm text-gray-300">Courses built with real-world job outcomes in mind.</p>
+            </div>
+            <div class="bg-primary-700 p-4 rounded-lg">
+              <h4 class="font-bold text-secondary-300 mb-2">Innovation</h4>
+              <p class="text-sm text-gray-300">Smart, tech-enabled learning for modern minds.</p>
+            </div>
+            <div class="bg-primary-700 p-4 rounded-lg">
+              <h4 class="font-bold text-secondary-300 mb-2">Empowerment</h4>
+              <p class="text-sm text-gray-300">Building skills that lead to confidence and independence.</p>
+            </div>
+            <div class="bg-primary-700 p-4 rounded-lg">
+              <h4 class="font-bold text-secondary-300 mb-2">Integrity</h4>
+              <p class="text-sm text-gray-300">Transparent, honest, and student-first approach.</p>
+            </div>
+            <div class="bg-primary-700 p-4 rounded-lg">
+              <h4 class="font-bold text-secondary-300 mb-2">Excellence</h4>
+              <p class="text-sm text-gray-300">Commitment to quality in content, delivery, and student success.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certification Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2">
+          <img src="https://www.cadcenter.org/assets/website/images/certificate__large11.jpg" alt="Certificate"
+            class="rounded-xl shadow-2xl w-full" />
+        </div>
+        <div class="lg:w-1/2">
+          <span
+            class="inline-block px-3 py-1 text-sm font-semibold text-accent-600 bg-accent-100 rounded-full mb-3">Certification</span>
+          <h2 class="text-3xl font-bold mb-6 text-gray-900">
+            Government-Authorized
+            <span class="text-primary-600">Certification</span>
+          </h2>
+          <p class="text-lg mb-6 text-gray-700">
+            Upon successful completion of your course, you'll receive a
+            government-recognized certificate that validates your skills and
+            enhances your employability.
+          </p>
+
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+              </div>
+              <p class="ml-3 text-gray-700">
+                Recognized by employers nationwide
+              </p>
+            </div>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+              </div>
+              <p class="ml-3 text-gray-700">
+                Verifiable through government portals
+              </p>
+            </div>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 mt-1">
+                <div class="flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800">
+                  <i class="fas fa-check text-xs"></i>
+                </div>
+              </div>
+              <p class="ml-3 text-gray-700">
+                Enhances credibility for job applications
+              </p>
+            </div>
+          </div>
+
+          <button
+            class="bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition flex items-center">
+            Download Sample Certificate <i class="fas fa-download ml-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bg-gray-50 flex items-center justify-center p-4 sm:p-6">
+    <div class="w-full max-w-6xl bg-white rounded-xl shadow-lg overflow-hidden flex flex-col md:flex-row">
+      <!-- Image Section (Left) - Hidden on small mobile, visible from sm up -->
+      <div class="hidden sm:block md:w-1/2 bg-blue-600 flex items-center justify-center p-4 sm:p-6 md:p-8">
+        <img 
+          src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" 
+          alt="Career Opportunities"
+          class="w-full h-auto object-cover rounded-lg shadow-md"
+        >
+      </div>
+      
+      <!-- Form Section (Right) -->
+      <div class="w-full md:w-1/2 p-4 sm:p-6 md:p-8 lg:p-10">
+        <h2 class="text-xl sm:text-2xl font-bold text-gray-800 text-center mb-4 sm:mb-6 pb-3 relative">
+          Get In Touch With Us
+          <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500"></span>
+        </h2>
+        
+        <form class="space-y-4 sm:space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <!-- Name -->
+            <div class="relative">
+              <input 
+                type="text" 
+                id="name" 
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent peer"
+                placeholder=" "
+                required
+              >
+              <label 
+                for="name" 
+                class="absolute left-3 sm:left-4 top-2 sm:top-3 text-sm sm:text-base text-gray-500 transition-all duration-200 pointer-events-none peer-focus:text-blue-500 peer-focus:text-xs peer-focus:-top-2 peer-focus:bg-white peer-focus:px-1 peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:top-2 sm:peer-placeholder-shown:top-3"
+              >
+                Name
+              </label>
+            </div>
+            
+            <!-- Mobile Number -->
+            <div class="relative">
+              <input 
+                type="tel" 
+                id="mobile" 
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent peer"
+                placeholder=" "
+                required
+              >
+              <label 
+                for="mobile" 
+                class="absolute left-3 sm:left-4 top-2 sm:top-3 text-sm sm:text-base text-gray-500 transition-all duration-200 pointer-events-none peer-focus:text-blue-500 peer-focus:text-xs peer-focus:-top-2 peer-focus:bg-white peer-focus:px-1 peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:top-2 sm:peer-placeholder-shown:top-3"
+              >
+                Mobile Number
+              </label>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <!-- DOB -->
+            <div class="relative">
+              <input 
+                type="date" 
+                id="dob" 
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                required
+              >
+              <label 
+                for="dob" 
+                class="absolute left-3 sm:left-4 -top-2 text-xs text-blue-500 bg-white px-1"
+              >
+                DOB
+              </label>
+            </div>
+            
+            <!-- Email -->
+            <div class="relative">
+              <input 
+                type="email" 
+                id="email" 
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent peer"
+                placeholder=" "
+                required
+              >
+              <label 
+                for="email" 
+                class="absolute left-3 sm:left-4 top-2 sm:top-3 text-sm sm:text-base text-gray-500 transition-all duration-200 pointer-events-none peer-focus:text-blue-500 peer-focus:text-xs peer-focus:-top-2 peer-focus:bg-white peer-focus:px-1 peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:top-2 sm:peer-placeholder-shown:top-3"
+              >
+                Email
+              </label>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <!-- Qualification -->
+            <div class="relative">
+              <input 
+                type="text" 
+                id="qualification" 
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent peer"
+                placeholder=" "
+                required
+              >
+              <label 
+                for="qualification" 
+                class="absolute left-3 sm:left-4 top-2 sm:top-3 text-sm sm:text-base text-gray-500 transition-all duration-200 pointer-events-none peer-focus:text-blue-500 peer-focus:text-xs peer-focus:-top-2 peer-focus:bg-white peer-focus:px-1 peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:top-2 sm:peer-placeholder-shown:top-3"
+              >
+                Qualification
+              </label>
+            </div>
+            
+            <!-- City -->
+            <div class="relative">
+              <input 
+                type="text" 
+                id="city" 
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent peer"
+                placeholder=" "
+                required
+              >
+              <label 
+                for="city" 
+                class="absolute left-3 sm:left-4 top-2 sm:top-3 text-sm sm:text-base text-gray-500 transition-all duration-200 pointer-events-none peer-focus:text-blue-500 peer-focus:text-xs peer-focus:-top-2 peer-focus:bg-white peer-focus:px-1 peer-placeholder-shown:text-sm sm:peer-placeholder-shown:text-base peer-placeholder-shown:top-2 sm:peer-placeholder-shown:top-3"
+              >
+                City
+              </label>
+            </div>
+          </div>
+          
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            class="w-full py-2 sm:py-3 px-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base"
+          >
+            ENROLL NOW
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Testimonials -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <span
+          class="inline-block px-3 py-1 text-sm font-semibold text-secondary-600 bg-secondary-100 rounded-full mb-3">Testimonials</span>
+        <h2 class="text-3xl font-bold text-gray-900">
+          What Our <span class="text-primary-600">Students Say</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="flex items-center text-yellow-400 mr-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="text-sm text-gray-500">2 months ago</span>
+          </div>
+          <p class="text-gray-700 mb-6">
+            "The Digital Marketing course transformed my career. I got a
+            promotion within 3 months of completing the certification!"
+          </p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Student"
+              class="w-12 h-12 rounded-full mr-4" />
+            <div>
+              <h4 class="font-bold">Priya Sharma</h4>
+              <p class="text-sm text-gray-500">Digital Marketing Executive</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="flex items-center text-yellow-400 mr-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="text-sm text-gray-500">1 month ago</span>
+          </div>
+          <p class="text-gray-700 mb-6">
+            "Excellent faculty and practical course content. The Office
+            Management diploma helped me start my own business."
+          </p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student"
+              class="w-12 h-12 rounded-full mr-4" />
+            <div>
+              <h4 class="font-bold">Rahul Verma</h4>
+              <p class="text-sm text-gray-500">Business Owner</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="flex items-center text-yellow-400 mr-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="text-sm text-gray-500">3 weeks ago</span>
+          </div>
+          <p class="text-gray-700 mb-6">
+            "The flexible timing allowed me to balance my job and studies. The
+            Computer Fundamentals course was very comprehensive."
+          </p>
+          <div class="flex items-center">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Student"
+              class="w-12 h-12 rounded-full mr-4" />
+            <div>
+              <h4 class="font-bold">Anjali Patel</h4>
+              <p class="text-sm text-gray-500">Bank Employee</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-primary-600 text-white" id="contact">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Ready to Transform Your Career?</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">
+        Join thousands of successful students who have upgraded their skills
+        with Smart Gyan
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <button
+          class="bg-white hover:bg-gray-100 text-primary-600 font-bold py-3 px-8 rounded-lg text-lg transition shadow-md">
+          <a href="tel:+918130900517"><i class="fas fa-phone-alt mr-2"></i> Talk to Counselor</a>
+        </button>
+        <button
+          class="bg-secondary-500 hover:bg-secondary-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition shadow-md">
+          <a href="/admission.html"><i class="fas fa-book mr-2"></i> Enroll Now</a>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA  -->
+ 
+     <!-- Footer  -->
+     <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <div class="flex items-center  space-x-3">
+              <!-- Logo with rounded corners -->
+              <div class="flex-shrink-0 ">
+                  <a href="/">
+                      <img src="logo.jpeg" alt="Logo" 
+                           class="w-10 h-10 rounded-lg object-cover">
+                  </a>
+              </div>
+              
+              <!-- Text content -->
+              <div class="flex flex-col">
+                  <!-- Main heading -->
+                  <span class="text-sm font-bold leading-tight">
+                      Smart <span class="text-secondary-500"> Gyan </span>Training Institute
+                  </span>
+                  
+                  <!-- Subheading with 3 words -->
+                  <!-- <span class="text-[10px] text-white font-medium uppercase tracking-wider">
+                     Registered under Ministry of corporate Affairs
+                  </span> -->
+                  <span class="text-[10px] text-white font-medium uppercase tracking-wider">
+                      Aviation | Hospitality | Skill Development
+                  </span>
+              </div>
+          </div>
+            <p class="my-6">
+              Empowering learners with essential digital and vocational skills
+              for the modern job market.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-6">Quick Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="/" class="hover:text-secondary-400 transition">Home</a>
+              </li>
+              <li>
+                <a href="about.html" class="hover:text-secondary-400 transition"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="courses.html"
+                  class="hover:text-secondary-400 transition"
+                  >All Courses</a
+                >
+              </li>
+              <li>
+                <a
+                  href="courses.html"
+                  class="hover:text-secondary-400 transition"
+                  >Fees & Installments</a
+                >
+              </li>
+              <!-- <li>
+                <a href="#contact" class="hover:text-secondary-400 transition"
+                  >Contact Us</a
+                >
+              </li> -->
+              <li>
+                <a
+                  href="/privacy-policy.html"
+                  class="hover:text-secondary-400 transition"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-6">
+              Popular Courses
+            </h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="admission.html" class="hover:text-secondary-400 transition"
+                  >Computer Fundamentals</a
+                >
+              </li>
+              <li>
+                <a href="admission.html" class="hover:text-secondary-400 transition"
+                  >Digital Marketing</a
+                >
+              </li>
+              <li>
+                <a href="admission.html" class="hover:text-secondary-400 transition"
+                  >Office Management</a
+                >
+              </li>
+              <li>
+                <a href="admission.html" class="hover:text-secondary-400 transition"
+                  >Web Designing</a
+                >
+              </li>
+              <li>
+                <a href="admission.html" class="hover:text-secondary-400 transition"
+                  >Graphic Design</a
+                >
+              </li>
+              <li>
+                <a href="admission.html" class="hover:text-secondary-400 transition"
+                  >Tally ERP 9</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-6">Contact Info</h3>
+            <address class="not-italic space-y-4">
+              <div class="flex items-start">
+                <i
+                  class="fas fa-map-marker-alt text-secondary-400 mt-1 mr-3"
+                ></i>
+                <p> Andheri East Education Zone
+                  Marol, Andheri (East),
+                  Mumbai – 400093
+                  Maharashtra, India</p>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-phone-alt text-secondary-400 mr-3"></i>
+                <a href="tel:919953595426"><p>+91 9953595426</p></a>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-envelope text-secondary-400 mr-3"></i>
+                <a href="mailto:admission@thesmartgyan.com">admission@thesmartgyan.com</a>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-clock text-secondary-400 mr-3"></i>
+                <p>Mon-Sat: 9:00 AM - 6:00 PM</p>
+              </div>
+            </address>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+          <p>&copy; 2025 Smart Gyan Training Institute. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+<!-- Course Details Modal -->
+<div id="courseModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+  <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <!-- Background overlay -->
+    <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+      <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+    </div>
+
+    <!-- Modal content -->
+    <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
+      <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+        <div class="sm:flex sm:items-start">
+          <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 id="modalCourseTitle" class="text-2xl leading-6 font-bold text-gray-900"></h3>
+                <h4 id="modalCourseSubtitle" class="text-lg font-semibold text-gray-700 mt-1"></h4>
+              </div>
+              <button id="closeModal" type="button" class="text-gray-400 hover:text-gray-500 focus:outline-none">
+                <span class="sr-only">Close</span>
+                <i class="fas fa-times text-2xl"></i>
+              </button>
+            </div>
+            
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+              <!-- Left Column -->
+              <div>
+                <img id="modalCourseImage" src="" alt="" class="w-full h-48 object-cover rounded-lg mb-4">
+                
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-bold text-lg mb-2 text-primary-800">Course Highlights</h4>
+                  <ul id="modalCourseHighlights" class="list-disc pl-5 space-y-1"></ul>
+                </div>
+                
+                <div class="mt-4 bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-bold text-lg mb-2 text-primary-800">Certification</h4>
+                  <p id="modalCourseCertification" class="text-gray-700"></p>
+                </div>
+              </div>
+              
+              <!-- Right Column -->
+              <div>
+                <div class="space-y-4">
+                  <div>
+                    <h4 class="font-bold text-gray-800">Duration</h4>
+                    <p id="modalCourseDuration" class="text-gray-700"></p>
+                  </div>
+                  
+                  <div>
+                    <h4 class="font-bold text-gray-800">Eligibility</h4>
+                    <p id="modalCourseQualifications" class="text-gray-700"></p>
+                  </div>
+                  
+                  <div>
+                    <h4 class="font-bold text-gray-800">Course Mode</h4>
+                    <p id="modalCourseMode" class="text-gray-700"></p>
+                  </div>
+                  
+                  <div>
+                    <h4 class="font-bold text-gray-800">Language</h4>
+                    <p id="modalCourseLanguage" class="text-gray-700"></p>
+                  </div>
+                  
+                  <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                    <h4 class="font-bold text-gray-800">Course Fee</h4>
+                    <div class="flex items-baseline mt-1">
+                      <span id="modalCoursePrice" class="text-2xl font-bold text-gray-900 mr-2"></span>
+                      <span id="modalCourseOriginalPrice" class="text-lg text-gray-500 line-through"></span>
+                    </div>
+                    <div id="modalInstallments" class="mt-2 text-sm text-gray-600"></div>
+                  </div>
+                </div>
+                
+                <div class="mt-6 flex space-x-3">
+                  <a href="#contact" id="enrollNowBtn" class="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg text-center transition">
+                    Enroll Now
+                  </a>
+                  <button id="closeModalBtn" class="flex-1 border border-primary-600 text-primary-600 hover:bg-primary-50 font-medium py-2 px-4 rounded-lg transition">
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    // Initialize Swiper
+    const swiper = new Swiper(".heroSwiper", {
+      // Optional parameters
+      loop: true,
+      effect: "fade",
+      speed: 1000,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      fadeEffect: {
+        crossFade: true,
+      },
+
+      // Pagination
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    // Animate scroll indicator
+    const scrollIndicator = document.querySelector(".animate-scroll");
+    setInterval(() => {
+      scrollIndicator.classList.toggle("mt-2");
+      scrollIndicator.classList.toggle("mt-3");
+    }, 800);
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById("mobileMenuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    mobileMenuButton.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", function (event) {
+      if (
+        !mobileMenu.contains(event.target) &&
+        !mobileMenuButton.contains(event.target)
+      ) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
+
+  
+
+<!-- Your Firebase Config -->
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDBrJ3w_fbYYQxD3DsJW0F10feyj_T0T5k",
+    authDomain: "thesmartgyan-2043c.firebaseapp.com",
+    projectId: "thesmartgyan-2043c",
+    storageBucket: "thesmartgyan-2043c.firebasestorage.app",
+    messagingSenderId: "19351680227",
+    appId: "1:19351680227:web:cfe695444483e3dbde01d6",
+    measurementId: "G-MJZJ0TVJBZ"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+
+  async function handleLogin() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const errorElement = document.getElementById('error-message');
+    const loginButton = document.getElementById('login-button');
+    const spinner = document.getElementById('spinner');
+
+    loginButton.disabled = true;
+    spinner.classList.remove('hidden');
+    loginButton.classList.add('cursor-not-allowed');
+
+    try {
+      const userCredential = await auth.signInWithEmailAndPassword(email, password);
+      console.log("Login success");
+
+      // Hide login and show dashboard
+      document.getElementById('login-page').classList.add('hidden');
+      document.getElementById('dashboard-page').classList.remove('hidden');
+
+    } catch (error) {
+      errorElement.textContent = error.message;
+      errorElement.classList.remove('hidden');
+      document.getElementById('login-form').classList.add('animate-shake');
+      setTimeout(() => {
+        document.getElementById('login-form').classList.remove('animate-shake');
+      }, 500);
+    }
+
+    loginButton.disabled = false;
+    spinner.classList.add('hidden');
+    loginButton.classList.remove('cursor-not-allowed');
+  }
+
+  function togglePassword() {
+    const passwordInput = document.getElementById('password');
+    const eyeIcon = document.getElementById('eye-icon');
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      eyeIcon.classList.replace('fa-eye', 'fa-eye-slash');
+    } else {
+      passwordInput.type = 'password';
+      eyeIcon.classList.replace('fa-eye-slash', 'fa-eye');
+    }
+  }
+
+
+  </script>
+
+<script>
+  // Load courses from JSON file
+  async function loadCourses() {
+      try {
+          const response = await fetch('courseoverview.json');
+          const courses = await response.json();
+          renderCourses(courses);
+      } catch (error) {
+          console.error('Error loading courses:', error);
+          // Fallback to static content if JSON fails to load
+          const fallbackCourses = [
+              // Include at least one fallback course here
+          ];
+          renderCourses(fallbackCourses);
+      }
+  }
+  
+  function renderCourses(courses) {
+    const container = document.getElementById('courses-container');
+    container.innerHTML = ''; // Clear existing content
+
+    courses.forEach(course => {
+        const courseCard = document.createElement('div');
+        courseCard.className = 'course-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100';
+        courseCard.innerHTML = `
+            <div class="relative">
+                <img src="${course.image}" alt="${course.title}" class="w-full h-48 object-cover" />
+                ${course.isPopular ? `
+                <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Popular
+                </div>` : ''}
+            </div>
+            <div class="p-6">
+                <div class="mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 uppercase tracking-wide">
+                        ${course.title}
+                    </h3>
+                    ${course.subtitle ? `
+                    <h4 class="text-lg font-semibold text-gray-700 uppercase tracking-wide">
+                        ${course.subtitle}
+                    </h4>` : ''}
+                </div>
+                
+                <div class="space-y-3 mb-6">
+                    <div class="flex items-center">
+                        <i class="fas fa-clock text-gray-500 mr-2 w-5"></i>
+                        <span class="text-gray-700">Duration: ${course.duration}</span>
+                    </div>
+                    <div class="flex items-start">
+                        <i class="fas fa-graduation-cap text-gray-500 mr-2 mt-1 w-5"></i>
+                        <span class="text-gray-700">Qualifications: ${course.qualifications}</span>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between items-center">
+                    <a href="/courses.html?course=${course.id}" class="inline-flex items-center text-primary-600 hover:text-primary-800 font-medium">
+                        Read More
+                        <i class="fas fa-chevron-right ml-2 text-xs"></i>
+                    </a>
+                    ${course.price ? `
+                    <div class="text-right">
+                        <span class="text-lg font-bold text-gray-900">₹${course.price.toLocaleString()}</span>
+                        ${course.originalPrice ? `
+                        <span class="block text-sm text-gray-500 line-through">₹${course.originalPrice.toLocaleString()}</span>
+                        ` : ''}
+                    </div>
+                    ` : ''}
+                </div>
+            </div>
+        `;
+        container.appendChild(courseCard);
+    });
+}
+  // Load courses when page loads
+  
+  
+  document.addEventListener('DOMContentLoaded', loadCourses);
+  </script>
+
+  
+<script>
+  document.getElementById('careerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(this);
+    const data = {};
+    
+    // Convert FormData to object
+    formData.forEach((value, key) => {
+      // Handle checkboxes (multiple selections)
+      if (key === 'courses') {
+        if (!data[key]) {
+          data[key] = [];
+        }
+        data[key].push(value);
+      } else {
+        data[key] = value;
+      }
+    });
+    
+    // Log the data to console
+    console.log('Form Data:', data);
+    
+    // You can add AJAX submission here if needed
+    // fetch('/submit-form', {
+    //   method: 'POST',
+    //   body: JSON.stringify(data),
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   }
+    // })
+    
+    // Optional: Show success message
+    alert('Form submitted successfully! Check console for data.');
+  });
+
+
+  
+</script>
+<script>
+  // Global variable to store courses
+  let allCourses = [];
+
+  // Load courses from JSON file
+  async function loadCourses() {
+    try {
+      const response = await fetch('courseoverview.json');
+      allCourses = await response.json();
+      renderCourses(allCourses);
+    } catch (error) {
+      console.error('Error loading courses:', error);
+      // Fallback to static content if JSON fails to load
+      const fallbackCourses = [
+        // Include at least one fallback course here
+      ];
+      allCourses = fallbackCourses;
+      renderCourses(fallbackCourses);
+    }
+  }
+
+  function renderCourses(courses) {
+    const container = document.getElementById('courses-container');
+    container.innerHTML = ''; // Clear existing content
+
+    courses.forEach(course => {
+      const courseCard = document.createElement('div');
+      courseCard.className = 'course-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100';
+      courseCard.innerHTML = `
+        <div class="relative">
+          <img src="${course.image}" alt="${course.title}" class="w-full h-48 object-cover" />
+          ${course.isPopular ? `
+          <div class="absolute top-4 right-4 bg-secondary-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+            Popular
+          </div>` : ''}
+        </div>
+        <div class="p-6">
+          <div class="mb-4">
+            <h3 class="text-xl font-bold text-gray-900 uppercase tracking-wide">
+              ${course.title}
+            </h3>
+            ${course.subtitle ? `
+            <h4 class="text-lg font-semibold text-gray-700 uppercase tracking-wide">
+              ${course.subtitle}
+            </h4>` : ''}
+          </div>
+          
+          <div class="space-y-3 mb-6">
+            <div class="flex items-center">
+              <i class="fas fa-clock text-gray-500 mr-2 w-5"></i>
+              <span class="text-gray-700">Duration: ${course.duration}</span>
+            </div>
+            <div class="flex items-start">
+              <i class="fas fa-graduation-cap text-gray-500 mr-2 mt-1 w-5"></i>
+              <span class="text-gray-700">Qualifications: ${course.qualifications}</span>
+            </div>
+          </div>
+          
+          <div class="flex justify-between items-center">
+            <button onclick="showCourseDetails('${course.id}')" class="view-details-btn inline-flex items-center text-primary-600 hover:text-primary-800 font-medium">
+              View Details
+              <i class="fas fa-chevron-right ml-2 text-xs"></i>
+            </button>
+           
+          </div>
+        </div>
+      `;
+      container.appendChild(courseCard);
+    });
+  }
+
+
+  //  // ${course.price ? `
+  //           // <div class="text-right">
+  //           //   <span class="text-lg font-bold text-gray-900">₹${course.price.toLocaleString()}</span>
+  //           //   ${course.originalPrice ? `
+  //           //   <span class="block text-sm text-gray-500 line-through">₹${course.originalPrice.toLocaleString()}</span>
+  //           //   ` : ''}
+  //           // </div>
+  //           ` : ''}
+
+  // Show course details in modal
+  function showCourseDetails(courseId) {
+    const course = allCourses.find(c => c.id === courseId);
+    if (!course) return;
+
+    // Populate modal with course data
+    document.getElementById('modalCourseTitle').textContent = course.title;
+    document.getElementById('modalCourseSubtitle').textContent = course.subtitle || '';
+    document.getElementById('modalCourseImage').src = course.image;
+    document.getElementById('modalCourseImage').alt = course.title;
+    
+    // Highlights
+    const highlightsList = document.getElementById('modalCourseHighlights');
+    highlightsList.innerHTML = '';
+    course.highlights.forEach(highlight => {
+      const li = document.createElement('li');
+      li.textContent = highlight;
+      highlightsList.appendChild(li);
+    });
+    
+    // Other details
+    document.getElementById('modalCourseDuration').textContent = course.duration;
+    document.getElementById('modalCourseQualifications').textContent = course.qualifications;
+    document.getElementById('modalCourseCertification').textContent = course.certification;
+    document.getElementById('modalCourseMode').textContent = course.mode || 'Online & Offline';
+    document.getElementById('modalCourseLanguage').textContent = course.language || 'English/Hindi';
+    
+    // Pricing
+    document.getElementById('modalCoursePrice').textContent = `₹${course.price.toLocaleString()}`;
+    const originalPriceEl = document.getElementById('modalCourseOriginalPrice');
+    if (course.originalPrice) {
+      originalPriceEl.textContent = `₹${course.originalPrice.toLocaleString()}`;
+      originalPriceEl.style.display = 'inline';
+    } else {
+      originalPriceEl.style.display = 'none';
+    }
+    
+    // Installments
+    const installmentsEl = document.getElementById('modalInstallments');
+    if (course.installments) {
+      let installmentsHtml = '<p class="font-medium">Installment Options:</p>';
+      for (const [key, option] of Object.entries(course.installments)) {
+        installmentsHtml += `
+          <p class="mt-1">${key}: ₹${option.monthlyPayment.toLocaleString()}/month (Total: ₹${option.totalPayment.toLocaleString()})</p>
+        `;
+      }
+      installmentsEl.innerHTML = installmentsHtml;
+    } else {
+      installmentsEl.innerHTML = '';
+    }
+    
+    // Set enroll now button link
+    document.getElementById('enrollNowBtn').href = `admission.html`;
+    
+    // Show modal
+    document.getElementById('courseModal').classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  }
+
+  // Close modal
+  function closeModal() {
+    document.getElementById('courseModal').classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  }
+
+  // Event listeners for modal
+  document.addEventListener('DOMContentLoaded', () => {
+    loadCourses();
+    
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+    document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+    
+    // Close modal when clicking outside
+    document.getElementById('courseModal').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('courseModal')) {
+        closeModal();
+      }
+    });
+  });
+</script>
+    <!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js"></script>
+
+
+
+</body>
+
+</html>

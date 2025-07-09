@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Admission Form</title>
+
+  <link rel="icon" type="image/png" href="fabicon.png">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ["Poppins", "sans-serif"],
+          },
+          colors: {
+            primary: {
+              DEFAULT: "#2563eb",
+              50: "#eff6ff",
+              100: "#dbeafe",
+              200: "#bfdbfe",
+              300: "#93c5fd",
+              400: "#60a5fa",
+              500: "#3b82f6",
+              600: "#2563eb",
+              700: "#1d4ed8",
+              800: "#1e40af",
+              900: "#1e3a8a",
+            },
+            secondary: {
+              DEFAULT: "#f59e0b",
+              50: "#fffbeb",
+              100: "#fef3c7",
+              200: "#fde68a",
+              300: "#fcd34d",
+              400: "#fbbf24",
+              500: "#f59e0b",
+              600: "#d97706",
+              700: "#b45309",
+              800: "#92400e",
+              900: "#78350f",
+            },
+            accent: {
+              DEFAULT: "#10b981",
+              50: "#ecfdf5",
+              100: "#d1fae5",
+              200: "#a7f3d0",
+              300: "#6ee7b7",
+              400: "#34d399",
+              500: "#10b981",
+              600: "#059669",
+              700: "#047857",
+              800: "#065f46",
+              900: "#064e3b",
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .form-section {
+      transition: all 0.3s ease;
+    }
+
+    .form-section:hover {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .fee-details {
+      display: none;
+    }
+  </style>
+
+
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Navbar  -->
+
+  <header class="bg-primary-900 text-white sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <!-- Logo with rounded corners -->
+        <div class="flex-shrink-0">
+          <a href="/">
+            <img src="logo.jpeg" alt="Logo" class="w-14 h-14 rounded-lg object-cover">
+          </a>
+        </div>
+
+        <!-- Text content -->
+        <div class="flex flex-col">
+          <!-- Main heading - larger on lg screens, smaller on mobile -->
+          <span class="text-xl md:text-2xl font-bold leading-tight">
+            Smart <span class="text-secondary-500"> Gyan </span>Training Institute
+          </span>
+
+          <!-- Subheading - smaller text on mobile -->
+          <span class="text-[8px] md:text-[10px] text-white font-medium uppercase tracking-wider">
+            Registered under Ministry of corporate Affairs
+          </span>
+          <span class="text-[8px] md:text-[10px] text-white font-medium uppercase tracking-wider">
+            Aviation | Hospitality | Skill Development
+          </span>
+        </div>
+      </div>
+
+      <nav class="hidden lg:flex space-x-8 items-center">
+        <a href="/" class="hover:text-secondary-400 transition font-medium">Home</a>
+        <a href="about.html" class="hover:text-secondary-400 transition font-medium">About Us</a>
+        <a href="courses.html" class="hover:text-secondary-400 transition font-medium">Courses</a>
+        <a href="admission.html" class="hover:text-secondary-400 transition font-medium">Online Admission</a>
+        <a href="login.html"><button
+            class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-lg font-semibold transition ml-4 flex items-center">
+            <i class="fas fa-sign-in-alt mr-2"></i> Student Login
+          </button></a>
+      </nav>
+      <button id="mobileMenuButton" class="lg:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu hidden lg:hidden bg-primary-800 absolute w-full left-0 px-4 pb-4 shadow-lg">
+      <div class="flex flex-col space-y-3 pt-2">
+        <a href="/" class="hover:text-secondary-400 transition font-medium py-2">Home</a>
+        <a href="about.html" class="hover:text-secondary-400 transition font-medium py-2">About Us</a>
+        <a href="courses.html" class="hover:text-secondary-400 transition font-medium py-2">Courses</a>
+        <a href="admission.html" class="hover:text-secondary-400 transition font-medium py-2">Online Admission</a>
+        <a href="login.html"><button
+            class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-md font-semibold transition flex items-center justify-center">
+            <i class="fas fa-sign-in-alt mr-2"></i> Login
+          </button></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container mx-auto px-4 py-8 max-w-4xl">
+    <div class="bg-white rounded-lg shadow-md overflow-hidden p-6 mb-8">
+      <!-- Breadcrumb -->
+      <!-- <div class="text-sm breadcrumbs mb-4">
+                <ul>
+                    <li><a href="#">Home</a></li> 
+                    <li><a href="#">Online Admission</a></li>
+                </ul>
+            </div> -->
+
+      <h1 class="text-3xl font-bold text-center text-blue-600 mb-2">Online Admission</h1>
+
+      <form id="admissionForm" class="space-y-6">
+        <!-- Personal Information Section -->
+        <div class="form-section border border-gray-200 rounded-lg p-6">
+          <h2 class="text-xl font-semibold text-blue-500 mb-4">Personal Information</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Name*</label>
+              <input type="text" id="fullName" name="fullName" required placeholder="Enter name"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+              <label for="fatherName" class="block text-sm font-medium text-gray-700 mb-1">Father's Name*</label>
+              <input type="text" id="fatherName" name="fatherName" required placeholder="Enter father's name"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+              <input type="email" id="email" name="email" required placeholder="Enter email"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number*</label>
+              <input type="tel" id="phone" name="phone" required placeholder="Enter mobile no."
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+              <label for="dob" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth*</label>
+              <input type="date" id="dob" name="dob" required placeholder="mm/dd/yyyy"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+              <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Gender*</label>
+              <select id="gender" name="gender" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="aadhaar" class="block text-sm font-medium text-gray-700 mb-1">Aadhaar No*</label>
+              <input type="text" id="aadhaar" name="aadhaar" required placeholder="eg. 435343544354"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+          </div>
+        </div>
+
+        <!-- Course Information Section -->
+        <div class="form-section border border-gray-200 rounded-lg p-6">
+          <h2 class="text-xl font-semibold text-blue-500 mb-4">Course Information</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="course" class="block text-sm font-medium text-gray-700 mb-1">Course*</label>
+              <select id="course" name="course" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <option value="">Choose Course</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="duration" class="block text-sm font-medium text-gray-700 mb-1">Duration*</label>
+              <select id="duration" name="duration" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <option value="">Select Duration</option>
+              </select>
+            </div>
+
+            <div id="installmentContainer" class="md:col-span-2 hidden">
+              <label for="installment" class="block text-sm font-medium text-gray-700 mb-1">Installment Plan</label>
+              <select id="installment" name="installment"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <option value="full">Full Payment</option>
+              </select>
+            </div>
+          </div>
+
+
+          <!-- Fee Details (will be shown after course selection) -->
+          <div id="feeDetails" class="mt-4 p-4 bg-gray-50 rounded-lg fee-details">
+            <h3 class="font-medium text-gray-700 mb-2">Fee Structure</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <div class="text-sm">Original Price:</div>
+              <div class="text-sm font-medium" id="originalPrice">₹0</div>
+
+              <div class="text-sm">Discounted Price:</div>
+              <div class="text-sm font-medium" id="discountedPrice">₹0</div>
+
+              <div class="text-sm">Payment Plan:</div>
+              <div class="text-sm font-medium" id="paymentPlan">-</div>
+
+              <div class="text-sm">Monthly Installment:</div>
+              <div class="text-sm font-medium" id="monthlyInstallment">₹0</div>
+
+              <div class="text-sm">Total Amount:</div>
+              <div class="text-sm font-medium" id="totalAmount">₹0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Address Information Section -->
+        <div class="form-section border border-gray-200 rounded-lg p-6">
+          <h2 class="text-xl font-semibold text-blue-500 mb-4">Address Information</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="md:col-span-2">
+              <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address*</label>
+              <input type="text" id="address" name="address" required placeholder="e.g. Jaipur"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+              <label for="state" class="block text-sm font-medium text-gray-700 mb-1">State*</label>
+              <select id="state" name="state" required
+    class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+    <option value="">Select State</option>
+    <option value="Andhra Pradesh">Andhra Pradesh</option>
+    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+    <option value="Assam">Assam</option>
+    <option value="Bihar">Bihar</option>
+    <option value="Chhattisgarh">Chhattisgarh</option>
+    <option value="Goa">Goa</option>
+    <option value="Gujarat">Gujarat</option>
+    <option value="Haryana">Haryana</option>
+    <option value="Himachal Pradesh">Himachal Pradesh</option>
+    <option value="Jharkhand">Jharkhand</option>
+    <option value="Karnataka">Karnataka</option>
+    <option value="Kerala">Kerala</option>
+    <option value="Madhya Pradesh">Madhya Pradesh</option>
+    <option value="Maharashtra">Maharashtra</option>
+    <option value="Manipur">Manipur</option>
+    <option value="Meghalaya">Meghalaya</option>
+    <option value="Mizoram">Mizoram</option>
+    <option value="Nagaland">Nagaland</option>
+    <option value="Odisha">Odisha</option>
+    <option value="Punjab">Punjab</option>
+    <option value="Rajasthan">Rajasthan</option>
+    <option value="Sikkim">Sikkim</option>
+    <option value="Tamil Nadu">Tamil Nadu</option>
+    <option value="Telangana">Telangana</option>
+    <option value="Tripura">Tripura</option>
+    <option value="Uttar Pradesh">Uttar Pradesh</option>
+    <option value="Uttarakhand">Uttarakhand</option>
+    <option value="West Bengal">West Bengal</option>
+</select>
+
+            </div>
+            <div>
+              <label for="city" class="block text-sm font-medium text-gray-700 mb-1">City*</label>
+              <select id="city" name="city" required disabled
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <option value="">Select state first</option>
+              </select>
+            </div>
+            <div>
+              <label for="postOffice" class="block text-sm font-medium text-gray-700 mb-1">Post Office*</label>
+              <input type="text" id="postOffice" name="postOffice" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+              <label for="pinCode" class="block text-sm font-medium text-gray-700 mb-1">Pin Code*</label>
+              <input type="text" id="pinCode" name="pinCode" required placeholder="e.g. 825323"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Information Section -->
+        <div class="form-section border border-gray-200 rounded-lg p-6">
+          <h2 class="text-xl font-semibold text-blue-500 mb-4">Education Information</h2>
+          <div class="grid grid-cols-1 gap-4">
+            <div>
+              <label for="qualification" class="block text-sm font-medium text-gray-700 mb-1">Qualification*</label>
+              <select id="qualification" name="qualification" required
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <option value="">Select...</option>
+                <option value="10th">10th Pass</option>
+                <option value="12th">12th Pass</option>
+                <option value="graduate">Graduate</option>
+                <option value="postgraduate">Post Graduate</option>
+                <option value="diploma">Diploma</option>
+              </select>
+            </div>
+            <div>
+              <label for="documentName" class="block text-sm font-medium text-gray-700 mb-1">Document Name*</label>
+              <input type="text" id="documentName" name="documentName" required placeholder="e.g. 10th Marksheet"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+              <label for="Documentno" class="block text-sm font-medium text-gray-700 mb-1">Document Number*</label>
+              <input type="text" id="Documentno" name="Documentno" required placeholder="e.g. Document No."
+                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+              <p class="text-xs text-gray-500 mt-1">Note: You'll need to provide these documents later</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="form-section border border-gray-200 rounded-lg p-6">
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <input id="terms" name="terms" type="checkbox" required
+                class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded">
+            </div>
+            <div class="ml-3 text-sm">
+              <label for="terms" class="font-medium text-gray-700">I agree to the terms and conditions and declare that
+                the name, date of birth, address and other information given by me in the online admission form is
+                correct to the best of my knowledge and belief. Which I declare to be truly correct. If the above
+                information is found incomplete or incorrect, my candidature is liable to be terminated at any
+                time.</label>
+              <p class="mt-1"><a href="privacy-policy.html" class="text-blue-600 hover:text-blue-500">Terms &
+                  Conditions*</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-center">
+          <!-- Replace your existing submit button with this -->
+          <button type="submit" id="submitBtn"
+            class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300 flex items-center justify-center min-w-40">
+            <span id="submitText">Submit Application</span>
+            <svg id="submitSpinner" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden"
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+              </path>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Footer  -->
+
+
+
+
+  </div>
+  <!-- Footer  -->
+  <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div>
+          <div class="flex items-center  space-x-3">
+            <!-- Logo with rounded corners -->
+            <div class="flex-shrink-0 ">
+              <a href="/">
+                <img src="logo.jpeg" alt="Logo" class="w-10 h-10 rounded-lg object-cover">
+              </a>
+            </div>
+
+            <!-- Text content -->
+            <div class="flex flex-col">
+              <!-- Main heading -->
+              <span class="text-sm font-bold leading-tight">
+                Smart <span class="text-secondary-500"> Gyan </span>Training Institute
+              </span>
+
+              <!-- Subheading with 3 words -->
+              <!-- <span class="text-[10px] text-white font-medium uppercase tracking-wider">
+                   Registered under Ministry of corporate Affairs
+                </span> -->
+              <span class="text-[10px] text-white font-medium uppercase tracking-wider">
+                Aviation | Hospitality | Skill Development
+              </span>
+            </div>
+          </div>
+          <p class="my-6">
+            Empowering learners with essential digital and vocational skills
+            for the modern job market.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-secondary-500 transition">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="/" class="hover:text-secondary-400 transition">Home</a>
+            </li>
+            <li>
+              <a href="about.html" class="hover:text-secondary-400 transition">About Us</a>
+            </li>
+            <li>
+              <a href="courses.html" class="hover:text-secondary-400 transition">All Courses</a>
+            </li>
+            <li>
+              <a href="courses.html" class="hover:text-secondary-400 transition">Fees & Installments</a>
+            </li>
+            <!-- <li>
+              <a href="#contact" class="hover:text-secondary-400 transition"
+                >Contact Us</a
+              >
+            </li> -->
+            <li>
+              <a href="/privacy-policy.html" class="hover:text-secondary-400 transition">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-6">
+            Popular Courses
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="admission.html" class="hover:text-secondary-400 transition">Computer Fundamentals</a>
+            </li>
+            <li>
+              <a href="admission.html" class="hover:text-secondary-400 transition">Digital Marketing</a>
+            </li>
+            <li>
+              <a href="admission.html" class="hover:text-secondary-400 transition">Office Management</a>
+            </li>
+            <li>
+              <a href="admission.html" class="hover:text-secondary-400 transition">Web Designing</a>
+            </li>
+            <li>
+              <a href="admission.html" class="hover:text-secondary-400 transition">Graphic Design</a>
+            </li>
+            <li>
+              <a href="admission.html" class="hover:text-secondary-400 transition">Tally ERP 9</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-6">Contact Info</h3>
+          <address class="not-italic space-y-4">
+            <div class="flex items-start">
+              <i class="fas fa-map-marker-alt text-secondary-400 mt-1 mr-3"></i>
+              <p> Andheri East Education Zone
+                Marol, Andheri (East),
+                Mumbai – 400093
+                Maharashtra, India</p>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-phone-alt text-secondary-400 mr-3"></i>
+              <a href="tel:919953595426">
+                <p>+91 9953595426</p>
+              </a>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-envelope text-secondary-400 mr-3"></i>
+              <a href="mailto:admission@thesmartgyan.com">admission@thesmartgyan.com</a>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-clock text-secondary-400 mr-3"></i>
+              <p>Mon-Sat: 9:00 AM - 6:00 PM</p>
+            </div>
+          </address>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
+        <p>&copy; 2025 Smart Gyan Training Institute. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+  <script src="firestore.js"></script>
+  <script>
+    let courses = [];
+
+    async function loadCourses() {
+      try {
+        const response = await fetch('courseoverview.json');
+        const fetchedCourses = await response.json();
+        courses = fetchedCourses;
+        populateCourseDropdown(courses);
+      } catch (error) {
+        console.error('Error loading courses:', error);
+      }
+    }
+
+    function populateCourseDropdown(courseList) {
+      const courseSelect = document.getElementById('course');
+      courseSelect.innerHTML = '<option value="">Select Course</option>';
+      courseList.forEach(course => {
+        const option = document.createElement('option');
+        option.value = course.id;
+        option.textContent = course.title;
+        courseSelect.appendChild(option);
+      });
+    }
+
+    function populateDurationOptions(courseId) {
+      const durationSelect = document.getElementById('duration');
+      const installmentSelect = document.getElementById('installment');
+      const installmentContainer = document.getElementById('installmentContainer');
+
+      durationSelect.innerHTML = '<option value="">Select Duration</option>';
+      installmentSelect.innerHTML = '<option value="full">Full Payment</option>';
+      installmentContainer.classList.add('hidden');
+
+      const course = courses.find(c => c.id === courseId);
+      if (!course || !course.duration) return;
+
+      const matches = course.duration.match(/\d+/g) || [];
+      const durations = matches.map(d => `${d}months`);
+      durations.forEach(d => {
+        const option = document.createElement('option');
+        option.value = d;
+        option.textContent = d.replace('months', ' Months');
+        durationSelect.appendChild(option);
+      });
+
+      document.getElementById('feeDetails').style.display = 'none';
+    }
+
+    function populateInstallmentOptions(courseId, durationValue) {
+      const course = courses.find(c => c.id === courseId);
+      const installmentSelect = document.getElementById('installment');
+      const installmentContainer = document.getElementById('installmentContainer');
+
+      installmentSelect.innerHTML = '';
+      const fullOption = document.createElement('option');
+      fullOption.value = 'full';
+      fullOption.textContent = 'Full Payment';
+      installmentSelect.appendChild(fullOption);
+
+      if (!course?.installments) {
+        installmentContainer.classList.add('hidden');
+        return;
+      }
+
+      if (course.installments[durationValue]) {
+        const instOption = document.createElement('option');
+        instOption.value = durationValue;
+        instOption.textContent = durationValue.replace('months', ' Months Installment');
+        installmentSelect.appendChild(instOption);
+        installmentContainer.classList.remove('hidden');
+      } else {
+        installmentContainer.classList.add('hidden');
+      }
+    }
+
+    function updateFeeDetails() {
+      const courseId = document.getElementById('course').value;
+      const installmentPlan = document.getElementById('installment').value;
+      const feeDetails = document.getElementById('feeDetails');
+
+      const course = courses.find(c => c.id === courseId);
+      if (!course) {
+        feeDetails.style.display = 'none';
+        return;
+      }
+
+      document.getElementById('originalPrice').textContent = `₹${course.originalPrice?.toLocaleString() || 'N/A'}`;
+      document.getElementById('discountedPrice').textContent = `₹${course.price?.toLocaleString() || 'N/A'}`;
+
+      if (installmentPlan !== 'full' && course.installments?.[installmentPlan]) {
+        const inst = course.installments[installmentPlan];
+        document.getElementById('paymentPlan').textContent = installmentPlan.replace('months', ' Months');
+        document.getElementById('monthlyInstallment').textContent = `₹${inst.monthlyPayment?.toLocaleString() || 'N/A'}`;
+        document.getElementById('totalAmount').textContent = `₹${inst.totalPayment?.toLocaleString() || 'N/A'}`;
+      } else {
+        document.getElementById('paymentPlan').textContent = 'Full Payment';
+        document.getElementById('monthlyInstallment').textContent = '-';
+        document.getElementById('totalAmount').textContent = `₹${course.price?.toLocaleString() || 'N/A'}`;
+      }
+
+      feeDetails.style.display = 'block';
+    }
+
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadCourses();
+
+      document.getElementById('course').addEventListener('change', function () {
+        const selectedCourseId = this.value;
+        populateDurationOptions(selectedCourseId);
+        updateFeeDetails();
+      });
+
+      document.getElementById('duration').addEventListener('change', function () {
+        const selectedCourseId = document.getElementById('course').value;
+        const selectedDuration = this.value;
+        populateInstallmentOptions(selectedCourseId, selectedDuration);
+        updateFeeDetails();
+      });
+
+      document.getElementById('installment').addEventListener('change', updateFeeDetails);
+
+      // State → City Logic
+      const citiesByState = {
+  'Andhra Pradesh': ['Visakhapatnam', 'Vijayawada', 'Guntur', 'Tirupati', 'Nellore', 'Kurnool', 'Rajahmundry'],
+  'Arunachal Pradesh': ['Itanagar', 'Tawang', 'Ziro', 'Pasighat', 'Bomdila'],
+  'Assam': ['Guwahati', 'Silchar', 'Dibrugarh', 'Jorhat', 'Tezpur'],
+  'Bihar': ['Patna', 'Gaya', 'Muzaffarpur', 'Bhagalpur', 'Darbhanga'],
+  'Chhattisgarh': ['Raipur', 'Bilaspur', 'Durg', 'Bhilai', 'Korba'],
+  'Goa': ['Panaji', 'Margao', 'Vasco da Gama', 'Mapusa', 'Ponda'],
+  'Gujarat': ['Ahmedabad', 'Surat', 'Vadodara', 'Rajkot', 'Gandhinagar', 'Bhavnagar', 'Jamnagar'],
+  'Haryana': ['Gurgaon', 'Faridabad', 'Panipat', 'Karnal', 'Ambala', 'Hisar', 'Rohtak'],
+  'Himachal Pradesh': ['Shimla', 'Manali', 'Dharamshala', 'Mandi', 'Solan', 'Kullu'],
+  'Jharkhand': ['Ranchi', 'Jamshedpur', 'Dhanbad', 'Bokaro', 'Hazaribagh'],
+  'Karnataka': ['Bengaluru', 'Mysuru', 'Mangalore', 'Hubli', 'Belgaum', 'Gulbarga', 'Davangere'],
+  'Kerala': ['Thiruvananthapuram', 'Kochi', 'Kozhikode', 'Thrissur', 'Alappuzha', 'Kollam'],
+  'Madhya Pradesh': ['Bhopal', 'Indore', 'Gwalior', 'Jabalpur', 'Ujjain', 'Sagar'],
+  'Maharashtra': ['Mumbai', 'Pune', 'Nagpur', 'Nashik', 'Aurangabad', 'Thane', 'Kolhapur'],
+  'Manipur': ['Imphal', 'Thoubal', 'Churachandpur', 'Bishnupur'],
+  'Meghalaya': ['Shillong', 'Tura', 'Nongpoh', 'Jowai'],
+  'Mizoram': ['Aizawl', 'Lunglei', 'Champhai', 'Serchhip'],
+  'Nagaland': ['Kohima', 'Dimapur', 'Mokokchung', 'Tuensang'],
+  'Odisha': ['Bhubaneswar', 'Cuttack', 'Puri', 'Rourkela', 'Sambalpur', 'Berhampur'],
+  'Punjab': ['Ludhiana', 'Amritsar', 'Jalandhar', 'Patiala', 'Bathinda', 'Mohali'],
+  'Rajasthan': ['Jaipur', 'Udaipur', 'Jodhpur', 'Kota', 'Ajmer', 'Bikaner', 'Bharatpur', 'Nadbai'],
+  'Sikkim': ['Gangtok', 'Namchi', 'Gyalshing', 'Mangan'],
+  'Tamil Nadu': ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Salem', 'Erode', 'Vellore'],
+  'Telangana': ['Hyderabad', 'Warangal', 'Nizamabad', 'Karimnagar', 'Khammam'],
+  'Tripura': ['Agartala', 'Udaipur', 'Dharmanagar', 'Kailasahar'],
+  'Uttarakhand': ['Dehradun', 'Haridwar', 'Rishikesh', 'Nainital', 'Haldwani'],
+  'West Bengal': ['Kolkata', 'Howrah', 'Durgapur', 'Asansol', 'Siliguri', 'Darjeeling'],
+  'Uttar Pradesh': [
+    'Lucknow',
+    'Kanpur',
+    'Agra',
+    'Ghaziabad',
+    'Varanasi',
+    'Meerut',
+    'Noida',
+    'Prayagraj',
+    'Aligarh',
+    'Baghpat',
+    'Bareilly',
+    'Moradabad',
+    'Saharanpur',
+    'Jhansi',
+    'Ayodhya',
+    'Mathura',
+    'Firozabad',
+    'Gorakhpur',
+    'Muzaffarnagar',
+    'Rampur',
+    'Shahjahanpur',
+    'Bulandshahr',
+    'Budaun',
+    'Mirzapur',
+    'Shamli',
+    'Sitapur',
+    'Unnao'
+  ]
+};
+
+
+      document.getElementById('state').addEventListener('change', function () {
+        const state = this.value;
+        const citySelect = document.getElementById('city');
+        citySelect.innerHTML = '<option value="">Select City</option>';
+
+        if (citiesByState[state]) {
+          citiesByState[state].forEach(city => {
+            const opt = document.createElement('option');
+            opt.value = city;
+            opt.textContent = city;
+            citySelect.appendChild(opt);
+          });
+          citySelect.disabled = false;
+        } else {
+          citySelect.disabled = true;
+        }
+      });
+      document.getElementById('admissionForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    // Show loading state
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const submitSpinner = document.getElementById('submitSpinner');
+    
+    submitBtn.disabled = true;
+    submitText.textContent = 'Please wait...';
+    submitSpinner.classList.remove('hidden');
+
+    try {
+        const selectedCourse = courses.find(c => c.id === document.getElementById('course').value);
+        const installmentPlan = document.getElementById('installment').value;
+        
+        // Determine the amount and payment details based on payment type
+        let paymentDetails = {
+            amount: selectedCourse?.price, // Default to full price
+            paymentType: 'full',
+            monthlyInstallment: 0,
+            totalInstallments: 0
+        };
+
+        if (installmentPlan !== 'full' && selectedCourse?.installments?.[installmentPlan]) {
+            // Use installment details if installment is selected
+            const installment = selectedCourse.installments[installmentPlan];
+            const months = parseInt(installmentPlan.replace('months', ''));
+            
+            paymentDetails = {
+                amount: installment.totalPayment,
+                paymentType: 'installment',
+                monthlyInstallment: installment.monthlyPayment,
+                totalInstallments: months,
+                installmentPlan: installmentPlan
+            };
+        }
+
+        const formData = {
+            fullName: document.getElementById('fullName').value,
+            fatherName: document.getElementById('fatherName').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            dob: document.getElementById('dob').value,
+            gender: document.getElementById('gender').value,
+            aadhaar: document.getElementById('aadhaar').value,
+            course: document.getElementById('course').value,
+            duration: document.getElementById('duration').value,
+            installment: installmentPlan,
+            address: document.getElementById('address').value,
+            state: document.getElementById('state').value,
+            city: document.getElementById('city').value,
+            postOffice: document.getElementById('postOffice').value,
+            pinCode: document.getElementById('pinCode').value,
+            qualification: document.getElementById('qualification').value,
+            documentName: document.getElementById('documentName').value,
+            Documentno: document.getElementById('Documentno').value,
+            terms: document.getElementById('terms').checked,
+            coursePrice: selectedCourse?.price,
+            paymentDetails: paymentDetails,
+            timestamp: new Date().toISOString()
+        };
+
+        const docId = await submitAdmissionData(formData);
+        
+        // Create URL parameters for payment page
+        const params = new URLSearchParams();
+        params.append('amount', paymentDetails.amount);
+        params.append('paymentType', paymentDetails.paymentType);
+        params.append('docId', docId);
+        
+        if (paymentDetails.paymentType === 'installment') {
+            params.append('monthlyInstallment', paymentDetails.monthlyInstallment);
+            params.append('totalInstallments', paymentDetails.totalInstallments);
+            params.append('installmentPlan', paymentDetails.installmentPlan);
+        }
+        
+        // Redirect to payment page with all parameters
+        window.location.href = `Payment.html?${params.toString()}`;
+        
+    } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('There was an error submitting the form. Please try again.');
+    } finally {
+        // Reset button state
+        submitBtn.disabled = false;
+        submitText.textContent = 'Submit Application';
+        submitSpinner.classList.add('hidden');
+    }
+});
+});
+  </script>
+
+
+  <script>
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById("mobileMenuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    mobileMenuButton.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", function (event) {
+      if (
+        !mobileMenu.contains(event.target) &&
+        !mobileMenuButton.contains(event.target)
+      ) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

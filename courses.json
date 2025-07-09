@@ -1,0 +1,120 @@
+[
+    {
+      "courseId": "REACT001",
+      "banner": "https://img.youtube.com/vi/bMknfKXIFA8/hqdefault.jpg",
+      "name": "React JS Complete Guide",
+      "resources": {
+        "ebook": "https://drive.google.com/file/d/1REACT001_EBOOK_LINK/view?usp=sharing",
+        "interviewNotes": "https://drive.google.com/file/d/1REACT001_NOTES_LINK/view?usp=sharing",
+        "tests": "https://drive.google.com/file/d/1REACT001_TESTS_LINK/view?usp=sharing"
+      },
+      "parts": {
+        "A": [
+          {
+            "title": "Introduction to React",
+            "description": "What is React, why use it, and how it fits in modern web development.",
+            "video": "https://www.youtube.com/embed/bMknfKXIFA8?rel=0&modestbranding=1&controls=1"
+          },
+          {
+            "title": "JSX and Components",
+            "description": "Learn JSX syntax and how to build reusable components.",
+            "video": "https://www.youtube.com/embed/dGcsHMXbSOA?rel=0&modestbranding=1&controls=1"
+          },
+          {
+            "title": "Props and State",
+            "description": "Understand how data flows through components using props and state.",
+            "video": "https://www.youtube.com/embed/6ThXsUwLWvc?rel=0&modestbranding=1&controls=1"
+          }
+        ],
+        "B": [
+          {
+            "title": "React Hooks",
+            "description": "Dive into useState, useEffect, and custom hooks.",
+            "video": "https://www.youtube.com/embed/0ZJgIjIuY7U?rel=0&modestbranding=1&controls=1"
+          },
+          {
+            "title": "Routing with React Router",
+            "description": "Set up navigation between pages using React Router.",
+            "video": "https://www.youtube.com/embed/Law7wfdg_ls?rel=0&modestbranding=1&controls=1"
+          }
+        ],
+        "C": [
+          {
+            "title": "React Hooks",
+            "description": "Dive into useState, useEffect, and custom hooks.",
+            "video": "https://www.youtube.com/embed/0ZJgIjIuY7U?rel=0&modestbranding=1&controls=1"
+          },
+          {
+            "title": "Routing with React Router",
+            "description": "Set up navigation between pages using React Router.",
+            "video": "https://www.youtube.com/embed/Law7wfdg_ls?rel=0&modestbranding=1&controls=1"
+          }
+        ],
+        "D": [
+          {
+            "title": "React Hooks",
+            "description": "Dive into useState, useEffect, and custom hooks.",
+            "video": "https://www.youtube.com/embed/0ZJgIjIuY7U?rel=0&modestbranding=1&controls=1"
+          },
+          {
+            "title": "Routing with React Router",
+            "description": "Set up navigation between pages using React Router.",
+            "video": "https://www.youtube.com/embed/Law7wfdg_ls?rel=0&modestbranding=1&controls=1"
+          }
+        ],
+        "E": [
+          {
+            "title": "React Hooks",
+            "description": "Dive into useState, useEffect, and custom hooks.",
+            "video": "https://www.youtube.com/embed/0ZJgIjIuY7U?rel=0&modestbranding=1&controls=1"
+          },
+          {
+            "title": "Routing with React Router",
+            "description": "Set up navigation between pages using React Router.",
+            "video": "https://www.youtube.com/embed/Law7wfdg_ls?rel=0&modestbranding=1&controls=1"
+          }
+        ]
+      }
+    },
+    {
+      "courseId": "RN001",
+      "banner": "https://img.youtube.com/vi/jSLejYWOvnU/hqdefault.jpg",
+      "name": "React Native Crash Course",
+      "resources": {
+        "ebook": "https://drive.google.com/file/d/1RN001_EBOOK_LINK/view?usp=sharing",
+        "interviewNotes": "https://drive.google.com/file/d/1RN001_NOTES_LINK/view?usp=sharing",
+        "tests": "https://drive.google.com/file/d/1RN001_TESTS_LINK/view?usp=sharing"
+      },
+      "parts": {
+        "A": [
+          {
+            "title": "Getting Started",
+            "description": "Setup React Native development environment and create your first app.",
+            "video": "https://www.youtube.com/embed/jSLejYWOvnU?rel=0&modestbranding=1&controls=1"
+          },
+          {
+            "title": "Components and JSX",
+            "description": "Understanding React Native components, JSX syntax, and component lifecycle.",
+            "video": "https://www.youtube.com/embed/ur6I5m2nTvk?rel=0&modestbranding=1&controls=1"
+          },
+          {
+            "title": "Navigation Basics",
+            "description": "Implement navigation between screens using React Navigation library.",
+            "video": "https://www.youtube.com/embed/nQVCkqvU1uE?rel=0&modestbranding=1&controls=1"
+          }
+        ],
+        "B": [
+          {
+            "title": "State Management",
+            "description": "Learn state management with useState, useEffect, and Context API.",
+            "video": "https://www.youtube.com/embed/35lXWvCuM8o?rel=0&modestbranding=1&controls=1"
+          },
+          {
+            "title": "API Integration",
+            "description": "Connect your app to external APIs and handle data fetching.",
+            "video": "https://www.youtube.com/embed/VozPNrt-LfE?rel=0&modestbranding=1&controls=1"
+          }
+        ]
+      }
+    }
+  ]
