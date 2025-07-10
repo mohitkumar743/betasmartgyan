@@ -1,118 +1,77 @@
 [
     {
-      "courseId": "REACT001",
-      "banner": "https://img.youtube.com/vi/bMknfKXIFA8/hqdefault.jpg",
-      "name": "React JS Complete Guide",
+      "courseId": "AMGS",
+      "banner": "https://plus.unsplash.com/premium_photo-1661504470451-666f253d400b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM2fHxBaXJwb3J0JTIwTWFuYWdlbWVudCUyMEdyb3VuZCUyMFN0YWZmfGVufDB8fDB8fHww",
+      "name": "Airport Management Ground Staff",
       "resources": {
-        "ebook": "https://drive.google.com/file/d/1REACT001_EBOOK_LINK/view?usp=sharing",
-        "interviewNotes": "https://drive.google.com/file/d/1REACT001_NOTES_LINK/view?usp=sharing",
-        "tests": "https://drive.google.com/file/d/1REACT001_TESTS_LINK/view?usp=sharing"
+        "ebook": "#",
+        "interviewNotes": "#",
+        "tests": "#"
       },
       "parts": {
         "A": [
           {
-            "title": "Introduction to React",
-            "description": "What is React, why use it, and how it fits in modern web development.",
-            "video": "https://www.youtube.com/embed/bMknfKXIFA8?rel=0&modestbranding=1&controls=1"
-          },
-          {
-            "title": "JSX and Components",
-            "description": "Learn JSX syntax and how to build reusable components.",
-            "video": "https://www.youtube.com/embed/dGcsHMXbSOA?rel=0&modestbranding=1&controls=1"
-          },
-          {
-            "title": "Props and State",
-            "description": "Understand how data flows through components using props and state.",
-            "video": "https://www.youtube.com/embed/6ThXsUwLWvc?rel=0&modestbranding=1&controls=1"
+            "title": "Introduction to Aviation",
+            "description": "Introduction Video",
+            "video": "https://drive.google.com/file/d/1-609vPIQx7uq2WjLfAxumZE3zwlPdl-e/view?usp=drivesdk"
           }
         ],
         "B": [
           {
-            "title": "React Hooks",
-            "description": "Dive into useState, useEffect, and custom hooks.",
-            "video": "https://www.youtube.com/embed/0ZJgIjIuY7U?rel=0&modestbranding=1&controls=1"
+            "title": "DAY 1 Lacture 1st",
+            "description": "Class 1st",
+            "video": "https://drive.google.com/file/d/10NSy3gw_oMLB7U9dkEplFfObU-3V1TA8/view?usp=drivesdk"
           },
           {
-            "title": "Routing with React Router",
-            "description": "Set up navigation between pages using React Router.",
-            "video": "https://www.youtube.com/embed/Law7wfdg_ls?rel=0&modestbranding=1&controls=1"
+            "title": "DAY 1 Lacture 2nd",
+            "description": "Lecture 2nd",
+            "video": "https://drive.google.com/file/d/10lQHgkdcl5Af3_9nMWMTlApEgZfCwMDZ/view?usp=drivesdk"
           }
         ],
         "C": [
           {
-            "title": "React Hooks",
-            "description": "Dive into useState, useEffect, and custom hooks.",
-            "video": "https://www.youtube.com/embed/0ZJgIjIuY7U?rel=0&modestbranding=1&controls=1"
+            "title": "Day 2 Lecture 1st",
+            "description": "Day 2 Lecture 1st",
+            "video": "https://drive.google.com/file/d/10lHJc1FY3FnNUd45O_j0RXAzift-wcTE/view?usp=drivesdk"
           },
           {
-            "title": "Routing with React Router",
-            "description": "Set up navigation between pages using React Router.",
-            "video": "https://www.youtube.com/embed/Law7wfdg_ls?rel=0&modestbranding=1&controls=1"
+            "title": "DAY 2 Lecture 2nd",
+            "description": "DAY 2 Lecture 2nd.",
+            "video": "https://drive.google.com/file/d/10dyZjWhZ8-NNVZtcktxUGjunTMe72Bdz/view?usp=drivesdk"
           }
         ],
         "D": [
           {
-            "title": "React Hooks",
-            "description": "Dive into useState, useEffect, and custom hooks.",
-            "video": "https://www.youtube.com/embed/0ZJgIjIuY7U?rel=0&modestbranding=1&controls=1"
-          },
-          {
-            "title": "Routing with React Router",
-            "description": "Set up navigation between pages using React Router.",
-            "video": "https://www.youtube.com/embed/Law7wfdg_ls?rel=0&modestbranding=1&controls=1"
+            "title": "Day 3rd Lecture",
+            "description": "Day 3rd Lecture.",
+            "video": "https://drive.google.com/file/d/10aOqF4eA2C7v92ZlvoDFg2ZoEWhmkhm2/view?usp=drivesdk"
           }
+         
         ],
+
         "E": [
           {
-            "title": "React Hooks",
-            "description": "Dive into useState, useEffect, and custom hooks.",
-            "video": "https://www.youtube.com/embed/0ZJgIjIuY7U?rel=0&modestbranding=1&controls=1"
+            "title": "Day 4 Lecture 1st ",
+            "description": "Day 4 Lecture 1st ",
+            "video": "https://drive.google.com/file/d/10ZFkexCldQA-oAr2B8OxY3LKu5Bpf4Gz/view?usp=drivesdk"
           },
           {
-            "title": "Routing with React Router",
-            "description": "Set up navigation between pages using React Router.",
-            "video": "https://www.youtube.com/embed/Law7wfdg_ls?rel=0&modestbranding=1&controls=1"
-          }
-        ]
-      }
-    },
-    {
-      "courseId": "RN001",
-      "banner": "https://img.youtube.com/vi/jSLejYWOvnU/hqdefault.jpg",
-      "name": "React Native Crash Course",
-      "resources": {
-        "ebook": "https://drive.google.com/file/d/1RN001_EBOOK_LINK/view?usp=sharing",
-        "interviewNotes": "https://drive.google.com/file/d/1RN001_NOTES_LINK/view?usp=sharing",
-        "tests": "https://drive.google.com/file/d/1RN001_TESTS_LINK/view?usp=sharing"
-      },
-      "parts": {
-        "A": [
-          {
-            "title": "Getting Started",
-            "description": "Setup React Native development environment and create your first app.",
-            "video": "https://www.youtube.com/embed/jSLejYWOvnU?rel=0&modestbranding=1&controls=1"
-          },
-          {
-            "title": "Components and JSX",
-            "description": "Understanding React Native components, JSX syntax, and component lifecycle.",
-            "video": "https://www.youtube.com/embed/ur6I5m2nTvk?rel=0&modestbranding=1&controls=1"
-          },
-          {
-            "title": "Navigation Basics",
-            "description": "Implement navigation between screens using React Navigation library.",
-            "video": "https://www.youtube.com/embed/nQVCkqvU1uE?rel=0&modestbranding=1&controls=1"
+            "title": "DAY 4 Lecture 2nd",
+            "description": "DAY 4 Lecture 2nd.",
+            "video": "https://drive.google.com/file/d/10X1Du79SVVLTFRo6oywFP93FnSb9sWrX/view?usp=drivesdk"
           }
         ],
-        "B": [
+        
+        "F": [
           {
-            "title": "State Management",
-            "description": "Learn state management with useState, useEffect, and Context API.",
-            "video": "https://www.youtube.com/embed/35lXWvCuM8o?rel=0&modestbranding=1&controls=1"
+            "title": "Day 5 Lecture 1st ",
+            "description": "Day 5 Lecture 1st ",
+            "video": "https://drive.google.com/file/d/10mgGiObgRYXu8qrbjMQWQdQT2qWU5xAU/view?usp=drivesdk"
           },
           {
-            "title": "API Integration",
-            "description": "Connect your app to external APIs and handle data fetching.",
-            "video": "https://www.youtube.com/embed/VozPNrt-LfE?rel=0&modestbranding=1&controls=1"
+            "title": "DAY 5 Lecture 2nd",
+            "description": "DAY 5 Lecture 2nd.",
+            "video": "https://drive.google.com/file/d/10Vhx0md6U0QiDeYYtLPYo0_uSuY7OCNB/view?usp=drivesdk"
           }
         ]
       }
